@@ -30,9 +30,9 @@ schemadotorg:
   # Contributor info
   contributor:
     - "@type": Person
-      name: "CO-AUTHOR_1"
+      name: "Erik Hjerde"
     - "@type": Person
-      name: "CO-AUTHOR_2"
+      name: "Espen Robertsen"
     - "@type": Person
       name: "CO-AUTHOR_3"
 
@@ -44,18 +44,35 @@ schemadotorg:
 
 ## Course Description
 
+This course will give a comprehensive introduction to the research field of metagenomics. It will cover the basic concepts of microbiome analysis of shotgun metagenomic data using state of the art bioinformatics (amplicon sequencing will not be covered). 
+
+The analysis methods that are being introduced are generic for all types of microbiomes, but we will be using data from the human microbiome as showcases. 
+
+The course will start with the main preprocessing steps of raw sequence data, before various downstream analysis will be covered separately. These include taxonomic analysis, assembly, binning, and finally functional analysis with focus on antibiotic resistance genes. The theoretical part for each topic will be introduced via lectures, followed by practical hands-on exercises.
 
 ## Target Audience
 
+The course is intended for researchers and students that are, or are planning to work with data analysis of metagenomic data. 
 
 ## Detailed Program
 
+To be announced
 
 ---
 
 ### Learning objectives
 
+The student will have acquired a theoretical basis and practical experience to understand the basic concepts of metagenomic analysis in order to conduct academic studies related to microbiome samples. This includes:
+
+* performing advanced downstream analysis on both taxonomic functional profiles
+* performing quality control, assembly and binning of metagenomic sequence data
+* performing functional analysis and resistome analysis of metagenomes
+
 ### Instructors
+
+**Erik Hjerde** has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
+
+Espen Robertsen
 
 ---
 
