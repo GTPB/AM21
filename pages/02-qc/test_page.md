@@ -1,13 +1,3 @@
->[!WARNING]
->This is a warning
-
-
-
-> :warning: **If you are using mobile browser**: Be very careful here!
-
->[!INFORMATION]
->This is a warning
-
 
 <html>
 <div style="background-color:#FF0000">
@@ -15,8 +5,16 @@
 </div>
 </html>
 
+[Heading IDs](#heading-ids)
+
+<br/>
+
 <p align="middle">
 <img src="../images/question.png" width="300">
+
+<br/>
+
+<a href="#heading-ids">Heading IDs</a>
 
 span style="color:blue">I] The data for this exercise is in the directory <kbd>~/practical/2/rawdata</kbd>. Move to the directory and view what is in the directory:
 
@@ -33,6 +31,10 @@ span style="color:blue">I] The data for this exercise is in the directory <kbd>~
 <div style="background-color:#c9cace">
 Compressed file
 </details>
+
+Gone camping! :tent: Be back soon.
+
+That is so funny! :joy:
 
 :::danger
 Fill in the answer in the shared [Google docs table](https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing)

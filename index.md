@@ -92,6 +92,7 @@ Espen Robertsen
     - [Quality control](assets/02-qc_filter/2.QC.pdf)
     - [Exercise - Quality control & removal of optical duplicates](pages/02-qc/2.QualityControlAndRemovalOfOpticalDuplicates.md)
     - [Exercise - test](pages/02-qc/test_page.md)
+    - [Exercise - Quality control & removal of optical duplicates](pages/02-qc/2.QualityControlAndRemovalOfOpticalDuplicates.html)
 
 
 
