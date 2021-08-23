@@ -74,6 +74,26 @@ The student will have acquired a theoretical basis and practical experience to u
 
 Espen Robertsen
 
+#### Software
+
+- All software and databases together with the exercise data will be pre-installed on the course machines you will be using during the practical exercises of the course.
+
+- All data can be downloaded locally through
+[data](assets/data.zip)
+
+### Learning materials
+
+
+1. Introduction
+    - Welcome and introduction to ELIXIR
+    - [Introduction to metagenomics](assets/01-intro/Day1_Intro_Metagenomics.pdf)
+    - Metagenomic sequencing technologies
+2. Quality control and filtering
+    - [Quality control](assets/02-qc_filter/2.QC.pdf)
+    - [Exercise - Quality control & removal of optical duplicates](pages/02-qc/2.QualityControlAndRemovalOfOpticalDuplicates.md)
+
+
+
 ---
 
 The source for this course webpage is [in github](https://github.com/GTPB/Web_course_template).
