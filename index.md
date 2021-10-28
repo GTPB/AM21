@@ -76,7 +76,7 @@ The student will have acquired a theoretical basis and practical experience to u
 
 <img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
 
-
+<hr>
 
 
 **Espen Robertsen** has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping, administration of the useglaxy.no project and various other topics.
