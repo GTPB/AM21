@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        6. Genome assembly from metagenomes - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><p><span>II</span></p><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><p></p><h1 id="6-Genome-assembly-from-metagenomes" data-id="6-Genome-assembly-from-metagenomes"><a class="anchor hidden-xs" href="#6-Genome-assembly-from-metagenomes" title="6-Genome-assembly-from-metagenomes"><span class="octicon octicon-link"></span></a><span>6. Genome assembly from metagenomes</span></h1><div class="alert alert-success">
+<p><span>Sequence assembly is the computational reconstruction of a longer sequence from smaller sequence reads. Assembling genomes out of heterogeneous samples is an extremely challenging problem and one that remains unsolved.</span></p>
+<p><span>Strain-level resolution and whole-genome profiling of specific microbes from metagenomic data sets require computationally demanding metagenomic assembly on pooled metagenomic samples. This approach does not generalise to studies with thousands of samples or low-abundance organisms, and it can produce chimeric (combine multiple strains) and fragmentary genome reconstructions.</span></p>
+<center><img src="https://i.imgur.com/Dj0FlWe.png" alt="drawing" width="800"></center>
+<br>
+<center><img src="https://i.imgur.com/JGr9EzG.png" alt="drawing" width="800"></center>
+<br>
+<p><span>In this Module you will be working with the data that you worked with in Module 2; shotgun metagenomic data of DNA isolated from premature baby stool. The main objectives of the practical is to assemble the preprocessed data from this metagenomic sample, and validate the assembly.</span></p>
+<h4 id="In-this-exercise-you-will" data-id="In-this-exercise-you-will"><a class="anchor hidden-xs" href="#In-this-exercise-you-will" title="In-this-exercise-you-will"><span class="octicon octicon-link"></span></a><span>In this exercise you will:</span></h4>
+<ol>
+<li><span>Perform metagenomic assembly of the data using </span><strong><span>Megahit</span></strong></li>
+<li><span>Explore metagenomic assembly from </span><strong><span>metaSPAdes</span></strong></li>
+<li><span>Quality assessment using </span><strong><span>MetaQUAST</span></strong></li>
+</ol>
+<h4 id="Good-luck-with-the-exercises-and-have-fun👍😃👍" data-id="Good-luck-with-the-exercises-and-have-fun👍😃👍"><a class="anchor hidden-xs" href="#Good-luck-with-the-exercises-and-have-fun👍😃👍" title="Good-luck-with-the-exercises-and-have-fun👍😃👍"><span class="octicon octicon-link"></span></a><span>Good luck with the exercises and have fun👍😃👍</span></h4>
+</div><h2 id="1-Perform-metagenomic-assembly-of-the-data-using-Megahit" data-id="1-Perform-metagenomic-assembly-of-the-data-using-Megahit"><a class="anchor hidden-xs" href="#1-Perform-metagenomic-assembly-of-the-data-using-Megahit" title="1-Perform-metagenomic-assembly-of-the-data-using-Megahit"><span class="octicon octicon-link"></span></a><span>1. Perform metagenomic assembly of the data using Megahit</span></h2><center><img src="https://i.imgur.com/8QoXWSY.png" alt="drawing" width="600"></center><br><div class="alert alert-success">
+<p><span>💡We will use the assembler </span><strong><span>Megahit</span></strong><span> to assemble the trimmed data. </span><strong><span>Megahit</span></strong><span> is an ultra fast assembly tool written for the assembly of metagenomic data. You can read more about the assembler </span><a href="https://github.com/voutcn/megahit" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<p><span>Assembling metagenomic data can be very resource demanding. This data set was tested on a virtual machine with 32 GB RAM and 8 cores and took 22 minutes to assemble!!. You can choose to start the assembly now, and continue on the last part of this exercise in the practical.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span>In order to run </span><strong><span>Megahit</span></strong><span> you need to activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>I] In </span><kbd><span>~/practical/</span></kbd><span> and copy the data for this exercise from the shared disk:</span></span></p><pre><code>cp -r /net/software/practical/6 .
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Remember to give yourself write permissions to the directory (and sub directories)</span></p>
+</div><p><span style="color:blue"><span>II] Go to the directory </span><kbd><span>~/practical/6/megahit_prepro/</span></kbd><span> and make symbolic links to the preprocessed data from Exercise 3:</span></span></p><pre><code>ln -s ~/practical/3/merge/sample1_unmerged_R1.fastq.gz .
+ln -s ~/practical/3/merge/sample1_unmerged_R2.fastq.gz .
+ln -s ~/practical/3/merge/sample1_merged.fastq.gz .
+</code></pre><p><span style="color:blue"><span>IV] Type </span><code>megahit</code><span> in the terminal and view the parameter setting options.</span></span></p><p><span>❓Why should you choose the </span><code>-r</code><span> flag and not the </span><code>--12</code><span> flag to specify the input file with the merged reads?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Interleaved files are when the R1 and R2 reads are combined in one file,
+so that for each read pair, the R1 read in the file comes immediately before
+the R2 read:
+<pre><code>read1_R1
+read1_R2
+read2_R1
+read2_R2
+read3_R1
+read3_R2
+</code></pre>
+</div></details><br><p><span style="color:blue"><span>V] Run assembly with </span><strong><span>Megahit</span></strong><span>:</span></span></p><pre><code>megahit -1 sample1_unmerged_R1.fastq.gz -2 sample1_unmerged_R2.fastq.gz -r sample1_merged.fastq.gz -o sample_megahit_prepro
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Assembling metagenomic data can be very resource demanding and take long time to perform.</span></p>
+<p><span>You should start the </span><strong><span>Megahit</span></strong><span> assembly now, and continue on the second part of this exercise in the practical, and return to this part when the assembly is done (10 minutes)!</span></p>
+</div><p><span style="color:blue"><span>VI] When </span><strong><span>Megahit</span></strong><span> is done, go the the directory where the assembled contigs are and view the </span><code>log</code><span> file</span></span></p><p><span>❓How many CPU threads and memory was allocated to </span><strong><span>Megahit</span></strong><span> for performing the assembly?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Look at the top of the log file
+</div></details><br><p><span>❓How much time did it take for </span><strong><span>Megahit</span></strong><span> to finish the assembly?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Look at the bottom of the log file
+</div></details><br><p><span>❓What is the total length of all the contigs in the assembly?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>VII] Count the number of contigs in the FASTA file:</span></span></p><pre><code>grep -c "&gt;" final.contigs.fa
+</code></pre><p><span>❓How many contigs did </span><strong><span>Megahit</span></strong><span> produce?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓ What is the size of the largest contig?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓What is overall GC content of the assembly?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How is the </span><strong><span>Megahit</span></strong><span> assembly compared to the </span><strong><span>metaSPAdes</span></strong><span> assembly relative to total length, total GC content, number of contigs and size of largest contig?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+You can compare the stats you filled in the Google docs and do the evaluation
+</div></details><br><p><span style="color:blue"><span>VIII] Since you will be working with several assemblies, rename the FASTA file with the contigs to </span><code>sample1_megahit_prepro.fasta</code><span>:</span></span></p><pre><code>mv final.contigs.fa sample1_megahit_prepro.fasta
+</code></pre><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:33%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 1 finished</span>
+ </span></div>
+</div><h2 id="2-Metagenomic-assembly-of-the-data-using-metaSPAdes" data-id="2-Metagenomic-assembly-of-the-data-using-metaSPAdes"><a class="anchor hidden-xs" href="#2-Metagenomic-assembly-of-the-data-using-metaSPAdes" title="2-Metagenomic-assembly-of-the-data-using-metaSPAdes"><span class="octicon octicon-link"></span></a><span>2. Metagenomic assembly of the data using metaSPAdes</span></h2><center><img src="https://i.imgur.com/x620U6U.png" alt="drawing" width="200"></center><div class="alert alert-success">
+<p><strong><span>metaSPAdes</span></strong><span> is part of the </span><strong><span>SPAdes</span></strong><span> (St. Petersburg genome assembler) - an assembly toolkit containing various assembly pipelines. </span><strong><span>metaSPAdes</span></strong><span> supports only a single library which has to be paired-end. In addition, you can provide long reads (e.g. using </span><code>--pacbio</code><span> or </span><code>--nanopore</code><span> options), but hybrid assembly for metagenomes remains an experimental pipeline and optimal performance is not guaranteed. It does not support careful mode</span></p>
+<p><span>The current version of </span><strong><span>SPAdes</span></strong><span> works with Illumina or IonTorrent reads and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads.</span></p>
+<p><span>You can read more about the assembler </span><a href="http://cab.spbu.ru/files/release3.13.1/manual.html" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<h5 id="NOTE" data-id="NOTE"><a class="anchor hidden-xs" href="#NOTE" title="NOTE"><span class="octicon octicon-link"></span></a><span>NOTE:</span></h5>
+<ul>
+<li><span>If adapter and/or quality trimming software has been used prior to assembly, files with the orphan reads can be provided as “single read files” </span><code>-s</code><span> for the corresponding read-pair library.</span></li>
+<li><span>If you have merged some of the reads from your paired-end library (using tools s.a. BBMerge, you should provide the file with resulting reads as a “merged read file” </span><code>--merged</code><span> for the corresponding library.</span></li>
+</ul>
+</div><div class="alert alert-danger">
+<p><span>Because of the compute time have prerun metaSPAdes on Sample 1:</span></p>
+<p><span>The assembly of the preprocessed data using </span><strong><span>metaSPAdes</span></strong><span> was performed with the following parameter settings:</span></p>
+<br>
+<pre><code>metaspades.py -1 sample1_unmerged_R1.fastq.gz -2 sample1_unmerged_R2.fastq.gz --merged sample1_merged.fastq.gz -o sample1_metaspades_prepro
+</code></pre>
+</div><p><span style="color:blue"><span>I] Go to the directory </span><kbd><span>/practical/6/metaspades_prepro/sample1_metaspades_prepro/</span></kbd><span> and view the content</span></span></p><p><span style="color:blue"><span>II] Open the </span><code>spades.log</code><span> file</span></span></p><p><span>❓How many CPU threads and memory was allocated to </span><strong><span>metaSPAdes</span></strong><span> for performing the assembly?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Look toward the top of the log file
+</div></details><br><p><span>❓How much time did it take for </span><strong><span>metaSPAdes</span></strong><span> to finish the assembly with these compute resources?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Look at the bottom of the log file
+</div></details><br><p><span>❓Are you able to find the total length of all the contigs in the assembly in the </span><code>spades.log</code><span> file?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+No
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The log file contains some of the basic assembly statistics. You can also obtain this with some one-liners in the terminal. Let’s practise.</span></p>
+</div><p><span style="color:blue"><span>III] Count the total number of basepairs in the multiple FASTA file:</span></span></p><pre><code>grep -v "&gt;" contigs.fasta | wc | awk '{print $3-$1}'
+</code></pre><p><span>❓What is the total length of all the contigs in the assembly?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>IV] Count the number of contigs in the FASTA file:</span></span></p><pre><code>grep -c "^&gt;" contigs.fasta
+</code></pre><p><span>❓What is number of contigs in the assembly?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓What is the size of the largest contig? HINT: Sort the contigs by size using </span><strong><span>Seqkit</span></strong><span> (in the proper Conda environment)</span></p><details>
+<summary>Hint - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+`seqkit sort --by-length --reverse contigs.fasta &gt; contigs_sorted.fasta`
+</div></details><br><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>V] Generate a GC distribution of the contigs using </span><strong><span>SeqKit</span></strong><span> </span><code>fx2tab</code><span>:</span></span></p><pre><code>seqkit fx2tab --name --gc your_input_file &gt; contiglistGC.txt
+</code></pre><p><span>❓What is the GC content of the largest contig?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+60.47%
+</div></details><br><p><span style="color:blue"><span>VI] Sort the GC distribution of the contigs using </span><strong><span>sort</span></strong><span>:</span></span></p><pre><code>sort -k 2,2 contiglistGC.txt &gt; sorted_contiglistGC.txt
+</code></pre><p><span>❓What is the GC content of the contig with highest GC content?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+100%
+</div></details><br><p><span>❓Is this very likely a true contig?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Probably a contig of read(s) that should have been removed in the preprocessing step
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The default settings of </span><strong><span>metaSPAdes</span></strong><span> is to keep all contigs. It is important to evaluate the assembly results before you continue working with downstream analysis as error in the assembly may produce downstream errors.</span></p>
+</div><p><span style="color:blue"><span>VII] Remove all contigs &gt; 200 bp:</span></span></p><pre><code>seqkit seq -m 200 contigs.fasta &gt; contigs200.fasta
+</code></pre><p><span>❓What is size of the smallest contigs in the assembly now?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How many contigs were &gt; 200 bp?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+1561 contigs
+</div></details><br><p><span style="color:blue"><span>VIII] You can produce general statistics of an assembly in many ways. Try with </span><strong><span>SeqKit</span></strong><span> and </span><strong><a href="http://stats.sh" target="_blank" rel="noopener"><span>stats.sh</span></a></strong></span></p><pre><code>seqkit stats contigs200.fasta
+stats.sh contigs200.fasta
+</code></pre><p><span>❓What is overall GC content of the assembly?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>IX] Since you will be working with several assemblies, rename the FASTA file with the contigs to </span><code>sample1_megahit_prepro.fasta</code><span>:</span></span></p><pre><code>mv contigs200.fasta sample1_metaspades_prepro.fasta
+</code></pre><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:66%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 2 finished</span>
+ </span></div>
+</div><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Return to the </span><strong><span>Megahit</span></strong><span> practical, exercise 4, and complete this part of this exercise from there.</span></p>
+</div><h2 id="3-Quality-assessment-using-MetaQUAST" data-id="3-Quality-assessment-using-MetaQUAST"><a class="anchor hidden-xs" href="#3-Quality-assessment-using-MetaQUAST" title="3-Quality-assessment-using-MetaQUAST"><span class="octicon octicon-link"></span></a><span>3. Quality assessment using MetaQUAST</span></h2><center><img src="https://i.imgur.com/qxNGJHA.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><strong><span>💡 MetaQUAST</span></strong><span> evaluates and compares metagenome assemblies based on alignments to close references. It is based on </span><strong><span>QUAST</span></strong><span> genome quality assessment tool, but addresses features specific for metagenome datasets. The tool will divide all contigs into groups aligned to each reference genome they align to.</span></p>
+<p><span>You will find more information about </span><strong><span>MetaQUAST</span></strong><span> </span><a href="http://bioinf.spbau.ru/metaquast" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div><div class="alert alert-danger">
+<p><span>We have pre-run the assembly of the same data you have been working on, but directly on the raw data and on the data after removing host contamination before merging overlapping reads. The contig files are located in directory </span><kbd><span>~/practical/6/validation</span></kbd></p>
+</div><p><span style="color:blue"><span>I] First, copy the </span><strong><span>Megahit</span></strong><span> and </span><strong><span>metaSPAdes</span></strong><span> assemblies of the preprocessed data to the directory named </span><kbd><span>/validation</span></kbd><span>.</span></span></p><p><span style="color:blue"><span>II] Check that all six assemblies (FASTA files) are there:</span></span></p><pre><code>cd ../path_to/validation
+ll
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In this directory, there is a directory named </span><code>reference_genomes</code><span>, which contains the complete genomes sequences of the species we know are in the sample from the taxonomic profile we have performed prior to the course:). To save compute time, you can provide this directory of reference genomes together with the input files.</span></p>
+<p><span>We prerun </span><strong><span>MetaQUAST</span></strong><span> to download the reference genomes by providing a text file with the species names of species found in the sample like this:</span></p>
+<br>
+<pre><code>metaquast -o metaquast_out -t 16 *.fasta
+
+# -t, Maximum number of threads
+</code></pre>
+<p><strong><span>MetaQUAST</span></strong><span> identified all 16S rRNAs present, ran a taxonomic profile on these 16S rRNAs and if available downloaded the complete genomes of the from NCBI. In the next step </span><strong><span>MetaQUAST</span></strong><span> will align contigs against these genomes.</span></p>
+<p><span>Alternatively, you can let </span><strong><span>MetaQUAST</span></strong><span> identify which species are present by searching for 16S rRNA sequences in the contigs and produce a list of references from this. The reference genomes will be downloaded from NCBI and the contigs will be aligned against these genomes. This will make the run time longer.</span></p>
+</div><p><span style="color:blue"><span>III] We suggest that you run </span><strong><span>MetaQUAST</span></strong><span> comparing the six assemblies and include the list of known species:</span></span></p><pre><code>metaquast -R reference_genomes -o metaquast_results *.fasta
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This will take around 5 minutes to run. You can stretch your legs now!!!</span></p>
+</div><p><span style="color:blue"><span>IV] When </span><strong><span>MetaQUAST</span></strong><span> is finished, open the </span><strong><span>MetaQUAST</span></strong><span> report in a web browser. There is a lot of information about your assemblies here. </span><strong><span>Tip:</span></strong><span> if you mouse over any of the text descriptions in the table (or plot) more detailed information about the particular descriptor. Use the report to evaluate which performs best/worst.</span></span></p><center><img src="https://i.imgur.com/D10DoMf.png" alt="drawing" width="800"></center><br><p><span>❓How many species is recognised in your sample and what is the total length of the reference genomes ?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+12 species, 32 389 978  bp 
+</div></details><br><p><span>❓Which of the assemblies is the largest (in bp)?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓Which of the assemblies produces the longest contig?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Megahit raw
+</div></details><br><p><span>❓Which of the assemblies produces most fully unaligned contigs relative to the reference genomes?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Both assemblies with the raw data
+</div></details><br><p><span>❓Which of the assemblies produces most mismatches relative to the reference genomes?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The Megahit assemblies
+</div></details><br><p><span>❓</span><em><span>Bifidobacterium longum subsp. infantis</span></em><span> is one of the species identified in the sample. How much of his genome is covered by the </span><code>sample1_metaspades_prepro</code><span> assembly (fraction)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+98,3%
+</div></details><br><div class="alert alert-warning">
+<h4 id="-Optional-exercise" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise" title="-Optional-exercise"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span style="color:blue"><span>Have a look at the contig versus reference plot.</span></span></p>
+<p><span>❓To which specie does the largest number of contigs align to and what is the genome size of the genome and how many contigs from </span><code>sample1_metaspades_prepro</code><span> align with this specie?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+*Lactobacillus rhamnosusHN001*, 2 874 106 bp, 429 contigs
+</div></details>
+<br>
+<p><span>❓Which specie has the largest fraction of the total genome covered by all assemblies, and how much of the genome is approximately covered? HINT: Change plot to “</span><strong><span>Genome frac.</span></strong><span>” view</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+*Bifidobacterium longum subsp. infantis*, 98%
+</div></details>
+<br>
+<p><span style="color:blue"><span>Select the </span><em><span>Bifidobacterium longum subsp. infantis</span></em><span> genome from the list of reference genomes at the bottom of the webpage. A new page will open with only mapping information against this specie.</span></span></p>
+<br>
+<p><span>❓Which assembler produces the largest contig that align to this reference genome and how long is it?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+`sample1_meghit_unmerged`  and `sample1_meghit_prepro`
+</div></details>
+<br>
+<p><span>❓ Which of the assemblies produces most mismatches against </span><em><span>Bifidobacterium longum subsp. infantis</span></em><span>?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+`sample1_meghit_prepro`
+</div></details>
+<br>
+<p><span>❓What is the average GC content of </span><em><span>Bifidobacterium longum subsp. infantis</span></em><span> and what is the average GC content of the contigs mapping to this reference from the </span><code>sample1_metaspades_prepro</code><span> assembly?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+59.86 and 59.82
+</div></details>
+<br>
+<p><span>❓ Based on the </span><strong><span>MetaQUAST</span></strong><span> results, which assembly would you continue working with?</span></p>
+</div><div class="alert alert-warning">
+<h4 id="-Optional-exercise-II" data-id="-Optional-exercise-II"><a class="anchor hidden-xs" href="#-Optional-exercise-II" title="-Optional-exercise-II"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise II</span></h4>
+<p><strong><span>Icarus</span></strong><span> generates contig size viewer and one or more contig alignment viewers. Contig size viewer contigs ordered from longest to shortest. Click on the </span><strong><span>“View in Icarus contig browser”</span></strong><span>.</span></p>
+<p><span style="color:blue"><span>Select to view </span><em><span>Bifidobacterium longum subsp. infantis</span></em><span> in more detail</span></span></p>
+<p><span>❓How many contigs are tagged as unaligned?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Two
+</div></details>
+<br>
+<p><span style="color:blue"><span>Select the unaligned contigs in the </span><code>sample1_megahit_raw.fasta</code><span> assembly</span></span></p>
+<p><span>❓What could be the problem with this contig?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+It should maybe be split in two contigs, but is wrongly joined.
+</div></details>
+<br>
+<p><span style="color:blue"><span>Have a look at some of the other reference genomes too</span></span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:100%;background:#291;text-align:center;">
+   <span style="color:white"><span>Complete</span>
+ </span></div>
+</div><h2 id="That-was-the-end-of-this-practical---Good-job-👍" data-id="That-was-the-end-of-this-practical---Good-job-👍"><a class="anchor hidden-xs" href="#That-was-the-end-of-this-practical---Good-job-👍" title="That-was-the-end-of-this-practical---Good-job-👍"><span class="octicon octicon-link"></span></a><span>That was the end of this practical - Good job 👍</span></h2></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#6-Genome-assembly-from-metagenomes" title="6. Genome assembly from metagenomes">6. Genome assembly from metagenomes</a><ul class="nav">
+<li><a href="#1-Perform-metagenomic-assembly-of-the-data-using-Megahit" title="1. Perform metagenomic assembly of the data using Megahit">1. Perform metagenomic assembly of the data using Megahit</a></li>
+<li><a href="#2-Metagenomic-assembly-of-the-data-using-metaSPAdes" title="2. Metagenomic assembly of the data using metaSPAdes">2. Metagenomic assembly of the data using metaSPAdes</a></li>
+<li><a href="#3-Quality-assessment-using-MetaQUAST" title="3. Quality assessment using MetaQUAST">3. Quality assessment using MetaQUAST</a></li>
+<li><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#6-Genome-assembly-from-metagenomes" title="6. Genome assembly from metagenomes">6. Genome assembly from metagenomes</a><ul class="nav">
+<li><a href="#1-Perform-metagenomic-assembly-of-the-data-using-Megahit" title="1. Perform metagenomic assembly of the data using Megahit">1. Perform metagenomic assembly of the data using Megahit</a></li>
+<li><a href="#2-Metagenomic-assembly-of-the-data-using-metaSPAdes" title="2. Metagenomic assembly of the data using metaSPAdes">2. Metagenomic assembly of the data using metaSPAdes</a></li>
+<li><a href="#3-Quality-assessment-using-MetaQUAST" title="3. Quality assessment using MetaQUAST">3. Quality assessment using MetaQUAST</a></li>
+<li><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        2. Quality control &amp; removal of optical duplicates - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="2-Quality-control-amp-removal-of-optical-duplicates" data-id="2-Quality-control-amp-removal-of-optical-duplicates"><a class="anchor hidden-xs" href="#2-Quality-control-amp-removal-of-optical-duplicates" title="2-Quality-control-amp-removal-of-optical-duplicates"><span class="octicon octicon-link"></span></a><span>2. Quality control &amp; removal of optical duplicates</span></h1><center><img src="https://i.imgur.com/CP1SD8S.png" alt="drawing" width="300"></center><p>
+</p><div class="alert alert-success">
+<p><span>In this exercise you will be working with a shotgun metagenomic data from the human gut sample, more specific the faeces of premature babies. The objectives of the practical is to see if the data set is complete, get to know your data and to perform quality control on this next-generation sequence data. You will also remove optical duplicates present in the data. The DNA has been produced on a Illumina MiSeq machine 2 x 300 bp paired-end (PE) reads.</span></p>
+<h4 id="In-this-exercise-you-will" data-id="In-this-exercise-you-will"><a class="anchor hidden-xs" href="#In-this-exercise-you-will" title="In-this-exercise-you-will"><span class="octicon octicon-link"></span></a><span>In this exercise you will:</span></h4>
+<ol>
+<li><span>How to use the exercise documents</span></li>
+<li><span>Make sure all your data is there using </span><strong><span>md5sum</span></strong></li>
+<li><span>Get to know the FASTQ file format</span></li>
+<li><span>Simple FASTQ/FASTA manipulations using </span><strong><span>SeqKit</span></strong></li>
+<li><span>Perform quality control of the sequence data using </span><strong><span>FastQC</span></strong></li>
+<li><span>Remove optical duplicates using </span><strong><span>Clumpify</span></strong></li>
+</ol>
+</div><h2 id="1-How-to-use-the-exercise-documents" data-id="1-How-to-use-the-exercise-documents"><a class="anchor hidden-xs" href="#1-How-to-use-the-exercise-documents" title="1-How-to-use-the-exercise-documents"><span class="octicon octicon-link"></span></a><span>1. How to use the exercise documents</span></h2><div class="alert alert-success">
+<p><span>💡 This part introduce how the exercise documents in this course should be used</span></p>
+</div><p><span>The first thing to notice is that there are links to the different sections in the exercise in the left hand menu of each exercise together with a green box containng a short introduction to the exercise or tool you will be using</span></p><p><span>You will also find links to external web sites describing most of the tools you will be using throughout the exercises</span></p><p><span>You can copy and paste commands directly from this HTML and into your terminal if you don’t want to write the complete commands yourself</span></p><p><span>The commands are written in boxes like this:</span></p><pre><code>any command
+</code></pre><p><span>File paths to data are also written like the commands, for example: </span><kbd><span>path/to/files</span></kbd></p><p><span>The tilde (~) symbol means home directory, therefore </span><kbd><span>~/practical/</span></kbd><span> is the same as </span><kbd><span>/home/practical</span></kbd></p><p><span>We try to write tool in </span><strong><span>bold letters</span></strong><span> and filnames in boxes like this </span><code>filename</code><span>, but we are only human…</span></p><p><span>The tasks you will be performing will be annonced like this:</span></p><p><span style="color:blue"><span>I] Read this line which is printed in blue</span></span></p><p><span>You will be given questions troughout the execises. The questions will be given like this:</span></p><p><span>❓ Can you read this?</span></p><p><span>The solution to the exercises is found below each question like this:</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The solutions will be printed on a grey background
+</div></details><br><p><span>Hints, notes and useful information are (often) put in blue boxes like below:</span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> IMPORTANT SHORTCUTS THAT WILL SAVE YOU LOTS OF TIME</span></p>
+<ul>
+<li><strong><span>Shortcut for copying from the web browser = </span><code>ctrl + c</code></strong></li>
+<li><strong><span>Shortcut for pasting into the terminal = </span><code>ctrl + shift + c</code></strong></li>
+</ul>
+</div><p><span>Optional exercises for those that work fast or want to continue outside the course hours are put in yellow boxes like below.</span></p><div class="alert alert-warning">
+<h4 id="-Optional-exercise" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise" title="-Optional-exercise"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span>Some text describing the exercise</span></p>
+<hr>
+<p><span style="color:blue"><span>I] Here are more exercises</span></span></p>
+<p><span>❓ Here are more questions</span></p>
+<p><span>Here are more solutions:</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The solutions will be printed on a grey background
+</div></details>
+</div><div class="alert alert-danger">
+<p><strong><span>Remember:</span></strong><span> As a quality control that you are on the right track with your data, we want you to fill in some of the basic statistic metrics in this table: </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing</span></a></p>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:16%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 1 finished</span>
+ </span></div>
+</div><h2 id="2-Make-sure-all-your-data-is-there" data-id="2-Make-sure-all-your-data-is-there"><a class="anchor hidden-xs" href="#2-Make-sure-all-your-data-is-there" title="2-Make-sure-all-your-data-is-there"><span class="octicon octicon-link"></span></a><span>2. Make sure all your data is there</span></h2><center><img src="https://i.imgur.com/XlGPlRR.png" alt="drawing" width="300"></center><p>
+</p><div class="alert alert-success">
+<p><span>💡 It is very common that data is produced at a different location than where the analysis is preformed, and the data need to be transferred between two machines. It can happen that the file transfer is interrupted leading to incomplete transfer of the data.</span></p>
+<p><span>Many tools cannot tell if the data you use as input for your analysis is complete. It is therefore reccomendable to ensure that the data you are going to analyse is identical to the data from where you copied it from. File checksums can ensure data integrity.</span></p>
+<p><span>We have calculated the checksum using the tool </span><strong><span>md5sum</span></strong><span> before transferring the files to the shared disk. The MD5 checksum for the data is in the file </span><code>md5_data.txt</code><span>.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> All the course data is available on a shared disk. The path to this disk is </span><kbd><span>/net/software/practical/</span></kbd></p>
+</div><p><span style="color:blue"><span>I] In your home directory, create a directory named </span><kbd><span>practical</span></kbd><span>:</span></span></p><pre><code>mkdir practical
+</code></pre><p><span style="color:blue"><span>II] Move to this directory:</span></span></p><pre><code>cd practical
+</code></pre><p><span style="color:blue"><span>III] Copy the data for this exercise from the shared disk:</span></span></p><pre><code>cp -r /net/software/practical/2 .
+</code></pre><p><span style="color:blue"><span>IV] By default you don’t have permission to write to the directory you copied from the shared disk, so you need to change the permissions:</span></span></p><pre><code>chmod -R a+rwx 2
+
+# chmod, change permission
+# -R, recursive (to all subfolders and files in the current directory)
+# a+rwx, give permission to read, write and execute
+# 2, the directory you are changing the permission on
+</code></pre><p><span style="color:blue"><span>V] Move to the directory named </span><kbd><span>rawdata</span></kbd><span> (</span><code>cd rawdata</code><span>) and check that you are in the directory named </span><kbd><span>~/practical/2/rawdata</span></kbd><span>:</span></span></p><pre><code>pwd
+</code></pre><p><span style="color:blue"><span>VI] Check what data is in this directory:</span></span></p><pre><code>l
+</code></pre><p><span style="color:blue"><span>VII] Open the </span><code>md5_data.txt</code><span> file and look at the content in a text editor. It should have one checksum per file.</span></span></p><p><span style="color:blue"><span>VIII] Check that the sum is correct for your files by typing in the </span><strong><span>terminal</span></strong><span>:</span></span></p><pre><code>md5sum -c md5_data.txt
+</code></pre><p><span>If the files are complete, the test should return </span><strong><span>‘OK’</span></strong><span> for all files</span></p><p><span style="color:blue"><span>Optional: You can try to generate MD5 checksum on a file and output it to a file:</span></span></p><pre><code>md5sum filename &gt; md5_test.txt
+</code></pre><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:33%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 2 finished</span>
+ </span></div>
+</div><h2 id="3-Get-to-know-the-FASTQ-file-format" data-id="3-Get-to-know-the-FASTQ-file-format"><a class="anchor hidden-xs" href="#3-Get-to-know-the-FASTQ-file-format" title="3-Get-to-know-the-FASTQ-file-format"><span class="octicon octicon-link"></span></a><span>3. Get to know the FASTQ file format</span></h2><center><img src="https://i.imgur.com/ouIQZZe.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><span>💡FASTQ format is a text-based format for storing both a biological sequence (usually nucleotide sequence) and its corresponding quality scores. Both the sequence letter and quality score are each encoded with a single ASCII character for brevity.</span></p>
+<p><span>A FASTQ file normally uses four lines per sequence.</span></p>
+<ul>
+<li><span>Line 1 begins with a ‘@’ character and is followed by a sequence identifier and an optional description (like a FASTA title line).</span></li>
+<li><span>Line 2 is the raw sequence letters.</span></li>
+<li><span>Line 3 begins with a ‘+’ character and is optionally followed by the same sequence identifier (and any description) again.</span></li>
+<li><span>Line 4 encodes the quality values for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.</span></li>
+</ul>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The FASTQ files containing the sequence reads are normally compressed with </span><strong><span>gzip</span></strong><span>. The command ‘file’ let you test the type of file.</span></p>
+</div><p><span style="color:blue"><span>I] In the directory where the compressed FASTQ files are located, type:</span></span></p><pre><code>file sample1_R1.fastq.gz
+</code></pre><p><span>❓ What type of file is this?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Compressed file
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> To look at the content you must either uncompress the files, or you can use </span><strong><span>zcat</span></strong><span> to preview the content. </span><strong><span>head</span></strong><span> is a preview tool. ‘|’ pipes the output from one command into the next command.</span></p>
+</div><p><span style="color:blue"><span>II] Try to run the following command:</span></span></p><pre><code>zcat sample1_R1.fastq.gz | head
+</code></pre><p><span>❓ Each sequence read has four lines. What information does these lines contain?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sequence name, base calls, quality, line separator
+</div></details><br><p><span style="color:blue"><span>III] You can preview more of the file, eg. the 100 first lines by:</span></span></p><pre><code>zcat sample1_R1.fastq.gz | head -n 100
+</code></pre><p><span>It may be useful to know how many sequences a FASTQ file contain. Also it is useful to convert FASTQ files to FASTA format.</span></p><p><span style="color:blue"><span>IV] Count numbers of sequence reads in the compressed file:</span></span></p><pre><code>zcat sample1_R1.fastq.gz | paste - - - - | wc -l
+</code></pre><p><span>❓ Are there equal number of sequence reads in both the paired FASTQ files (and how many reads)?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:50%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 3 finished</span>
+ </span></div>
+</div><h2 id="4-Simple-FASTQFASTA-manipulations-using-SeqKit" data-id="4-Simple-FASTQFASTA-manipulations-using-SeqKit"><a class="anchor hidden-xs" href="#4-Simple-FASTQFASTA-manipulations-using-SeqKit" title="4-Simple-FASTQFASTA-manipulations-using-SeqKit"><span class="octicon octicon-link"></span></a><span>4. Simple FASTQ/FASTA manipulations using SeqKit</span></h2><center><img src="https://i.imgur.com/ouIQZZe.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><span>💡</span><strong><span>Seqkit</span></strong><span> is a nice and extremely fast tool for processing sequences in the FASTA or FASTQ format. You can use the </span><strong><span>Seqkit</span></strong><span> to convert the FASTQ file to a FASTA file in addition to other manipulations such as extracting subsequences from FASTA/Q file with reads ID (a name list file).</span></p>
+<p><span>Instructions for usage can be found </span><a href="http://bioinf.shenwei.me/seqkit/#subcommands" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>Seqkit</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>I] In the directory </span><kbd><span>~/practical/2/</span></kbd><span>, create a directory named </span><kbd><span>seqkit</span></kbd><span> and move to the directory</span></span></p><p><span style="color:blue"><span>II] Make a symbolic links to the raw data:</span></span></p><pre><code>ln -s ~/practical/2/rawdata/sample1_R* .
+</code></pre><p><span style="color:blue"><span>III] Use </span><strong><span>Seqkit</span></strong><span> to produce simple statistics of your files with the subcommand </span><code>stats</code><span>:</span></span></p><pre><code>seqkit stats *.fastq.gz
+</code></pre><p><span style="color:blue"><span>IV] Try to use the </span><code>-a</code><span> flag</span></span></p><p><span>❓ What is the main difference between the outputs?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The -a flag prints all statistics, including quality measures
+</div></details><br><p><span>❓ What is the average length of the sequence reads in </span><code>sample1_R1.fastq.gz</code><span>?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓ How many percent of the sequence reads in </span><code>sample1_R1.fastq.gz</code><span> have an average above Q30?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+91.63 %
+</div></details><br><p><span style="color:blue"><span>V] View the top two sequence reads in the forward FASTQ file using the subcommand </span><code>head</code><span>:</span></span></p><pre><code>seqkit head -n 2 sample1_R1.fastq.gz
+</code></pre><p><span style="color:blue"><span>VI] View the top two sequence reads in the forward FASTQ file using the subcommand </span><code>range</code><span>:</span></span></p><pre><code>seqkit range -r 1:2 sample1_R1.fastq.gz
+</code></pre><p><span style="color:blue"><span>VII] View the last two sequence reads in the forward FASTQ file using the subcommand </span><code>range</code><span>:</span></span></p><pre><code>seqkit range -r -2:-1 sample1_R1.fastq.gz
+</code></pre><p><span style="color:blue"><span>VIII] You can combine several subcommands, eg. to produce simple statistics for the first 100 sequence reads:</span></span></p><pre><code>cat sample1_R1.fastq.gz | seqkit range -r 1:100 | seqkit stats -a
+</code></pre><p><span style="color:blue"><span>IX] Convert fastq.gz to FASTA using the subcommand </span><code>fq2fa</code><span>:</span></span></p><pre><code>seqkit fq2fa sample1_R1.fastq.gz -o sample1_R1.fasta
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>HINT</span></strong><span>: here is a unix one-liner to do the same. You can try it optionally:</span></p>
+<pre><code>gunzip -c sample1_R1.fastq.gz | awk '{if(NR%4==1) {printf("&gt;%s\n",substr($0,2));} else if(NR%4==2) print;}' &gt; sample1_R1.fasta
+</code></pre>
+</div><p><span style="color:blue"><span>X] Have a look at the FASTA file:</span></span></p><pre><code>head sample1_R1.fasta
+</code></pre><p><span>❓ What is the main difference between a FASTQ and a FASTA file?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+FASTQ has 4 lines pr read, FASTA only 2. FASTQ contain information about basecalling quality
+</div></details><br><p><span style="color:blue"><span>XI] Convert the reverse FASTQ to FASTA:</span></span></p><pre><code>seqkit fq2fa sample1_R2.fastq.gz -o sample1_R2.fasta
+</code></pre><p><span style="color:blue"><span>XII] Concatenate the two FASTA files (head to tail) using </span><strong><span>cat</span></strong><span> and write out the new file:</span></span></p><pre><code>cat sample1_R1.fasta sample1_R2.fasta &gt; sample1_cat.fasta
+</code></pre><p><span>It is possible to use </span><strong><span>Seqkit</span></strong><span> in order to subsample sequences by number or proportion.</span></p><p><span style="color:blue"><span>XIII] Subsample 100 read pairs from the FASTQ files using the subcommand </span><code>sample</code><span>:</span></span></p><pre><code>seqkit sample -n 100  -s 0 sample1_R1.fastq.gz -o sub_sample1_R1.fastq.gz
+seqkit sample -n 100  -s 0 sample1_R2.fastq.gz -o sub_sample1_R2.fastq.gz
+
+# -n, sample by number (result may not exactly match)
+# -s, random seed
+</code></pre><p><span>❓ How many sequence reads are there in the reduced file:</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+zcat sub_sample1_R1.fastq.gz | echo $((`wc -l`/4))
+= R1: 100 reads
+</div></details><br><p><span style="color:blue"><span>XIV] Subsample 10% of the reads from the R1 FASTQ file using the subcommand </span><code>sample</code><span>. Hint: the flag </span><code>-p</code><span> = sample by proportion.</span></span></p><br><p><span>❓ Count the number of sequence in one of the reduced files. How many sequence reads were there?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-warning">
+<h4 id="-Optional-exercises" data-id="-Optional-exercises"><a class="anchor hidden-xs" href="#-Optional-exercises" title="-Optional-exercises"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercises</span></h4>
+<p><span>If you remember from the lecture, the FASTQ header contains information from the sequencing machine, among other the position on the flow cell:</span></p>
+<br>
+<center><img src="https://i.imgur.com/CLQXx0t.png" alt="drawing" width="800"></center>
+<br>
+<p><span>If you check the FASTQ headers in your </span><code>sub_sample1_R1.fastq.gz</code><span> you will notice that the sequence reads were produced on different tiles on the flow cell.</span></p>
+<hr>
+<p><span style="color:blue"><span>XV] Use the subcommand </span><code>grep</code><span> to extract all sequence reads from tile 1101. Hint: read the uncompressed file into the memory using </span><code>zcat</code><span>:</span></span></p>
+<br>
+<p><span>❓How many sequence reads were there from tile 1101 in </span><code>sub_sample1_R1.fastq.gz</code><span>?</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+5 reads. One way to find out is:
+<p><code>zcat sub_sample1_R1.fastq.gz | seqkit grep -n -r -p 1101 | seqkit stats</code></p>
+</div></details>
+<br>
+<p><span style="color:blue"><span>XVI] You can use the subcommand </span><code>grep</code><span> to extract all sequence reads that has a certain sequence pattern. Extract all reads containing the pattern AACTCAT from </span><code>sub_sample1_R1.fastq.gz</code><span>. Hint: read the uncompressed file into the memory using </span><code>zcat</code><span>:</span></span></p>
+<br>
+<p><span>❓How many sequence reads contained the pattern AACTCAT in </span><code>sub_sample1_R1.fastq.gz</code><span>?</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+3 reads
+<p><code>zcat sub_sample1_R1.fastq.gz | seqkit grep -s -i -p AACTCAT | seqkit stats</code></p>
+</div></details>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:66%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 4 finished</span>
+ </span></div>
+</div><h2 id="5-Quality-control-using-FastQC" data-id="5-Quality-control-using-FastQC"><a class="anchor hidden-xs" href="#5-Quality-control-using-FastQC" title="5-Quality-control-using-FastQC"><span class="octicon octicon-link"></span></a><span>5. Quality control using FastQC</span></h2><center><img src="https://i.imgur.com/7O70vEM.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><span>💡We will perform the quality control of the raw data  with </span><strong><span>FastQC</span></strong><span>, a program that has a graphical interface.</span></p>
+<p><span>Instructions and examples of the </span><strong><span>FastQC</span></strong><span> usage can be found </span><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank" rel="noopener"><span>here</span></a><span> and </span><a href="https://biof-edu.colorado.edu/videos/dowell-short-read-class/day-4/fastqc-manual" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>FastQC</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>I] In the directory </span><kbd><span>~/practical/2/</span></kbd><span>, create a directory named </span><kbd><span>fastqc</span></kbd><span> and move to the directory</span></span></p><p><span style="color:blue"><span>II] Make a symbolic links to the raw data:</span></span></p><pre><code>ln -s ~/practical/2/rawdata/sample1_R* .
+</code></pre><p><span style="color:blue"><span>III] Start </span><strong><span>FastQC</span></strong><span> by typing </span><code>fastqc</code><span> in a terminal. After a few second the graphical </span><strong><span>FastQC</span></strong><span> interface will appear.</span></span></p><center><img src="https://i.imgur.com/weAF7F6.png" alt="drawing" width="800"></center><br><p><span style="color:blue"><span>VI] In the </span><strong><span>FastQC</span></strong><span> GUI, click on </span><strong><span>“File”</span></strong><span> and select the two compressed FASTQ files </span><code>sample1_R1.fastq.gz</code><span> and </span><code>sample1_R2.fastq.gz</code><span> in the </span><kbd><span>~/practical/2/rawdata</span></kbd><span> directory.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>FastQC</span></strong><span> operates a queuing system where only one file is opened at a time, and new files will wait until existing files have been processed</span></p>
+<p><span>The left hand side of the main interactive display show a summary of the modules which were run and an evaluation of the results.</span></p>
+</div><p><span>❓ What does green tick, the orange triangle and the red cross indicate?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Entirely normal (green tick)
+<p><span>Slightly abnormal (orange triangle)</span></p>
+<p><span>Very unusual (red cross)</span></p>
+</div></details><br><p><span>❓ How many sequence reads does each of your dataset consist of?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+3041465 reads in R1 and 3041465 reads in R2
+</div></details><br><p><span>❓ What is the sequence length range?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sequence length 35-301
+</div></details><br><p><span>❓ What is the GC content of the metagenomic sequence data?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓ What quality format are your sequence reads in?</span></p><center><img src="https://i.imgur.com/4htZLd2.png" alt="drawing" width="800"></center><br><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Illumina 1.9
+</div></details><br><p><span>❓ What does a quality score of 30 indicate about the accuracy?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Probability of Incorrect Base Call&nbsp;1 in 1000
+</div></details><br><p><span>❓ Which of the sequence files would you say have the best base calling quality?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+R1
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Save the HTML reports before closing </span><strong><span>FastQC</span></strong><span>.</span></p>
+</div><div class="alert alert-warning">
+<h4 id="-Optional-exercises1" data-id="-Optional-exercises"><a class="anchor hidden-xs" href="#-Optional-exercises1" title="-Optional-exercises1"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercises</span></h4>
+<p><span>The ‘</span><strong><span>Per Base Sequence Quality</span></strong><span>’ shows an overview of the range of quality values across all bases at each position in the FASTQ file. The y-axis on the graph shows the quality scores. The higher the score the better the base call. The quality of calls on most platforms will degrade as the run progresses, so it is common to see base calls falling into the orange area towards the end of a read.</span></p>
+<ol>
+<li><span>The central red line is the median value</span></li>
+<li><span>The yellow box represents the inter-quartile range (25-75%)</span></li>
+<li><span>The upper and lower whiskers represent the 10% and 90% points</span></li>
+<li><span>The blue line represents the mean quality</span></li>
+</ol>
+<hr>
+<p><span>❓ What are the major differences between the quality of the reads in R1 and in R2?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+A bit lower quality in R2 + it drops more dramatically towards the end
+</div></details>
+<br>
+<p><span style="color:blue"><span>V] View the ‘</span><strong><span>Per Base Sequence Content plots</span></strong><span>’. In a random library you would expect that there would be little to no difference between the different bases of a sequence run, so the lines in this plot should run parallel with each other.</span></span></p>
+<p><span>❓Does your sequence reads have any biases?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Bias in the start, according to Illumina this is a calibration phase for the sequencing machine
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Illumina believes this effect is caused by the “not so random” nature of the random priming process used in the protocol. This may explain why there is a slight overall G/C bias in the starting positions of each read. The first 12 bases probably represent the sites that were being primed by the hexamers used in the random priming process. Look at the ‘</span><strong><span>K-mer content plot</span></strong><span>’ and see which K-mers are overrepresented and in which position they are.</span></p>
+</div>
+</div><div class="alert alert-warning">
+<p><span style="color:blue"><span>VI] Have a look at the other modules, especially the one marked with a red cross. Can you say something about the quality of these sequences, e.g duplication level, etc?</span></span></p>
+<p><span>❓ How many reads in </span><code>sample1_R2.fastq.gz</code><span> have some sequences that are overrepresented and what is the overrepresented sequence?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4631 reads, NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+</div></details>
+<br>
+<p><span>❓ Look at the “Per tile sequence quality”. What does this plot tell you about the data?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The data for both samples are very good. Brighter colours means lower quality from the average quality for each tile
+</div></details>
+<br>
+<p><span>❓ Look at the “Per sequence GC content”. The displayed Theoretical Distribution assumes a uniform GC content for all reads. Why do you think your data deviates from this?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sequences from metagenomic samples derives from different species that may have very different nucleotide composition.
+</div></details>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:83%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 5 finished</span>
+ </span></div>
+</div><h2 id="6-Remove-optical-duplicates-from-NGS-data" data-id="6-Remove-optical-duplicates-from-NGS-data"><a class="anchor hidden-xs" href="#6-Remove-optical-duplicates-from-NGS-data" title="6-Remove-optical-duplicates-from-NGS-data"><span class="octicon octicon-link"></span></a><span>6. Remove optical duplicates from NGS data</span></h2><center><img src="https://i.imgur.com/KCI3FVv.jpg" alt="drawing" width="800"></center><div class="alert alert-success">
+<p><span>💡It is good practice to remove optical duplicates for all sequence data produced by HiSeq 2500, MiSeq or NextSeq platforms for any kind of project in which you expect high library complexity (such as WGS). Optical duplicates are duplicates with very close coordinates on the flow cell. And by duplicate removal, it means removing all duplicate copies except one. </span><strong><span>Clumpify</span></strong><span> is a tool that removes duplicates and maximise gzip compression. </span><strong><span>Clumpify</span></strong><span> outputs paired, synchronised read pairs.</span></p>
+<p><span>Read more </span><a href="https://www.biostars.org/p/225338/#230178" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><p><span style="color:blue"><span>I] In the directory </span><kbd><span>~/practical/2/</span></kbd><span>, create a directory named </span><kbd><span>clumpify</span></kbd><span> and move to the directory</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>Clumpify</span></strong><span> you need activate the </span><strong><span>Conda</span></strong><span> environment named “Bbtools”.</span></p>
+<div class="alert alert-success"></div>
+</div><p><span style="color:blue"><span>II] Make a symbolic links to the raw data:</span></span></p><pre><code>ln -s ~/practical/2/rawdata/sample1_R* .
+</code></pre><p><span style="color:blue"><span>III] Remove optical duplicates and tile-edge duplicates. </span><strong><span>NB! YOU HAVE TO SET DISTANCE (replace the X in “dist=X”)</span></strong><span>.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Try to look at the parameter options for this tool:</span></p>
+<br>
+<pre><code>clumpify.sh in1=sample1_R1.fastq.gz in2=sample1_R2.fastq.gz out1=sample1_clumped_R1.fastq.gz out2=sample1_clumped_R2.fastq.gz dedupe optical dist=X -Xmx8g
+		
+# dedupe, Remove duplicates - combined with optical dist = Remove optical duplicates
+# optical dist=X, duplicates within X pixels of each other
+# -Xmx8g, set memory to 8 GB RAM
+
+OUTPUT: 
+sample1_clumped_R1.fastq.gz
+sample1_clumped_R2.fastq.gz
+</code></pre>
+</div><p><span style="color:blue"><span>IV] When </span><strong><span>Clumpify</span></strong><span> finishes, look at the number of reads and file size of the original FASTQ files and the “clumpified” files.</span></span></p><p><span>❓ What does the flag in1 do?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Specify first input file
+</div></details><br><p><span>❓ What does the flag out1= do?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Name first output file
+</div></details><br><p><span>❓ How many duplicates were identified?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓ How many percent smaller is the size of the “clumpified” file of R1 relative to the original file?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Almost 40 less%
+</div></details><br><p><span>As you can see, even only a small number of reads were removed as being optical duplicates, the file compression is greatly improved by </span><strong><span>Clumpify</span></strong><span>. Gzip compression becomes much more efficient by reordering reads so that reads with similar sequence are nearby.</span></p><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:100%;background:#291;text-align:center;">
+   <span style="color:white"><span>Complete</span>
+ </span></div>
+</div><br><div class="alert alert-warning">
+<p><span>That was the end of this practical - Good job 👍</span></p>
+</div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#2-Quality-control-amp-removal-of-optical-duplicates" title="2. Quality control &amp; removal of optical duplicates">2. Quality control &amp; removal of optical duplicates</a><ul class="nav">
+<li class=""><a href="#1-How-to-use-the-exercise-documents" title="1. How to use the exercise documents">1. How to use the exercise documents</a></li>
+<li class=""><a href="#2-Make-sure-all-your-data-is-there" title="2. Make sure all your data is there">2. Make sure all your data is there</a></li>
+<li class=""><a href="#3-Get-to-know-the-FASTQ-file-format" title="3. Get to know the FASTQ file format">3. Get to know the FASTQ file format</a></li>
+<li><a href="#4-Simple-FASTQFASTA-manipulations-using-SeqKit" title="4. Simple FASTQ/FASTA manipulations using SeqKit">4. Simple FASTQ/FASTA manipulations using SeqKit</a></li>
+<li><a href="#5-Quality-control-using-FastQC" title="5. Quality control using FastQC">5. Quality control using FastQC</a></li>
+<li><a href="#6-Remove-optical-duplicates-from-NGS-data" title="6. Remove optical duplicates from NGS data">6. Remove optical duplicates from NGS data</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#2-Quality-control-amp-removal-of-optical-duplicates" title="2. Quality control &amp; removal of optical duplicates">2. Quality control &amp; removal of optical duplicates</a><ul class="nav">
+<li class=""><a href="#1-How-to-use-the-exercise-documents" title="1. How to use the exercise documents">1. How to use the exercise documents</a></li>
+<li class=""><a href="#2-Make-sure-all-your-data-is-there" title="2. Make sure all your data is there">2. Make sure all your data is there</a></li>
+<li class=""><a href="#3-Get-to-know-the-FASTQ-file-format" title="3. Get to know the FASTQ file format">3. Get to know the FASTQ file format</a></li>
+<li><a href="#4-Simple-FASTQFASTA-manipulations-using-SeqKit" title="4. Simple FASTQ/FASTA manipulations using SeqKit">4. Simple FASTQ/FASTA manipulations using SeqKit</a></li>
+<li><a href="#5-Quality-control-using-FastQC" title="5. Quality control using FastQC">5. Quality control using FastQC</a></li>
+<li><a href="#6-Remove-optical-duplicates-from-NGS-data" title="6. Remove optical duplicates from NGS data">6. Remove optical duplicates from NGS data</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

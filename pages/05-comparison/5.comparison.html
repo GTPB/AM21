@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        5. Comparison of sample groups - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="5-Comparison-of-sample-groups" data-id="5-Comparison-of-sample-groups"><a class="anchor hidden-xs" href="#5-Comparison-of-sample-groups" title="5-Comparison-of-sample-groups"><span class="octicon octicon-link"></span></a><span>5. Comparison of sample groups</span></h1><div class="alert alert-success">
+<p><span>So far we have mainly worked with and performed various metagenomic analysis on a single sample. In a real metagenomic study, the aim is often to compare groups of samples, eg. a group of samples from healthy people against a group of samples from people with a disease, or a group of samples from one environment against a group of samples from another environment.</span></p>
+<br>
+<p><span>By practising on a single sample, you have learned most of the methods that you would need to work on multiple samples. This exercise will focus on comparing groups of samples against each other, and apply different techniques to identify differences between the sample groups.</span></p>
+<br>
+<p><span>You will continue to work with data generated from the isolation of DNA from premature human infant stool. The microbial diversity in the gut of premature infants is very low, which makes it easier to perform analysis on.</span></p>
+<br>
+<p><span>In this the exercise you will compare eight samples isolated from the gut of premature human infants. This given data originates from a pilot study at the University hospital of North Norway in Tromsø, where the aim is to assess and compare the composition of the gut microbiota (taxonomy and functionally encoded genes) in preterm infants supplemented with probiotics (Infloran) versus non -treated infants. Prophylactic administration of probiotic was implemented in Norway in 2014 to all extremely preterm infants at high risk for developing necrotising enterocolitis (NEC). The study is an explorative multi-centre study where 6 neonatal units in Norway have participated. In total, samples were collected from 76 individuals, all from the first year of life, i.e., 7 days, 28 days, 4 months and 1 year after birth. You will look at eight samples that was collected after 7 days.</span></p>
+<p><span>The aim of this assignment is to compare the taxonomic profiles of multiple samples from two sample groups using several different methods/tools.</span></p>
+<h4 id="In-this-exercise-you-will" data-id="In-this-exercise-you-will"><a class="anchor hidden-xs" href="#In-this-exercise-you-will" title="In-this-exercise-you-will"><span class="octicon octicon-link"></span></a><span>In this exercise you will:</span></h4>
+<ol>
+<li><span>Merging multiple taxonomic profiles</span></li>
+<li><span>Comparison of multiple taxonomic profiles with </span><strong><span>MEGAN</span></strong></li>
+<li><span>Prepare input files for </span><strong><span>phyloseq</span></strong></li>
+<li><span>Start RStudio and import data into </span><strong><span>phyloseq</span></strong></li>
+<li><span>Preprocess data using </span><strong><span>phyloseq</span></strong></li>
+<li><span>Comparison of filtered data with </span><strong><span>MEGAN</span></strong></li>
+</ol>
+</div><div class="alert alert-danger">
+<p><span>All samples have been preprocessed in the same way as you have done for sample1 in exercise 2 and 3. </span><strong><span>You will start with the data after the read pairs have been synchronised using </span><a href="http://repair.sh" target="_blank" rel="noopener"><span>repair.sh</span></a></strong><span>. Each sample has metadata associated with it, eg. treatment type, antibiotic treatment of the infant, etc. The samples are grouped into two groups based on if they are treated or untreated with Infloran.</span></p>
+<br>
+<p><span>The preprocessed data is located here </span><kbd><span>~/practical/5/repair/</span></kbd></p>
+<br>
+<p><span>The metadata for the samples are located here </span><kbd><span>~/practical/5/</span></kbd></p>
+</div><h2 id="1-Merging-multiple-taxonomic-profiles" data-id="1-Merging-multiple-taxonomic-profiles"><a class="anchor hidden-xs" href="#1-Merging-multiple-taxonomic-profiles" title="1-Merging-multiple-taxonomic-profiles"><span class="octicon octicon-link"></span></a><span>1. Merging multiple taxonomic profiles</span></h2><p><span style="color:blue"><span>I] Go to the directory </span><kbd><span>~/practical/</span></kbd><span> and copy the data for this exercise from the shared disk:</span></span></p><pre><code>cp -r /net/software/practical/5 .
+</code></pre><p><span style="color:blue"><span>II] Change the permissions of the directory recursively:</span></span></p><pre><code>chmod -R a+rwx 5
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to compare multiple samples you first need to merge the taxonomic profiles and structure this in a format that is acceptable for the downstream analysis tools.</span></p>
+</div><div class="alert alert-danger">
+<p><span>In order to save time, we have run taxonomic profiling on the preprocessed data using </span><strong><span>Kaiju</span></strong><span> against RefSeq in the same way as you did in Practical 4.</span></p>
+<br>
+<p><span>The taxonomic profiles for the eight samples are located here </span><kbd><span>~/practical/5/kaiju/</span></kbd></p>
+<br>
+<p><span>Instead of running the same tool eight times, one for each sample, it is possible to make a for loop (a small bash script) that allows a code to be repeatedly executed.</span></p>
+<h4 id="Structure-a-for-loop" data-id="Structure-a-for-loop"><a class="anchor hidden-xs" href="#Structure-a-for-loop" title="Structure-a-for-loop"><span class="octicon octicon-link"></span></a><span>Structure a for loop:</span></h4>
+<pre><code>for file in /dir/*.fasta ##for each file in the directory
+do
+  cmd [option] "$file" &gt; results.out
+done
+
+# cmd, is the command of the tool you want to loop
+# $file, are the files in the directory
+</code></pre>
+<p><span>It is possible to use multiple commands at command line. You can use the </span><code>|</code><span> to send the output from the first command to the next command, or perform multiple commands using the </span><code>&amp;&amp;</code><span> operator</span></p>
+<br>
+<p><span>We have provided a set of loops that you will need for running “batch operations” with different tools here </span><kbd><span>~/practical/5/scripts/</span></kbd></p>
+</div><p><span style="color:blue"><span>III] In </span><kbd><span>~/practical/5/kaiju</span></kbd><span> copy the the script </span><code>kaiju_addTaxonomy_fullLineage_batch.sh</code><span> from </span><kbd><span>~/practical/5/scripts/</span></kbd><span> and view the script.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The first part of the script defines the input file names and types (all files in the directory ending with </span><code>.out</code><span>). The second part states how to run the tool, also specifying the input files. This script will run the tool </span><code>kaiju-addTaxonNames</code><span>, which add taxonomy labels (names not just NCBI numbers) to each assigned read on all </span><strong><span>Kaiju</span></strong><span> outputs in the directory.</span></p>
+<br>
+<p><span>NOTE: The command to run </span><code>kaiju-addTaxonNames</code><span> is similar to the on you ran for a single sample, but now it will include all taxonomic ranks (</span><code>-r</code><span> flag).</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>kaiju-addTaxonNames</span></strong><span> you need activate the </span><strong><span>Kaiju Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>IV] Make sure you have execution permissions for the script and run it:</span></span></p><pre><code>./kaiju_addTaxonomy_fullLineage_batch.sh
+
+OUTPUT: Sample*_refseq_kaiju.out.taxa
+</code></pre><p><span style="color:blue"><span>VI] View the top of the output of </span><code>Sample1_refseq_kaiju.out.taxa</code><span>.</span></span></p><p><span>❓How many taxonomic levels are there (last column)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+7, superkingdom,phylum,class,order,family,genus,species
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Many reads will originate from the same taxon (specie). The script </span><code>kaiju_countTaxa.sh</code><span> will summarise the number of read counts for all taxa in each sample. That is, count how many reads that match each taxa in each sample.</span></p>
+</div><p><span style="color:blue"><span>VII] Have a look into the script and see that the command are actually multiple commands either piped (|) together or run once the previous command succeeded, using the &amp;&amp; operator.</span></span></p><p><span style="color:blue"><span>VIII] Copy </span><code>kaiju_countTaxa.sh</code><span> from </span><kbd><span>~/practical/5/scripts/</span></kbd><span> to </span><kbd><span>~/practical/5/kaiju/</span></kbd><span> and summarise the number of read counts for each taxa in all eight samples:</span></span></p><pre><code>./kaiju_countTaxa.sh 
+
+OUTPUT: Sample*_countTaxa.txt
+</code></pre><p><span style="color:blue"><span>IX] View the top of the output of </span><code>Sample1_countTaxa.txt</code></span></p><p><span>❓How many sequence reads are classified as </span><em><span>Methanobrevibacter millerae</span></em><span> in Sample1?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+45
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Notice that the unclassified reads (all reads with “U”) has no taxonomic label, leaving the taxonomic description of the lineage empty.</span></p>
+<pre><code>494456	
+2	Archaea; Crenarchaeota; Desulfurococcales; Thermoprotei; Pyrodictiaceae; Hyperthermus; Hyperthermus butylicus; 
+2	Archaea; Euryarchaeota; Archaeoglobales; Archaeoglobi; Archaeoglobaceae; Ferroglobus; Ferroglobus placidus; 
+1	Archaea; Euryarchaeota; Archaeoglobales; Archaeoglobi; Archaeoglobaceae; Geoglobus; Geoglobus acetivorans; 
+11	Archaea; Euryarchaeota; Methanobacteriales; Methanobacteria; Methanobacteriaceae; Methanobacterium; NA;
+...
+
+</code></pre>
+<p><span>PS! If you look at the last lines in this file, you will see that Kaiju has “classified” (“C”) 79570 reads as “NA; NA; NA; NA; NA; NA; NA;”</span></p>
+<pre><code>tail Sample1_countTaxa.txt
+</code></pre>
+</div><p><span style="color:blue"><span>X] Add a tabulated space and </span><code>NA; NA; NA; NA; NA; NA; NA;</code><span> after the count of the unclassified reads for each of the eight samples:</span></span></p><pre><code>494456	NA; NA; NA; NA; NA; NA; NA; 
+2	Archaea; Crenarchaeota; Desulfurococcales; Thermoprotei; Pyrodictiaceae; Hyperthermus; Hyperthermus butylicus; 
+2	Archaea; Euryarchaeota; Archaeoglobales; Archaeoglobi; Archaeoglobaceae; Ferroglobus; Ferroglobus placidus; 
+1	Archaea; Euryarchaeota; Archaeoglobales; Archaeoglobi; Archaeoglobaceae; Geoglobus; Geoglobus acetivorans; 
+11	Archaea; Euryarchaeota; Methanobacteriales; Methanobacteria; Methanobacteriaceae; Methanobacterium; NA;
+...
+
+</code></pre><p><span style="color:blue"><span>XI] Merge each </span><code>Sample*_countTaxa.txt</code><span> using </span><code>merge_tables.py</code><span> (Espen)</span></span></p><pre><code>python merge_tables.py *_countTaxa.txt &gt; merged_kaiju.txt
+</code></pre><p><span style="color:blue"><span>XII] View the last 20 lines of the output of </span><code>merged_kaiju.txt</code><span>:</span></span></p><pre><code>tail merged_kaiju.txt -n 20
+</code></pre><p><span>❓How many sequence reads are unclassified in Sample1?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+There are two lines: 494456 reads (previously "U") and 79570 reads
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The sample names are written to the table as file names. Many downstream tools require the sample names in the count file to identical to the sample names used in the metadata file to be able to connect the count and the metadata.</span></p>
+</div><p><span style="color:blue"><span>XII] IMPORTANT: In </span><code>merged_kaiju.txt</code><span> change all eight sample names to match metadata file. E.g. From</span><code>Sample1_countTaxa.txt</code><span> to </span><code>Sample1</code></span></p><p><span style="color:blue"><span>XIII] Also in </span><strong><span>line 2527</span></strong><span>: add a space after NA; NA; NA; NA; NA; NA; NA;</span></span></p><p><span>Replace: </span><code>NA; NA; NA; NA; NA; NA; NA;	</code></p><p><span>With:    </span><code>NA; NA; NA; NA; NA; NA; NA; 	</code></p><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:16%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 1 finished</span>
+ </span></div>
+</div><br><h2 id="2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" data-id="2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN"><a class="anchor hidden-xs" href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN"><span class="octicon octicon-link"></span></a><span>2. Comparison of multiple taxonomic profiles with MEGAN</span></h2><center><img src="https://i.imgur.com/zzwge0O.png" alt="drawing" width="300"></center><br><div class="alert alert-success">
+<p><span>💡As you saw when you were comparing </span><strong><span>Krona</span></strong><span> charts it is not a very efficient way of comparing several taxonomic profiles against each other. </span><strong><span>MEGAN</span></strong><span> is very useful when it comes to this. In addition to the actual taxonomic count data, </span><strong><span>MEGAN</span></strong><span> allow you to overlay metadata you may have from each sample. For example if the samples are treated versus control. This allows you to study a collection of samples from one group against a collection of samples from another group - which is really what metagenomic studies are…</span></p>
+<p><span>You can read more about the tool </span><a href="http://ab.inf.uni-tuebingen.de/software/megan6/" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div><p><span style="color:blue"><span>I] Open the file </span><code>merged_kaiju.txt</code><span> in </span><strong><span>MEGAN</span></strong><span> like previously (File -&gt; Import -&gt; Text (CSV format) -&gt; Taxonomy)</span></span></p><p><span>❓What does the different coloured bars represent?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Different samples
+</div></details><br><p><span style="color:blue"><span>II] View the Megan Message window.</span></span></p><p><span>❓How many taxa does the NCBI taxonomy have?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2,302,807 taxa
+</div></details><br><p><span>❓How many different taxa are there in your eight samples in total?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How many reads were there in total in your eight samples?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+14752606 reads
+</div></details><br><p><span>❓For the domain </span><strong><span>Bacteria</span></strong><span>, which sample has largest read counts in total and how many reads from this sample derive from bacteria?</span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Tip: If you have problems reading the information when pointing the mouse over the taxa, you can select the taxa -&gt; select “Options” form the top menu -&gt; select “List Summary…”</span></p>
+</div><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample1, 2243349 reads
+</div></details><br><p><span>❓How many reads from Sample1 derive from virus and archaea?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+214 reads from archaea and 134 from virus
+</div></details><br><p><span style="color:blue"><span>III] Set the taxonomic rank to Phylum level. Click on the symbol “</span><strong><span>Show charts</span></strong><span>” and select “</span><strong><span>Show bar charts</span></strong><span>”.</span></span></p><p><span>The bar chart is showing the distribution of reads at the Phylum level of the samples that appears.</span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Tip: If the bar chart open with the taxa on the X-axis, you should transpose the view by pressing the “Transpose the chart” button on the top part of the bar chart window</span></p>
+</div><p><span style="color:blue"><span>IV] Place the mouse pointer over Sample1 in the left part of the window.</span></span></p><center><img src="https://i.imgur.com/FLRb6Xq.png" alt="drawing" width="800"></center><br><p><span>❓How many reads from Sample1 are assigned to the different phyla?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2 240 484 reads
+</div></details><br><p><span style="color:blue"><span>V] Change the view from “</span><strong><span>Series</span></strong><span>” to “</span><strong><span>Classes</span></strong><span>” by pressing the tabs in the left part of the window.</span></span></p><p><span>❓How many reads in total for all samples derives from the phylum Proteobacteria?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓Which sample has most reads assigned to this phylum, and how many reads?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample5 - 2 216 318 reads
+</div></details><br><p><span>❓How many reads in total for all samples derives from the phylum Caldiserica, and in how many sample is this phylum identified?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2 reads
+</div></details><br><p><span style="color:blue"><span>VI] Take a minute to reflect if it is likely that any species from Caldiserica is present in the preterm infant stool?</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> As you can see, this is a very crude way of comparing the taxonomic profiles of different samples. Since we have not taken into account the sample size (how many reads in each sample) in the analysis, the fact that one sample has more counts for a taxa than another sample could simply be a result of that the first sample has much large sample size.</span></p>
+<p><span>Later in the exercise you will normalise this data and see the effect of that.</span></p>
+</div><h4 id="Do-not-close-the-Megan-tool😉" data-id="Do-not-close-the-Megan-tool😉"><a class="anchor hidden-xs" href="#Do-not-close-the-Megan-tool😉" title="Do-not-close-the-Megan-tool😉"><span class="octicon octicon-link"></span></a><span>Do not close the Megan tool😉</span></h4><h3 id="The-metadata" data-id="The-metadata"><a class="anchor hidden-xs" href="#The-metadata" title="The-metadata"><span class="octicon octicon-link"></span></a><span>The metadata</span></h3><p><span style="color:blue"><span>VII] Open the file containing the metadata </span><code>metadata.txt</code><span> in a text editor and look at the metadata associated with the samples. The file should be located </span><kbd><span>~/practical/5/</span></kbd></span></p><center><img src="https://i.imgur.com/qeZjzTc.png" alt="drawing" width="800"></center><p>
+<img src="" width="700">
+</p><ul>
+<li><span>FV = Weight at birth</span></li>
+<li><span>GA = How many weeks along the pregnancy the infant was born</span></li>
+<li><span>EnteralFeed = feeding that uses the gastrointestinal (GI) tract (and not delivery of calories and nutrients into a vein)</span></li>
+</ul><p><span>❓How many samples are there in each group (Group)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4 treated with Infloran and 4 untreated
+</div></details><br><p><span>❓How many infants got enterental feed?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4 treated and 1 untreated
+</div></details><br><p><span style="color:blue"><span>VIII] Import the metadata </span><code>metadata.txt</code><span> in </span><strong><span>MEGAN</span></strong><span> by selecting “</span><strong><span>File</span></strong><span>” -&gt; “</span><strong><span>Import</span></strong><span>” -&gt; “</span><strong><span>Metadata</span></strong><span>”. If asked to clear existing metadata, choose “</span><strong><span>Yes</span></strong><span>”. A new window called “</span><strong><span>Sample viewer</span></strong><span>” will appear.</span></span></p><p><span>❓How many individuals were born by caesarean section (sectio)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+3
+</div></details><br><p><span>❓How many individuals were the antibiotic  Penicillin and Gentamicin (PenGen)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2
+</div></details><br><p><span>❓Which individual received the longest duration of antibiotic (AB) treatment in week 1?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Individual belonging to Sample 1
+</div></details><br><p><span style="color:blue"><span>IX] In the Main </span><strong><span>MEGAN</span></strong><span> window, set the taxonomic rank to </span><strong><span>Family</span></strong></span></p><p><span style="color:blue"><span>X] Scroll down the tree view.</span></span></p><p><span>❓How many different bacterial families are there in your samples? Hint: look in the lower left corner of the window.</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+628 bacterial families
+</div></details><br><p><span style="color:blue"><span>XI] In the Main </span><strong><span>MEGAN</span></strong><span> window, click on the symbol “</span><strong><span>Show charts</span></strong><span>” and select “</span><strong><span>Show bar charts</span></strong><span>”.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> As you see, it is almost impossible to read this chart, there are way too many taxa!!! It would be even worse on Genus and Species level…</span></p>
+<p><span>It is obvious that we need to filter the data in some way to work with it.</span></p>
+<p><span>Later in the exercise you will filter this data (remove taxa with very low read counts that occur in just a few of the samples) and see the effect of that.</span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:33%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 2 finished</span>
+ </span></div>
+</div><br><h2 id="3-Prepare-input-files-for-phyloseq" data-id="3-Prepare-input-files-for-phyloseq"><a class="anchor hidden-xs" href="#3-Prepare-input-files-for-phyloseq" title="3-Prepare-input-files-for-phyloseq"><span class="octicon octicon-link"></span></a><span>3. Prepare input files for phyloseq</span></h2><center><img src="https://i.imgur.com/S1WHON7.png" alt="drawing" width="200"></center><div class="alert alert-success">
+<p><span>💡All data that can be imported into </span><strong><span>R</span></strong><span>, can be imported into </span><strong><span>phyloseq</span></strong><span>. In order to get your taxonomic data into </span><strong><span>phyloseq</span></strong><span>, you need to modify the files a little.</span></p>
+<p><span>Read more about import of data </span><a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/phyloseq/inst/doc/phyloseq-basics.html#convert-raw-data-to-phyloseq-components" target="_blank" rel="noopener"><span>here</span></a></p>
+<h4 id="phyloseq-requires" data-id="phyloseq-requires"><a class="anchor hidden-xs" href="#phyloseq-requires" title="phyloseq-requires"><span class="octicon octicon-link"></span></a><span>phyloseq requires:</span></h4>
+<ol>
+<li><span>Taxonomy file</span></li>
+<li><span>Read count file</span></li>
+<li><span>Metadata file</span></li>
+</ol>
+</div><p><span style="color:blue"><span>I] Go to </span><kbd><span>~/practical/5/phyloseq</span></kbd><span>. This directory should contain a copy of the </span><code>merged_kaiju.txt</code><span> and the </span><code>metadata.txt</code><span>.</span></span></p><p><span style="color:blue"><span>II] Open the </span><code>merged_kaiju.txt</code><span> and make sure that there are no empty lines at the end of the file.</span></span></p><p><span style="color:blue"><span>III] Make a taxonomy file without a header</span></span></p><pre><code>awk 'BEGIN {FS="\t"}; {print $1}' merged_kaiju.txt | awk '$1=$1' FS="; " OFS="\t" | sed 's/[[:space:]]*$//' | sed '1d' &gt; taxonomy.txt
+
+# awk 'BEGIN {FS="\t"}; {print $1}', keep only column 1
+# awk '$1=$1' FS="; " OFS="\t", Replace `; ` separator with `tab` separator
+# sed 's/[[:space:]]*$//', Remove tab spaces at the end of each line
+# sed '1d', Delete the first row
+
+OUTPUT: taxonomy.txt
+</code></pre><p><span>❓How many different taxa are there? Hint: count the number of lines </span><code>wc -l taxonomy.txt</code></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>IV] Make a read file without a header:</span></span></p><pre><code>awk 'BEGIN {FS=OFS="\t"}; {print $2,$3,$4,$5,$6,$7,$8,$9}' merged_kaiju.txt &gt; read_counts.txt
+
+# awk 'BEGIN {FS=OFS="\t"}; {print $2,$3,$4,$5,$6,$7,$8,$9}', print all columns, except column 1
+
+OUTPUT: read_counts.txt
+</code></pre><p><span>❓How many lines with read counts are there (not counting the header line)?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><h3 id="You-should-now-have" data-id="You-should-now-have"><a class="anchor hidden-xs" href="#You-should-now-have" title="You-should-now-have"><span class="octicon octicon-link"></span></a><span>You should now have:</span></h3><ul>
+<li><span>taxonomy.txt</span></li>
+<li><span>read_counts.txt</span></li>
+<li><span>metadata.txt</span></li>
+</ul><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> These three files can be imported into phyloseq!!!😃👍</span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:59%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 3 finished</span>
+ </span></div>
+</div><h2 id="4-Start-RStudio-and-import-data-into-phyloseq" data-id="4-Start-RStudio-and-import-data-into-phyloseq"><a class="anchor hidden-xs" href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4-Start-RStudio-and-import-data-into-phyloseq"><span class="octicon octicon-link"></span></a><span>4. Start RStudio and import data into phyloseq</span></h2><center><img src="https://i.imgur.com/CfUGpCS.png" alt="drawing" width="500"></center><br><div class="alert alert-success">
+<p><span>💡</span><strong><span>R</span></strong><span> a programming language for statistical computing and graphics. </span><strong><span>RStudio</span></strong><span> is an integrated development environment for </span><strong><span>R</span></strong><span>.</span></p>
+<p><span>You can read more about </span><strong><span>RStudio</span></strong><span> </span><a href="https://rstudio.com/" target="_blank" rel="noopener"><span>here</span></a></p>
+<h4 id="R-packages---installed-on-your-system" data-id="R-packages---installed-on-your-system"><a class="anchor hidden-xs" href="#R-packages---installed-on-your-system" title="R-packages---installed-on-your-system"><span class="octicon octicon-link"></span></a><span>R packages - installed on your system</span></h4>
+<p><span>Packages are the fundamental units of reproducible </span><strong><span>R</span></strong><span> code. They include reusable </span><strong><span>R</span></strong><span> functions, the documentation that describes how to use them, and sample data.</span></p>
+<p><span>The </span><strong><span>Bioconductor</span></strong><span> package provides tools for the analysis and comprehension of high-throughput genomic data and is needed to install and run </span><strong><span>phyloseq</span></strong><span>.</span></p>
+<p><span>Read more about </span><strong><span>Bioconductor</span></strong><span> </span><a href="https://www.bioconductor.org/" target="_blank" rel="noopener"><span>here</span></a></p>
+<p><span>The </span><strong><span>phyloseq</span></strong><span> package is a tool to import, store, analyse, and graphically display complex phylogenetic sequencing data that has already been clustered into Operational Taxonomic Units (OTUs) for amplicon data, or that has been taxonomically classified for metagenomic data. </span><strong><span>phyloseq</span></strong><span> is used to analyse community composition data in a phylogenetic framework.</span></p>
+<p><span>Read more about </span><strong><span>phyloseq</span></strong><span> </span><a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/phyloseq/inst/doc/phyloseq-basics.html#convert-raw-data-to-phyloseq-components" target="_blank" rel="noopener"><span>here</span></a><span> and </span><a href="http://joey711.github.io/phyloseq/" target="_blank" rel="noopener"><strong><span>phyloseq</span></strong></a><span> in GitHub.</span></p>
+</div><p><span style="color:blue"><span>I] Activate the Conda environment “R-stuio” and start </span><strong><span>RStudio</span></strong><span> by typing in the terminal:</span></span></p><pre><code>rstudio
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The </span><strong><span>RStudio Screen</span></strong><span> (it will look a little bit different when you open it before you load in data):</span></p>
+<ol>
+<li><span>The </span><strong><span>Console</span></strong><span> is where you can type commands and see output</span></li>
+<li><span>The upper left part of </span><strong><span>RStudio</span></strong><span> displays information about objects and show tables (will be empty when you start </span><strong><span>RStudio</span></strong><span>). If you click on a table in the </span><strong><span>Environment</span></strong><span> list, you can see the data on a screen to the left.</span></li>
+<li><span>The </span><strong><span>Environment</span></strong><span> tab shows all the active objects. The </span><strong><span>History</span></strong><span> tab shows a list of commands used so far</span></li>
+<li><span>The </span><strong><span>Files</span></strong><span> tab shows all the files and folders in your default workspace as if you were on a PC/Mac window. The </span><strong><span>Plots</span></strong><span> tab will show all your graphs. The </span><strong><span>Packages</span></strong><span> tab will list a series of packages or add-ons needed to run certain processes. For additional info  see the </span><strong><span>Help</span></strong><span> tab</span></li>
+</ol>
+<center><img src="https://i.imgur.com/nJ6E6Ij.png" alt="drawing" width="800"></center>
+</div><p><span style="color:blue"><span>II] The following packages are already installed in </span><strong><span>R</span></strong><span>, you can simply load them:</span></span></p><pre><code>library("phyloseq"); packageVersion("phyloseq")
+library("ggplot2"); packageVersion("ggplot2")
+library("grid"); packageVersion("grid")
+library("scales")
+library(tidyverse)
+library("vegan")
+</code></pre><p><span style="color:blue"><span>III] Two of the functions in </span><code>scales</code><span> and </span><code>tidyverse</code><span> are in conflict (they have the same name as basic functions in </span><strong><span>R</span></strong><span>) and needs are masked upon loading. You can unmask them like this:</span></span></p><pre><code>purrr::discard
+readr::col_factor
+stats::filter
+stats::lag	
+</code></pre><p><span style="color:blue"><span>IV] Set the working directory for </span><strong><span>R</span></strong><span> (where you files are and where to write file to):</span></span></p><pre><code>setwd("~/practical/5/phyloseq")
+</code></pre><p><span style="color:blue"><span>V] List what is in this directory:</span></span></p><pre><code>dir()
+</code></pre><p><span style="color:blue"><span>VI] Read the table with read counts (</span><code>read_counts.txt</code><span>) into </span><strong><span>R</span></strong><span> as a matrix:</span></span></p><pre><code>counts &lt;- data.matrix(read.csv("read_counts.txt", header=T, sep="\t", stringsAsFactors=F, quote = "", check.names=F, comment.char=""))
+</code></pre><p><span>❓What is the dimension of the matrix?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2535 x 8
+</div></details><br><p><span style="color:blue"><span>VII] Add names to each row in the matrix that later will match the rows in the table with the taxonomy. Name the first row “TAXA1”, the second “TAXA2”, and so on:</span></span></p><pre><code>rownames(counts) &lt;- paste0("TAXA", 1:nrow(counts))
+</code></pre><p><span style="color:blue"><span>VIII] In the </span><strong><span>Environment</span></strong><span> tab click on the </span><code>counts</code><span> matrix. The matrix should appear in the upper left corner in </span><strong><span>RStudio</span></strong><span>.</span></span></p><center><img src="https://i.imgur.com/GENXqrO.png" alt="drawing" width="800"></center><br><p><span>❓What is TAXA2526 and TAXA2527 representing in this table?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>IX] Generate a “OTU_table” (</span><strong><span>phyloseq</span></strong><span> recognisable object):</span></span></p><pre><code>countsAB = otu_table(counts, taxa_are_rows = TRUE)
+</code></pre><p><span style="color:blue"><span>X] Read the table with taxonomy (</span><code>taxonomy.txt</code><span>) into </span><strong><span>R</span></strong><span> as a table:</span></span></p><pre><code>taxon &lt;- read.table("taxonomy.txt", sep="\t", row.names=NULL, stringsAsFactors=F, quote = "", check.names=F, comment.char="")
+</code></pre><p><span style="color:blue"><span>XI] Add header to the table with proper taxonomic ranks:</span></span></p><pre><code>colnames(taxon) &lt;- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+</code></pre><p><span>❓What is the dimension of the table?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2535 x 7
+</div></details><br><p><span style="color:blue"><span>XII] Add row names identical to count table):</span></span></p><pre><code>rownames(taxon) &lt;- rownames(countsAB)
+</code></pre><p><span style="color:blue"><span>XIII] In the </span><strong><span>Environment</span></strong><span> tab click on the </span><code>counts</code><span> matrix. The matrix should appear in the upper left corner in </span><strong><span>RStudio</span></strong><span>. Click on the </span><code>taxon</code><span> data frame. The data frame should appear in the upper left corner in </span><strong><span>RStudio</span></strong><span>.</span></span></p><p><span>❓ Do they have the same row names?</span></p><p><span style="color:blue"><span>Convert the taxon data frame into a matrix (matrix needed in next step):</span></span></p><pre><code>taxmat &lt;- as.matrix(taxon)
+</code></pre><p><span style="color:blue"><span>XIV] Generate a “tax_table” (</span><strong><span>phyloseq</span></strong><span> recognisable object):</span></span></p><pre><code>taxclass = tax_table(taxmat)
+</code></pre><p><span style="color:blue"><span>XV] In the </span><strong><span>Environment</span></strong><span> tab click on the </span><code>taxmat</code><span> matrix. The matrix should appear in the upper left corner in </span><strong><span>RStudio</span></strong><span>.</span></span></p><p><span>❓What is TAXA2526 and TAXA2527 representing in this table?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Unclassified reads (NA)
+</div></details><br><p><span style="color:blue"><span>XVI] Read the table with metadata (</span><code>metadata.txt</code><span>) into </span><strong><span>R</span></strong><span> as a table:</span></span></p><pre><code>Sample=read.table("metadata.txt", header=T, sep="\t", stringsAsFactors=F, quote = "", check.names=F, row.names=1, comment.char="")
+</code></pre><p><span style="color:blue"><span>XVII] In the </span><strong><span>Environment</span></strong><span> tab click on the </span><code>Sample</code><span> data frame. The table should appear in the upper left corner in </span><strong><span>RStudio</span></strong><span>.</span></span></p><p><span>❓How many samples are present in this table?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+8 samples
+</div></details><br><p><span style="color:blue"><span>XIII] The table </span><code>Sample</code><span> needs to be coerced to a numeric class and turned into a “sample_data” (</span><strong><span>phyloseq</span></strong><span> recognisable object) before running certain accessors in </span><strong><span>phyloseq</span></strong><span>:</span></span></p><pre><code>temp &lt;- as.data.frame(lapply(sample_data(Sample),function (y) if(class(y)!="factor" ) as.factor(y) else y),stringsAsFactors=T)
+</code></pre><p><span style="color:blue"><span>XIX] Add row names to </span><code>temp</code><span> identical to Sample:</span></span></p><pre><code>rownames(temp) &lt;- rownames(Sample)
+</code></pre><p><span style="color:blue"><span>XX] Generate the final “sample_data” object (</span><strong><span>phyloseq</span></strong><span> recognisable object) of the data frame:</span></span></p><pre><code>metadata &lt;- sample_data(temp)
+</code></pre><p><span style="color:blue"><span>XXI] Merge metadata, counts and taxonomy into a </span><strong><span>phyloseq</span></strong><span> object. Name the object </span><code>phy</code><span>:</span></span></p><pre><code>phy = phyloseq(countsAB, taxclass, metadata)
+</code></pre><p><span style="color:blue"><span>XXII] Check the </span><strong><span>phyloseq</span></strong><span> object:</span></span></p><pre><code>phy
+</code></pre><center><img src="https://i.imgur.com/sofExr3.png" alt="drawing" width="800"></center><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Your </span><strong><span>phyloseq</span></strong><span> object should contain three phyloseq-class experiment-level objects.</span></p>
+<p><span>It is beyond the scope (and time) of this project to become experts in </span><strong><span>R</span></strong><span> and </span><strong><span>phyloseq</span></strong><span>, but you will learn the basics commands that we enable you to work with your data and produce publishable plots and statistics.</span></p>
+<p><span>There are many ways to access and query the data in the </span><strong><span>phyloseq</span></strong><span> object. </span><strong><span>phyloseq</span></strong><span> offers accessors to extract parts of a phyloseq object. Here are some:</span></p>
+<pre><code>print(phy) 						# Check data in object
+nsamples(phy)					# Number of samples in object
+sample_names(phy) 				# List sample names
+ntaxa(phy)						# Number of taxa in object
+taxa_names(phy)					# Print all taxa in object
+otu_table(phy)[1:5, 1:5]		# Print 5 rows of taxa counts in the 5 first samples
+tax_table(phy)[1:5, 1:4]		# Print 5 rows of taxa and the first 4 taxonomic ranks
+tax_table(phy)[,6] 				# Print column 6 (Genus)
+sample_data(phy)				# Print metadata
+sample_data(phy)[1:5,1:6] 		# Print metadata in the 5 first samples and 6 variables 
+length(sample_variables(phy)) 	# Number of metadata categories
+sample_variables(phy) 			# List all metadata categories
+get_variable(phy, "Group") 		# Look at the different values for Group
+sample_sums(phy)				# Number of counts in each sample
+taxa_sums(phy)					# Number of counts in each taxa
+</code></pre>
+</div><p><span style="color:blue"><span>XXIII] Practice using some of the accessor commands to answer the following questions.</span></span></p><p><span>❓How many taxa are present in the </span><strong><span>phyloseq</span></strong><span> object </span><code>phy</code><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2535
+</div></details><br><p><span>❓How many metadata variables/categories are there in </span><code>phy</code><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+11
+</div></details><br><p><span>❓Which of the samples has least read counts in total in </span><code>phy</code><span>? Hint: use the accessor </span><code>sample_sums</code></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:66%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 4 finished</span>
+ </span></div>
+</div><h2 id="5-Preprocess-data-using-phyloseq" data-id="5-Preprocess-data-using-phyloseq"><a class="anchor hidden-xs" href="#5-Preprocess-data-using-phyloseq" title="5-Preprocess-data-using-phyloseq"><span class="octicon octicon-link"></span></a><span>5. Preprocess data using phyloseq</span></h2><div class="alert alert-success">
+<p><span>💡Before doing further analysis in </span><strong><span>phyloseq</span></strong><span> or in other tools, it is often useful to preprocess the data. </span><strong><span>phyloseq</span></strong><span> offer many different methods to make smaller subset of the total data or to filter the data.</span></p>
+<p><span>Depending on the the nature of the project different methods can be applied. For example, if you are analysing a large number of samples from the human microbiome, you might want to remove very low abundance taxa occurring in very few samples, as they might not be the taxa that you are interested in.</span></p>
+<p><span>If the aim is to explore the diversity in samples from an unexplored environment, you don’t want to remove low abundance taxa, as they might be interesting to describe this environment.</span></p>
+<p><span>Below, some commonly used methods are described. You will apply them on on your data.</span></p>
+<p><span>You can read more about filtering data in </span><strong><span>phyloseq</span></strong><span> </span><a href="https://joey711.github.io/phyloseq/preprocess.html" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><p><span style="color:blue"><span>I] You know that many of your reads do not have taxonomic labels because </span><strong><span>Kaiju</span></strong><span> did not find any similar sequences in RefSeq. These reads are in </span><strong><span>TAXA2526 and TAXA2527</span></strong><span>:</span></span></p><pre><code>tax_table(phy)[2526:2527]
+</code></pre><p><span style="color:blue"><span>II] Remove the taxa with unassigned reads (</span><strong><span>TAXA2526 and TAXA2527</span></strong><span>) using the accessor </span><code>prune_taxa</code><span>. First, define the taxa you don’t want like this:</span></span></p><pre><code>badTaxa = c("TAXA2526", "TAXA2527")
+</code></pre><p><span style="color:blue"><span>III] Make a vector with all taxa names:</span></span></p><pre><code>allTaxa = taxa_names(phy)
+</code></pre><p><span style="color:blue"><span>IV] Subtract </span><code>badTaxa</code><span> from </span><code>allTaxa</code></span></p><pre><code>myTaxa &lt;- allTaxa[!(allTaxa %in% badTaxa)]
+</code></pre><p><span style="color:blue"><span>V] Make new </span><strong><span>phyloseq</span></strong><span> object with only </span><code>myTaxa</code><span>. Name the object </span><code>phy_pruned</code><span>:</span></span></p><pre><code>phy_pruned = prune_taxa(myTaxa, phy)
+</code></pre><p><span style="color:blue"><span>VI] Check that </span><strong><span>TAXA2526 and TAXA2527</span></strong><span> are removed from the </span><strong><span>phyloseq</span></strong><span> object </span><code>phy_pruned</code></span></p><pre><code>ntaxa(phy)
+ntaxa(phy_pruned)
+</code></pre><p><span style="color:blue"><span>VII] From the </span><strong><span>MEGAN</span></strong><span> exercise you know that some reads were assigned to archaea, and viruses. For this exercise we are only interested in the bacteria domain. Filter out archaea, and viruses and create a new </span><strong><span>phyloseq</span></strong><span> object with only bacteria using the accessor </span><code>phy_pruned</code><span>, and name it </span><code>bact</code><span> (This would actually also remove </span><strong><span>TAXA1</span></strong><span> if it was still present):</span></span></p><pre><code>bact &lt;- phy_pruned %&gt;%  subset_taxa(Domain == "Bacteria" &amp; Domain != "Archaea" &amp; Domain != "Virus")
+</code></pre><p><span>❓How many bacterial reads are there in Sample1 in the </span><strong><span>phyloseq</span></strong><span> object </span><code>bact</code><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2817723 reads
+</div></details><br><p><span>❓How many bacterial taxa are present in the </span><strong><span>phyloseq</span></strong><span> object </span><code>bact</code><span>?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>VIII] Remove taxa not seen more than 5 times in at least 20% of the samples in the total dataset using the accessor </span><code>filter_taxa</code><span>. This protects against an OTU with small mean &amp; trivially large C.V. Name the new </span><strong><span>phyloseq</span></strong><span> object </span><code>bact_filtered</code></span></p><pre><code>bact_filtered = filter_taxa(bact, function(x) sum(x &gt; 5) &gt; (0.2*length(x)), TRUE)
+</code></pre><p><span>❓How many bacterial taxa are present in the </span><strong><span>phyloseq</span></strong><span> object </span><code>bact_filtered</code><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+449 taxa
+</div></details><br><p><span style="color:blue"><span>IX] Let’s do a more strict filtering for the purpose of this exercise and remove more of the less abundant and prevalent taxa. Remove taxa not seen more than 10 times in at least 30% of the samples in the total dataset. Name the new </span><strong><span>phyloseq</span></strong><span> object </span><code>bact_filtered</code><span> again, this will just overwrite the existing object:</span></span></p><pre><code>bact_filtered = filter_taxa(bact, function(x) sum(x &gt; 10) &gt; (0.3*length(x)), TRUE)
+</code></pre><p><span>❓How many bacterial taxa are present in the final </span><strong><span>phyloseq</span></strong><span> object </span><code>bact_filtered</code><span>?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Exporting data from phyloseq to produce table that can be used by other tools can requires more than “just pushing a button”.</span></p>
+<p><span>In order to export the filtered read counts from the </span><strong><span>phyloseq</span></strong><span> object as a table, you first need to extract the filtered read counts as an abundance matrix. Then the matrix needs to be converted into a data frame (table) which can be written to a file and used in other tools such as </span><strong><span>MEGAN</span></strong><span> or </span><strong><span>STAMP</span></strong></p>
+<p><span>Since </span><strong><span>phyloseq</span></strong><span> keep the taxonomy separate from the read counts (two different objects), you will need to export these separately and merge them afterwards.</span></p>
+</div><p><span style="color:blue"><span>X] Export the abundance matrix (read counts) from the </span><strong><span>phyloseq</span></strong><span> object using the accessor </span><code>otu_table</code><span> and the </span><code>write.table</code><span> function. Name the file </span><code>bacteria_filtered.txt</code><span>:</span></span></p><pre><code>write.table(otu_table(bact_filtered), "bacteria_filtered.txt", quote=F, sep="\t", col.names=NA)
+
+# OUTPUT: bacteria_filtered.txt
+</code></pre><p><span style="color:blue"><span>X] In order to extract taxonomy from the </span><strong><span>phyloseq</span></strong><span> object, you first need to create a vector with the taxonomy of the filtered data using the accessor </span><code>otu_table</code><span>:</span></span></p><pre><code>exp_matrix = as(tax_table(bact_filtered), "matrix")
+</code></pre><p><span style="color:blue"><span>XI] Convert the matrix to a table using </span><code>data.frame</code><span>:</span></span></p><pre><code>exp_table = as.data.frame(exp_matrix)
+</code></pre><p><span style="color:blue"><span>XII] Write the data frame to a tab delimited text file (table), name the file </span><code>tax_filtered.txt</code><span>:</span></span></p><pre><code>write.table(exp_table, "tax_filtered.txt", quote=F, sep="\t", col.names=NA)
+
+# OUTPUT: tax_filtered.txt
+</code></pre><p><span style="color:blue"><span>XIII] View </span><code>bacteria_filtered.txt</code><span> and </span><code>tax_filtered.txt</code><span> in a text editor. You will see that they are complementary to each other and that the rows are in the same order in both files. Therefore they can be joined side by side.</span></span></p><p><span style="color:blue"><span>XIV] Before joining them, you need to the make the taxonomy description in </span><code>tax_filtered.txt</code><span> readable for </span><strong><span>MEGAN</span></strong><span>. Replace </span><code>tab</code><span> separator with </span><code>;</code><span> separator:</span></span></p><pre><code>cut -d
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li><a href="#The-metadata" title="The metadata">The metadata</a></li>
+</ul>
+</li>
+<li><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
+</ul>
+</li>
+<li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li class=""><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li class=""><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li class=""><a href="#The-metadata" title="The metadata">The metadata</a></li>
+</ul>
+</li>
+<li class=""><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
+</ul>
+</li>
+<li class=""><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li class=""><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li class=""><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
+\t' --fields=2-8 tax_filtered.txt | tr '[\t]' '[;]' &gt; tmp_tax_filtered.txt
+</code></pre><p><span style="color:blue"><span>XV] Remove column 1 in </span><code>bacteria_filtered.txt</code></span></p><pre><code>cut -d
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li><a href="#The-metadata" title="The metadata">The metadata</a></li>
+</ul>
+</li>
+<li><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
+</ul>
+</li>
+<li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li class=""><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li class=""><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li class=""><a href="#The-metadata" title="The metadata">The metadata</a></li>
+</ul>
+</li>
+<li class=""><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
+</ul>
+</li>
+<li class=""><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li class=""><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li class=""><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
+\t' --fields=2-9 bacteria_filtered.txt &gt; tmp_bacteria_filtered.txt
+</code></pre><p><span>Join the </span><code>tmp_bacteria_filtered.txt</code><span> and </span><code>tax_filtered.txt</code><span> side by side. Name the joined file </span><code>tmp_tax_filtered.txt</code><span>:</span></p><pre><code>paste tmp_tax_filtered.txt tmp_bacteria_filtered.txt &gt; tmp_filtered.txt
+</code></pre><p><span style="color:blue"><span>XV] View </span><code>tmp_filtered.txt</code><span> in a text editor. You will see that column 1 has the complete taxonomic ranks as header. Change the header of column 1 to “taxa”. Name the final file </span><code>merged_kaiju_filtered.txt</code></span></p><pre><code># OUTPUT: merged_kaiju_filtered.txt	
+</code></pre><p><span>The final output should look like this (number may differ from screenshot):</span></p><center><img src="https://i.imgur.com/UnVZSMb.png" alt="drawing" width="800"></center><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This files contain both taxonomy and filtered read counts for all eight samples</span></p>
+<p><span>You will do more filtering and preprocessing of the data in </span><strong><span>phyloseq</span></strong><span> before performing diversity analysis tomorrow.</span></p>
+</div><p><span style="color:blue"><span>XVII] For now, save the </span><strong><span>phyloseq</span></strong><span> object in RStudio:</span></span></p><pre><code>save(phy, file = "phy.RData")
+
+# OUTPUT: phy.RData
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This file can be opened in </span><strong><span>RStudio</span></strong><span> later. Then you don’t have to import the read counts, taxonomy and metadata again separately, but you import the complete </span><strong><span>phyloseq</span></strong><span> object.</span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:82%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 5 finished</span>
+ </span></div>
+</div><br><h2 id="6-Comparison-of-filtered-data-with-MEGAN" data-id="6-Comparison-of-filtered-data-with-MEGAN"><a class="anchor hidden-xs" href="#6-Comparison-of-filtered-data-with-MEGAN" title="6-Comparison-of-filtered-data-with-MEGAN"><span class="octicon octicon-link"></span></a><span>6. Comparison of filtered data with MEGAN</span></h2><div class="alert alert-success">
+<p><span>💡In this part of the exercise you will use </span><strong><span>MEGAN</span></strong><span> again, but on the preprocessed data where you have removed some of the less abundant and prevalent taxa.</span></p>
+<p><strong><span>Note:</span></strong><span> You can change and manipulate the metadata using the sample viewer in order to better view your data after analysis. For example, you can label samples that belong to the same group (Treated and Untreated) similarly. Sample 1-4 belong to the probiotic Treated group and 5-8 belong to the Untreated group (see column A - “Probiotics”). In addition to this, you can add more columns with information if you want to.</span></p>
+</div><p><span style="color:blue"><span>I] Open the preprocessed taxonomy file </span><code>merged_kaiju_filtered.txt</code><span> in </span><strong><span>MEGAN</span></strong><span>.</span></span></p><p><span>❓How many different taxa are there in your eight samples in total?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How many reads were there in total in your eight samples?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+12875902 reads
+</div></details><br><p><span>❓How many bacterial reads are there in Sample1?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2132012 reads
+</div></details><br><p><span style="color:blue"><span>II] Click the “</span><strong><span>Draw data as heatmaps</span></strong><span>” button. You will see different shades of green relative to distribution of counts for all taxa in all eight samples in the tree window. Set the taxonomic rank to Phylum level.</span></span></p><p><span>❓How many phyla are left in the filtered data?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4 phyla: Bacteroidetes, Proteobacteria, Actinobacteria and Firmicutes
+</div></details><br><p><span>❓The samples are displayed from 1-8 from left to right. The Infloran treated infants are 1-4. Can you see a pattern emerging from the data as this point?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Infloran treated infants seem to have relatively more *Actinobacteria* in their stool
+</div></details><br><p><span style="color:blue"><span>III] With all four phyla selected, click on the symbol “</span><strong><span>Show charts</span></strong><span>” and select “</span><strong><span>Show bar charts</span></strong><span>”.</span></span></p><p><span>❓How many reads from this Sample1 and Sample5 derive from </span><em><span>Actinobacteria</span></em><span>? </span><strong><span>Hint:</span></strong><span> Change the view from “Series” to “Classes” by pressing the tabs in the left part of the window. You also may need to transpose the chart by pressint the “Transpose tha chart” button at the top of the cahrt view.</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample1 = 2024371 reads, Sample5 = 354 reads
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Although these are absolute read counts on data that has not been normalised relative to sample size, it is very clear the the samples from the different sample groups have different taxonomic content.</span></p>
+</div><p><span style="color:blue"><span>IV] In the Main </span><strong><span>MEGAN</span></strong><span> window, set the taxonomic rank to Family. Click on the symbol “</span><strong><span>Show charts</span></strong><span>” and select “</span><strong><span>Show bar charts</span></strong><span>”.</span></span></p><p><span>❓How many different bacterial families are there in your samples?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+36 bacterial families
+</div></details><br><p><span style="color:blue"><span>IV] Import the metadata </span><code>metadata.txt</code><span> in </span><strong><span>MEGAN</span></strong><span> through the “</span><strong><span>File</span></strong><span>” tab. If asked to clear existing metadata, choose “</span><strong><span>Yes</span></strong><span>”. A new window called “</span><strong><span>Sample viewer</span></strong><span>” will appear.</span></span></p><p><span style="color:blue"><span>V] In the Main </span><strong><span>MEGAN</span></strong><span> window, set the taxonomic rank to Family.</span></span></p><p><span>❓Which samples seems to have a high abundance of </span><em><span>Bifidobacterium longum</span></em><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+1-4
+</div></details><br><p><span>❓How does this correlate to the information in the metadata?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Infants of Sample1-4 have received Infloran, which contains *Bifidobacterium longum*
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> It is possible to manipulate the metadata to make the visualisation more clear.</span></p>
+</div><p><span style="color:blue"><span>VI] In the </span><strong><span>Sample Viewer</span></strong><span> window, select Samples 1-4 (hold down shift-key while selecting) and right-click on the circle symbol to the left of one of the selected samples. From the drop-down menu, select “</span><strong><span>Set shape</span></strong><span>” and choose “</span><strong><span>oval</span></strong><span>” for this group. Right-click on the circle symbol to the left again and select the colour drop-down menu at the very bottom of the list and choose a green colour.</span></span></p><p><span style="color:blue"><span>VII] Select Samples 5-8 and repeat the above, except choose “</span><strong><span>rectangle</span></strong><span>” shape and a red colour for this group.</span></span></p><center><img src="https://i.imgur.com/7mrVsFs.png" alt="drawing" width="800"></center><br><p><span style="color:blue"><span>VIII] Return to the </span><strong><span>Bar charts</span></strong><span> window. The colours for each sample should now have changed to red and green for the Untreated and Treated samples, respectively.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> With many taxa it can be difficult to spot which taxa the columns from each sample represents, but you can zoom into the plot.</span></p>
+</div><p><span style="color:blue"><span>IX] Click on the “</span><strong><span>Transpose</span></strong><span>” button and select the </span><strong><span>“Classes”</span></strong><span> tab so that the data are viewed by sample rather by taxon.</span></span></p><p><span>❓ What are the dominant Family in Sample 5 and 6?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample 5 = Enterobacteriaceae and Sample 6 Enterococcaceae
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The size of the bars are in absolute counts. You can always switch to relative abundances by pressing the </span><strong><span>“%”</span></strong><span> button. Realtive abundance is a better measure to use when comparing samples with different sequence depths.</span></p>
+</div><p><span style="color:blue"><span>X] In the “Taxonomy chart window”, change to heatmap view, select the “</span><strong><span>Series</span></strong><span>” tab and click on the “</span><strong><span>Turn clustering on or off</span></strong><span>” (tree symbol upper left corner - ask if you don’t find it).</span></span></p><center><img src="https://i.imgur.com/x3RJ7TK.png" alt="drawing" width="800"></center><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In this chart you can see the relative abundance of families between samples, and also how the different samples cluster together.</span></p>
+</div><p><span>❓Is there any correlation between the clustering of samples and treatment?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, Sample 1-4 (treated with probiotics) cluster together and away from Sample 5,7 and 8 (untreated). Sample 6 is a bit on its own...
+</div></details><br><p><span style="color:blue"><span>XI] Change to the “</span><strong><span>Co occurence</span></strong><span>” plot and adjust the filtering options at the bottom of the chart window as following (a description of each filter appear if you point the mouse at each number):</span></span></p><ul>
+<li><span style="color:blue"><strong><span>Detection</span></strong><span> = 0.5%</span></span></li>
+<li><span style="color:blue"><strong><span>Min samples</span></strong><span> = 30%</span></span></li>
+<li><span style="color:blue"><strong><span>Edge threshold</span></strong><span> = 50%</span></span></li>
+<li><span style="color:blue"><span>Unselect </span><strong><span>Anti</span></strong></span></li>
+</ul><p><span style="color:blue"><span>Press “</span><strong><span>Apply</span></strong><span>”.</span></span></p><center><img src="https://i.imgur.com/tWg5jTl.png" alt="drawing" width="800"></center><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This plot provide a graphic visualisation of potential relationships between the occurrence of different taxonomic groups in the different samples.</span></p>
+<p><span>For example, in your plot you will see that the family </span><em><span>Staphylococcaceae</span></em><span>, </span><em><span>Bifidobacteriaceae</span></em><span> and  </span><em><span>Enterococcaceae</span></em><span> appear together (co-occur) in minimum 30% of the samples. </span><em><span>Enterobacteriaceae</span></em><span> occur in minimum 30% of the samples, but does not co-occur with the other families.</span></p>
+</div><p><span style="color:blue"><span>XII] Return to the </span><strong><span>Main MEGAN</span></strong><span> window. In the “</span><strong><span>Window</span></strong><span>” menu, make sure all Families are selected and select “</span><strong><span>Cluster analysis</span></strong><span>”.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> A new window showing a PCoA (principle coordinates analysis) plot will appear. A PCoA plot is a method to explore and to visualise similarities or dissimilarities of data. The plot is calculated based on a cluster analysis of the taxonomic profiles of each sample.</span></p>
+</div><center><img src="https://i.imgur.com/G3pKSqG.png" alt="drawing" width="800"></center><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The Cluster Analysis viewer provides methods for comparing multiple samples. The Cluster Analysis viewer allows one to compute a distance matrix on the set of samples, based on for example their taxonomic profiles. The calculated distances are displayed as a PCoA plot, a hierarchical clustering (UPGMA tree), an unrooted tree (Neighbor-Joining tree) or an unrooted split network (Neighbor-net).</span></p>
+<p><span>You can find more information about this in the </span><a href="http://ab.inf.uni-tuebingen.de/data/software/megan6/download/manual.pdf" target="_blank" rel="noopener"><span>manual</span></a><span>.</span></p>
+</div><p><span style="color:blue"><span>XIII] Switch between the different way to view the result from the cluster analysis (e.g. Neighbor-Joining tree).</span></span></p><p><span>❓Does the trees separate the samples into branches as expected from the metadata?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, individuals treated with probiotics cluster together
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Alpha diversity is describing species richness (number of taxa) within a single microbial ecosystem. </span><strong><span>How many different microbial species could be detected in one sample?</span></strong></p>
+<p><span>Beta diversity describes the diversity in microbial community between different environments (difference in taxonomic abundance profiles from different samples). </span><strong><span>How different is the microbial composition in one environment compared to another?</span></strong><span>. Bray-curtis is a statistic method used to quantify the Beta diversity of different samples, by calculating the compositional dissimilarity between two different sites based on counts at each site. The higher Bray-curtis distance, the more diverse are the samples.</span></p>
+</div><p><span style="color:blue"><span>XIV] Click on the “</span><strong><span>Matrix</span></strong><span>” tab, which list the Bray-curtis distance between samples.</span></span></p><p><span>❓ What are the most dissimilar samples relative to Sample 1?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample 5 (Bray-curtis distance = 0.9994103)
+</div></details><br><p><span style="color:blue"><span>XV] Go back to viewing the PCoA plot. Press the “</span><strong><span>PCoA</span></strong><span>” menu on the top of the window, select “</span><strong><span>Show Biplot</span></strong><span>” (it might be activated by default).</span></span></p><p><span>❓What do you think these arrows and taxa represents?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+These are the taxa that have most influence in the separating the samples in the cluster analysis.
+</div></details><br><div class="alert alert-warning">
+<h4 id="-Optional-exercise" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise" title="-Optional-exercise"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span style="color:blue"><span>Go back to the tree view window and try to calculate the core biome of the 8 samples. “</span><strong><span>s</span></strong><span>” in this setting means which taxa all of them share?</span></span></p>
+<p><span style="color:blue"><span>Make a word cloud of the taxonomic profiles.</span></span></p>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> These are still very crude comparisons between the samples and groups, as we have mainly worked with read counts and the sample size has not been adjusted for.</span></p>
+<p><span>In the next part you will work more on comparison of sample groups and to normalise data before analysis.</span></p>
+</div>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:100%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 6 finished</span>
+ </span></div>
+</div><hr><h2 id="That-was-the-end-of-this-practical---Good-job-👍" data-id="That-was-the-end-of-this-practical---Good-job-👍"><a class="anchor hidden-xs" href="#That-was-the-end-of-this-practical---Good-job-👍" title="That-was-the-end-of-this-practical---Good-job-👍"><span class="octicon octicon-link"></span></a><span>That was the end of this practical - Good job 👍</span></h2><hr><div class="alert alert-warning">
+<h4 id="-Optional-exercise1" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise1" title="-Optional-exercise1"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span>As you have seen, </span><strong><span>MEGAN</span></strong><span> is a nice tools for simple analysis of metagenomic data and nice for comparison of multiple sample and sample groups. However, </span><strong><span>MEGAN</span></strong><span> has some limitations when it comes to more robust statistical analysis and functionalities to access and manipulate the data.</span></p>
+<p><strong><span>phyloseq</span></strong><span> leverages many of the tools available for ecology and phylogenetic analysis, while also using advanced/flexible graphic systems (</span><strong><span>ggplot2</span></strong><span>) to easily produce publication-quality graphics of complex phylogenetic data. This makes it easier to share data and reproduce analyses.</span></p>
+<h4 id="Some-of-the-useful-stuff-phyloseq-provides" data-id="Some-of-the-useful-stuff-phyloseq-provides"><a class="anchor hidden-xs" href="#Some-of-the-useful-stuff-phyloseq-provides" title="Some-of-the-useful-stuff-phyloseq-provides"><span class="octicon octicon-link"></span></a><span>Some of the useful stuff phyloseq provides:</span></h4>
+<ul>
+<li><span>Import abundance and related data</span></li>
+<li><span>Convenience analysis wrappers for common analysis tasks</span></li>
+<li><span>44 supported distance methods (UniFrac, Jensen-Shannon, etc)</span></li>
+<li><span>Ordination –&gt; many supported methods, including constrained methods</span></li>
+<li><span>Microbiome plot functions using ggplot2 for powerful, flexible exploratory analysis</span></li>
+<li><span>Modular, customisable preprocessing functions supporting fully reproducible work.</span></li>
+<li><span>Functions for merging data based on taxa/sample variables, and for supporting manually-imported data.</span></li>
+<li><span>Native R/C, parallelised implementation of UniFrac distance calculations.</span></li>
+<li><span>Multiple testing methods specific to high-throughput amplicon sequencing data.</span></li>
+<li><span>Examples for analysis and graphics using real published data.</span></li>
+</ul>
+<br>
+<p><span>In this optional exercise you will work more on comparison of sample groups.</span></p>
+<br>
+<p><strong><span>In this exercise you will:</span></strong></p>
+<ol>
+<li><span>Filter on relative abundance using </span><strong><span>phyloseq</span></strong></li>
+<li><span>Make subsets of </span><strong><span>phyloseq</span></strong><span> objects</span></li>
+<li><span>Explore alpha diversity</span></li>
+<li><span>Explore beta diversity</span></li>
+<li><span>Differential abundance analysis between groups at different taxonomical level using </span><strong><span>DESeq2</span></strong></li>
+</ol>
+<h3 id="Filter-on-relative-abundance-using-phyloseq" data-id="Filter-on-relative-abundance-using-phyloseq"><a class="anchor hidden-xs" href="#Filter-on-relative-abundance-using-phyloseq" title="Filter-on-relative-abundance-using-phyloseq"><span class="octicon octicon-link"></span></a><span>Filter on relative abundance using phyloseq</span></h3>
+<div class="alert alert-success">
+<p><span>💡The </span><code>transform_sample_counts</code><span> function takes as arguments a phyloseq-object and an R function, and returns a phyloseq-object in which the abundance values have been transformed, sample-wise, according to the transformations specified by the function.</span></p>
+</div>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> If you closed the R session from previously, you need to import the data into </span><strong><span>RStudio</span></strong><span> again.</span></p>
+</div>
+<p><span style="color:blue"><span>I] Start </span><strong><span>Rstudio</span></strong><span> from the correct </span><strong><span>Conda</span></strong><span> environment</span></span></p>
+<br>
+<p><span style="color:blue"><span>II] Set the correct working directory:</span></span></p>
+<br>
+<pre><code>setwd("~/practical/5/phyloseq")
+</code></pre>
+<p><span style="color:blue"><span>III] You first need to load all libraries (see first phyloseq exercise).</span></span></p>
+<br>
+<p><span style="color:blue"><span>IV] The data could either be imported from the R </span><strong><span>phyloseq</span></strong><span> object </span><code>phy.RData</code><span>:</span></span></p>
+<br>
+<pre><code>load("phy.RData")
+</code></pre>
+<p><span>or by repeating all the steps from the first phyloseq exercise…</span></p>
+<br>
+<p><span style="color:blue"><span>V] Check the object. Should look something like this:</span></span></p>
+<br>
+<pre><code>print(phy)
+
+phyloseq-class experiment-level object
+otu_table()   OTU Table:         [ 2535 taxa and 8 samples ]
+sample_data() Sample Data:       [ 8 samples by 11 sample variables ]
+tax_table()   Taxonomy Table:    [ 2535 taxa by 7 taxonomic ranks ]
+</code></pre>
+<p><span style="color:blue"><span>VI] There’s 8 built-in theme variations (the look and colours of plot) in the latest versions of </span><strong><span>ggplot2</span></strong><span>. Set </span><strong><span>ggplot2</span></strong><span> package theme to </span><code>theme_bw</code><span>, the classic dark-on-light ggplot2 theme:</span></span></p>
+<br>
+<pre><code>theme_set(theme_bw())
+</code></pre>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Now you will transform the absolute abundances (reads counts) into fractional abundances also called relative abundances.</span></p>
+</div>
+<p><span style="color:blue"><span>VII] Filter out archaea, and viruses and create a new </span><strong><span>phyloseq</span></strong><span> object with only bacteria using the accessor </span><code>phy_pruned</code><span>. Name the new object </span><code>bact</code><span>. (You did the same in the previous exercise):</span></span></p>
+<br>
+<pre><code>bact &lt;- phy %&gt;% subset_taxa(Domain == "Bacteria" &amp; Domain != "Archaea" &amp; Domain != "Virus")
+</code></pre>
+<p><span style="color:blue"><span>VIII] Remove taxa not seen more than 5 times in at least 20% of the samples in the total dataset using the accessor </span><code>filter_taxa</code><span>. This protects against an OTU with small mean &amp; trivially large C.V. Name the new </span><strong><span>phyloseq</span></strong><span> object </span><code>bact_filtered</code></span></p>
+<br>
+<pre><code>bact_filtered = filter_taxa(bact, function(x) sum(x &gt; 5) &gt; (0.2*length(x)), TRUE)
+</code></pre>
+<p><span style="color:blue"><span>IX] Transform data into fractional abundances using the </span><code>transform_sample_counts</code><span>. Name the new object </span><code>phyRelAB</code><span>:</span></span></p>
+<br>
+<pre><code>phyRelAB  = transform_sample_counts(bact_filtered, function(x) x / sum(x) )
+</code></pre>
+<p><span style="color:blue"><span>X] Check that the abundance data has been transformed to relative fractions by viewing the first 5 rows for all 8 samples in the absolute abundances (</span><code>bact_filtered</code><span>) and fractional abundances (</span><code>phyRelAB</code><span>) object:</span></span></p>
+<br>
+<pre><code>otu_table(bact_filtered)[1:5, 1:8]
+otu_table(phyRelAB)[1:5, 1:8]
+</code></pre>
+<p><span style="color:blue"><span>XI] Check that the number of taxa are identical in the two objects:</span></span></p>
+<br>
+<pre><code>ntaxa(bact_filtered)
+ntaxa(phyRelAB)
+</code></pre>
+<p><span style="color:blue"><span>XII] Filtered such that only OTUs with a mean greater than 10^-5 are kept (fractional abundance &gt; 0.00001):</span></span></p>
+<br>
+<pre><code>phyRelAB_filter = filter_taxa(phyRelAB, function(x) mean(x) &gt; 1e-5, TRUE)
+</code></pre>
+<p><span>❓How many taxa are left in the filtered object?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+238 taxa is left in the filtered object
+</div></details>
+<br>
+<p><span style="color:blue"><span>XII] Recalculate fractions (so the sum of all adds up to 100%)</span></span></p>
+<br>
+<pre><code>phyRelAB_filter &lt;- transform_sample_counts(phyRelAB_filter, function(x) 100 * x/sum(x))
+</code></pre>
+<br>
+<p><span style="color:blue"><span>XIII] View the full taxonomic ranks of the first taxa in </span><code>phyRelAB_filter</code><span> using the accessor </span><code>tax_table</code></span></p>
+<br>
+<pre><code>head(tax_table(phyRelAB_filter))
+</code></pre>
+<center><img src="https://i.imgur.com/A0GNBTO.png" alt="drawing" width="800"></center>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The agglomeration functions </span><code>tip_glom</code><span> and </span><code>tax_glom</code><span>, can be used for merging all taxa in an experiment that are similar beyond a phylogenetic or taxonomic threshold, respectively.</span></p>
+</div>
+<p><span style="color:blue"><span>XIV] Agglomerate taxa on Phylum level using </span><code>tax_glom</code><span>:</span></span></p>
+<br>
+<pre><code>phyRelAB.phylum &lt;- tax_glom(phyRelAB_filter, taxrank="Phylum")
+</code></pre>
+<p><span>❓How many phyla are left in </span><code>RelAB.phylum</code><span>?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4 phyla
+</div></details>
+<br>
+<p><span style="color:blue"><span>XV] By default </span><code>tax_glom</code><span> removes taxa (here phylum) with “NA”. You therefore need to recalculate the fractions:</span></span></p>
+<br>
+<pre><code>RelAB.phylum &lt;- transform_sample_counts(phyRelAB.phylum, function(x) 100 * x/sum(x))
+</code></pre>
+<p><span style="color:blue"><span>XVI] Make a simple bar plot of your samples using the </span><strong><span>R</span></strong><span> function </span><code>plot_bar</code><span>:</span></span></p>
+<br>
+<pre><code>p = plot_bar(RelAB.phylum)
+plot(p)
+</code></pre>
+<p><span style="color:blue"><span>XVII] This bar plot isn’t very informative, let’s add colours to each phyla:</span></span></p>
+<br>
+<pre><code>p &lt;- plot_bar(RelAB.phylum, fill = "Phylum")
+plot(p)
+</code></pre>
+<p><span style="color:blue"><span>XVIII] It is also possible to make facets grouped by any metadata variable. Make a plot, group the samples together by the categorical variable “</span><strong><span>Group</span></strong><span>”.</span></span></p>
+<br>
+<pre><code>p &lt;- p + facet_wrap(~Group, scales = "free_x", nrow = 1)
+plot(p)
+</code></pre>
+<p><span>❓Which of the Infloran treated samples has highest relative abundance of Firmicutes?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample 3
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>ggplot2</span></strong><span> is a system for declaratively creating graphics. </span><strong><span>ggplot2</span></strong><span> is based on the grammar of graphics, the idea that you can build every graph from the same components: a data set, a coordinate system, and geoms—visual marks that represent data points.</span></p>
+<p><span>In most cases you start with </span><code>ggplot()</code><span>, supply a dataset and aesthetic mapping (with </span><code>aes()</code><span>). You then add on layers (like </span><code>geom_point()</code><span> or </span><code>geom_histogram()</code><span>), scales (like </span><code>scale_colour_brewer()</code><span>), faceting specifications (like </span><code>facet_wrap()</code><span>) and coordinate systems (like </span><code>coord_flip()</code><span>)</span></p>
+<p><span>You can read more about </span><strong><span>ggplot2</span></strong><span> </span><a href="https://ggplot2.tidyverse.org/" target="_blank" rel="noopener"><span>here</span></a></p>
+<p><span>Before creating graphics of </span><strong><span>phyloseq</span></strong><span> objects with </span><strong><span>ggplot2</span></strong><span>, it is often useful to apply the specialised </span><code>psmelt</code><span> function for melting </span><strong><span>phyloseq</span></strong><span> objects. The </span><code>psmelt</code><span> function converts your phyloseq object into a table (data.frame) that is very friendly for defining a custom </span><strong><span>ggplot2</span></strong><span> graphic.</span></p>
+<p><span>You can read more about </span><code>psmelt</code><span> </span><a href="https://www.rdocumentation.org/packages/phyloseq/versions/1.16.2/topics/psmelt" target="_blank" rel="noopener"><span>here</span></a></p>
+</div>
+<p><span style="color:blue"><span>XIX] Convert the </span><strong><span>phyloseq</span></strong><span> object with relative abundances of phyla to a data frame using </span><code>psmelt</code><span>:</span></span></p>
+<br>
+<pre><code>RelAB.phylum.melt &lt;- psmelt(RelAB.phylum)
+</code></pre>
+<br>
+<p><span style="color:blue"><span>XX] Plot the relative abundances at phylum level as a stacked bar (one bar per group). Group the samples together by the “</span><strong><span>Group</span></strong><span>” variable:</span></span></p>
+<br>
+<pre><code>ggplot(RelAB.phylum.melt, aes(x = Group, y = Abundance, color = Phylum, fill = Phylum)) + geom_bar(stat = "identity", position = "fill") +ggtitle("Phylum")
+</code></pre>
+<p><span>❓What is the dominant phylum in the treated group?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Actinobacteria
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> You can save the plot in </span><strong><span>RStudio</span></strong><span> by clicking the </span><strong><span>Export</span></strong><span> button above the plot and select how and where you want to save the plot.</span></p>
+</div>
+<br>
+<center><img src="https://i.imgur.com/dOpcnsr.png" alt="drawing" width="500"></center>
+<br>
+<p><span style="color:blue"><span>XXI] Save the plot as </span><code>RelAB_phylum.png</code></span></p>
+<br>
+<p><span style="color:blue"><span>XXII] Plot the relative abundances at phylum level as a stacked bar (one bar per group). Group the samples together by the “</span><strong><span>Sectio</span></strong><span>” categorical variable:</span></span></p>
+<br>
+<pre><code>ggplot(RelAB.phylum.melt, aes(x = Sevtio.VF, y = Abundance, color = Phylum, fill = Phylum)) + geom_bar(stat = "identity", position = "fill") +ggtitle("Phylum")
+</code></pre>
+<p><span>❓What is the dominant phylum in the group that was born by caesarean section (1)?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Proteobacteria
+</div></details>
+<br>
+<p><span style="color:blue"><span>XXIII] Merge all samples belonging to the same sample treatment group in one object. Let’s merge samples on the metadata category variable “</span><strong><span>Group</span></strong><span>”:</span></span></p>
+<br>
+<pre><code>RelAB.phylum.Group &lt;- merge_samples(RelAB.phylum, "Group")
+sample_data(RelAB.phylum.Group)$Group &lt;- factor(sample_names(RelAB.phylum.Group))
+</code></pre>
+<p><span style="color:blue"><span>XXIV] There should only be two groups in this object, treated and</span></span></p>
+<br>
+<pre><code>nsamples(RelAB.phylum.Group)
+sample_names(RelAB.phylum.Group)
+</code></pre>
+<p><span style="color:blue"><span>XXV] When merging/grouping samples, you need to recalculate the fractions:</span></span></p>
+<br>
+<pre><code>RelAB.phylum.Group &lt;- transform_sample_counts(RelAB.phylum.Group, function(x) 100 * x/sum(x))
+</code></pre>
+<br>
+<p><span style="color:blue"><span>XXVI] Plot the sum of each phyla within the sample groups using </span><code>plot_bar</code><span>. Facet the data using “Phylum”:</span></span></p>
+<br>
+<pre><code>plot_bar(RelAB.phylum.Group, "Group", fill="Phylum", facet_grid=~Phylum)
+</code></pre>
+<p><span>❓What is approximately the relative abundance of Actinobacteria in the Infloran treated group?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+80%
+</div></details>
+<br>
+<p><span style="color:blue"><span>XXVII] Plot the sum of each phyla within the sample groups using </span><code>plot_bar</code><span>. Facet the data using “</span><strong><span>Group</span></strong><span>”:</span></span></p>
+<br>
+<pre><code>plot_bar(RelAB.phylum.Group, "Phylum", "Abundance", "Phylum", facet_grid="Group~.") + ylab("Percentage of Sequences") + ylim(0, 100)
+</code></pre>
+<h3 id="Make-subsets-of-phyloseq-objects" data-id="Make-subsets-of-phyloseq-objects"><a class="anchor hidden-xs" href="#Make-subsets-of-phyloseq-objects" title="Make-subsets-of-phyloseq-objects"><span class="octicon octicon-link"></span></a><span>Make subsets of phyloseq objects</span></h3>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The </span><strong><span>phyloseq</span></strong><span> package also includes functions subsetting abundance data. The subsetting methods </span><code>prune_taxa</code><span> and </span><code>prune_samples</code><span> are for cases where the complete subset of desired OTUs or samples is directly available. Alternatively, the </span><code>subset_taxa</code><span> and </span><code>subset_samples</code><span> functions are for subsetting based on auxiliary data contained in the Taxonomy Table or Sample Data components, respectively.</span></p>
+<p><span>You can read more about subsetting </span><a href="http://joey711.github.io/phyloseq/preprocess.html" target="_blank" rel="noopener"><span>here</span></a></p>
+</div>
+<p><span style="color:blue"><span>I] Subset the phylum Firmicutes from the :</span></span></p>
+<br>
+<pre><code>phy.firm = subset_taxa(phy, Phylum=="Firmicutes")
+</code></pre>
+<p><span>❓How many different taxa are there in the phylum Firmicutes in total the samples?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+494
+</div></details>
+<br>
+<p><span style="color:blue"><span>II] Subset the phylum Firmicutes from the </span><code>phyRelAB</code><span>:</span></span></p>
+<br>
+<pre><code>phyRelAB.firm = subset_taxa(phyRelAB, Phylum=="Firmicutes")
+</code></pre>
+<p><span style="color:blue"><span>III] Agglomerate taxa on Family level using </span><code>tax_glom</code><span>:</span></span></p>
+<br>
+<pre><code>phyRelAB.firm.family &lt;- tax_glom(phyRelAB.firm, taxrank="Family")
+</code></pre>
+<br>
+<p><span style="color:blue"><span>IV] Make a bar plot with colours to each family:</span></span></p>
+<br>
+<pre><code>p &lt;- plot_bar(phyRelAB.firm.family, fill = "Family")
+plot(p)
+</code></pre>
+<center><img src="https://i.imgur.com/pqIOTPj.png" alt="drawing" width="500"></center>
+<br>
+<p><span>❓Which bacteria family of Firmicutes are most abundant in Sample 1?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Not possible to say from this plot....
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This plot show the fractional abundance of each Firmicutes family of the total bacterial reads because you have not recalculated the fractions with in the taxa that is left in you object.</span></p>
+<p><span>If you want to see how much of the total Firmucutes each family is, you need to recalculate the fractions within this object</span></p>
+</div>
+<p><span style="color:blue"><span>V] Recalculate the fractions in </span><code>phyRelAB.firm.family</code><span>:</span></span></p>
+<br>
+<pre><code>RelAB.firm.family &lt;- transform_sample_counts(phyRelAB.firm.family, function(x) 100 * x/sum(x))
+</code></pre>
+<br>
+<p><span style="color:blue"><span>VI] Make a bar plot with colours to each family:</span></span></p>
+<br>
+<pre><code>p &lt;- plot_bar(RelAB.firm.family, fill = "Family")
+plot(p)
+</code></pre>
+<p><span>❓Which bacteria family of Firmicutes are most abundant in Sample 1?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Staphylococcaceae
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> It is also possible to extract specific samples from the main </span><strong><span>phyloseq</span></strong><span> object using </span><code>sample_names</code><span>.</span></p>
+</div>
+<p><span style="color:blue"><span>VII] Make a new object containing only sample 1 and 2:</span></span></p>
+<br>
+<pre><code>select2samples = subset_samples(phy, sample_names(phy) %in% c("Sample1","Sample2"))
+</code></pre>
+<p><span style="color:blue"><span>VIII] Check the number of samples in the new </span><strong><span>phyloseq</span></strong><span> object:</span></span></p>
+<br>
+<pre><code>nsamples(select2samples)
+</code></pre>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> It is possible to explore the most abundant taxa in the samples</span></p>
+</div>
+<p><span style="color:blue"><span>IX] Make an object containing only the 20 most abundant taxa in the data:</span></span></p>
+<br>
+<pre><code>most_abundant_taxa &lt;- sort(taxa_sums(phy), TRUE)[1:20]
+top20 &lt;- prune_taxa(names(most_abundant_taxa), phy)
+</code></pre>
+<p><span style="color:blue"><span>X] Check the taxa names of these 20 taxa:</span></span></p>
+<br>
+<pre><code>taxa_names(top20)
+</code></pre>
+<p><span style="color:blue"><span>XI] Find what Families these taxa are. (Subsetting still returns a taxonomyTable object, which is summarised. We will need to convert to a vector):</span></span></p>
+<br>
+<pre><code>topFamilies &lt;- tax_table(top20)[, "Family"]
+as(topFamilies, "vector")
+</code></pre>
+<br>
+<p><span style="color:blue"><span>XII] Find what Species these taxa are:</span></span></p>
+<br>
+<pre><code>topSpecies &lt;- tax_table(top20)[, "Species"]
+as(topSpecies, "vector")
+</code></pre>
+<br>
+<h3 id="Explore-alpha-diversity" data-id="Explore-alpha-diversity"><a class="anchor hidden-xs" href="#Explore-alpha-diversity" title="Explore-alpha-diversity"><span class="octicon octicon-link"></span></a><span>Explore alpha diversity</span></h3>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> When performing Alpha diversity analysis, we want to explore the richness (and evenness) in the samples. There are many methods to calculate alpha diversity:</span></p>
+<ul>
+<li><span>Observed Species: count of unique taxa in each sample</span></li>
+<li><span>Chao1 index: estimate richness (observed + n1/n2)</span></li>
+<li><span>Shannon index: accounts for both abundance and evenness of the species present. Increases as both the richness and the evenness of the community increase.</span></li>
+<li><span>Simpson index: number of species present, as well as the relative abundance of each species.</span></li>
+</ul>
+<p><span>It is important that the data is not prepossessed and filtered too much. Many richness estimates are modelled on singletons and doubletons in the abundance data. You need to leave them in the dataset if you want a meaningful estimate.</span></p>
+<p><span>See examples using the </span><code>plot_richness</code><span> function </span><a href="https://joey711.github.io/phyloseq/plot_richness-examples.html" target="_blank" rel="noopener"><span>here</span></a></p>
+<p><span>See example of statistical testing of alpha diversity </span><a href="https://micca.readthedocs.io/en/latest/phyloseq.html#alpha-diversity" target="_blank" rel="noopener"><span>here</span></a></p>
+</div>
+<p><span style="color:blue"><span>Remove taxa that are not present in any of the samples (0 counts… If any) using the </span><code>prune_taxa</code><span> accessor.</span></span></p>
+<br>
+<pre><code>phy.prune &lt;- prune_taxa(taxa_sums(phy) &gt; 0, phy)
+</code></pre>
+<p><span>❓How many taxa were removed?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+0
+</div></details>
+<br>
+<p><span style="color:blue"><span>II] Plot the alpha diversity for your samples using the the default graphic of the </span><code>plot_richness</code><span> function:</span></span></p>
+<br>
+<pre><code>plot_richness(phy.prune)
+</code></pre>
+<p><span>Ignore the warnings! Plot of the seven default alpha diversity measures in </span><strong><span>phyloseq</span></strong><span> will be produced.</span></p>
+<br>
+<p><span>❓Which sample has the highest richness (observed diversity)?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample 1. Approximately 1400 different taxa
+</div></details>
+<br>
+<p><span>❓Which sample has the highest diversity (Shannon diversity)?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Looks like Sample 3
+</div></details>
+<br>
+<p><span>❓How would you interpret the two different diversity measures for Sample 1 versus Sample 3?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample 1 contain the highest number of different taxa (&gt;1400), but the sample is dominated by only a few of them. Sample 3 has fewer observed taxa (&gt;600), but the abundance of each taxa is more even than in Sample 1
+</div></details>
+<br>
+<p><span style="color:blue"><span>III] Plot the alpha diversity only using the “Chao1”, “Shannon” index</span></span></p>
+<br>
+<pre><code>plot_richness(phy.prune, measures=c("Chao1", "Shannon"))
+</code></pre>
+<p><span style="color:blue"><span>IV] Specify a sample variable on which to organise samples along the horizontal (x) axis. An experimentally meaningful categorical variable is usually a good choice – in this case, the “</span><strong><span>Group</span></strong><span>” variable (treated or untreated). Use the “Chao1”, “Shannon” indexes.</span></span></p>
+<br>
+<pre><code>plot_richness(phy.prune, x="Group", measures=c("Chao1", "Shannon"))
+</code></pre>
+<p><span>❓Which sample group seems to have the highest richness (Chao1 index)?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The samples within each group has very different richness. A bit difficult to say.....
+</div></details>
+<br>
+<p><span style="color:blue"><span>V] Group the samples by treatment on the categorical variable “</span><strong><span>Group</span></strong><span>” using the “Chao1”, “Shannon” indexes:</span></span></p>
+<br>
+<pre><code>richness &lt;- plot_richness(phy.prune, color = "Group", x = "Group", measures = c("Chao1", "Shannon"))
+</code></pre>
+<br>
+<p><span style="color:blue"><span>VI] Plot as a boxplot:</span></span></p>
+<br>
+<pre><code>richness &lt;- richness + geom_boxplot(aes(fill = Group), alpha=0.2)
+plot(richness)
+</code></pre>
+<p><span>❓Which sample group has the highest richness (Chao1 index)?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+On average the untreated group
+</div></details>
+<br>
+<p><span style="color:blue"><span>VII] Make a similar box plot using all the default diversity indexes:</span></span></p>
+<br>
+<pre><code>richness &lt;- plot_richness(phy.prune, color = "Group", x = "Group")
+richness &lt;- richness + geom_boxplot(aes(fill = Group), alpha=0.2)
+plot(richness)
+</code></pre>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> From the plot, it looks like the Shannon index is able to show separation between the groups</span></p>
+</div>
+<p><span style="color:blue"><span>VIII] Make a data frame of the numerical values of the alpha diversity indexes using </span><code>estimate_richness</code><span> (used internally by plot_richness):</span></span></p>
+<br>
+<pre><code>alpha.diversity &lt;- estimate_richness(phy.prune)
+head(alpha.diversity)
+</code></pre>
+<p><span>❓Which sample has the lowest observed richness and how many observed taxa are there in this sample?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Sample 6, 426 taxa
+</div></details>
+<h3 id="Statistical-testing---alpha-diversity" data-id="Statistical-testing---alpha-diversity"><a class="anchor hidden-xs" href="#Statistical-testing---alpha-diversity" title="Statistical-testing---alpha-diversity"><span class="octicon octicon-link"></span></a><span>Statistical testing - alpha diversity</span></h3>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The next step after exploring the alpha diversity, is to determine if alpha diversities are statistically significantly different between the two treatment groups. There are multiple statistical tests that can be applied, and in a real project, you would have to select the proper method for your data (beyond the scope of this course).</span></p>
+<p><span>Here we will perform statistical testing using:</span></p>
+<ul>
+<li><span>ANOVA - are used when the data is roughly normally distributed</span></li>
+<li><span>Wilcoxon rank-sum test (Mann-Whitney) - are used when the data is not normally distributed</span></li>
+</ul>
+<p><span>We should run statistical tests that don’t assume our data is normal. For demonstration purposes, though, we will run other tests as well.</span></p>
+<p><span>You can read more about ANOVA </span><a href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/hypothesis-testing/anova/" target="_blank" rel="noopener"><span>here</span></a></p>
+</div>
+<p><span style="color:blue"><span>IX] Run ANOVA to test if there tests if observed richness is significantly different between the treated and untreated group (categorical variable “</span><strong><span>Group</span></strong><span>”):</span></span></p>
+<br>
+<pre><code>data &lt;- cbind(sample_data(phy.prune), alpha.diversity)
+phy.prune.anova &lt;- aov(Observed ~ Group, data)
+</code></pre>
+<p><span style="color:blue"><span>X] Print the summary of that ANOVA, which will include P-values:</span></span></p>
+<br>
+<pre><code>summary(phy.prune.anova)
+</code></pre>
+<p><span>❓Does Infloran treatment impact the observed richness of the fecal microbiota?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+No, probably we are comparing to few samples
+</div></details>
+<br>
+<p><span style="color:blue"><span>XI] Run ANOVA to test if there tests if Shannon indexes are significantly different between the treated and untreated group.</span></span></p>
+<br>
+<pre><code>data &lt;- cbind(sample_data(phy.prune), alpha.diversity)
+phy.prune.anova &lt;- aov(Shannon ~ Group, data)
+</code></pre>
+<p><span>❓Does Infloran treatment impact the diversity of the fecal microbiota?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+No, probably we are comparing to few samples
+</div></details>
+<br>
+<p><span style="color:blue"><span>XII] Test whether the observed number of taxa differs significantly between the treated and untreated samples using the non-parametric test, the Wilcoxon rank-sum test:</span></span></p>
+<br>
+<pre><code>pairwise.wilcox.test(alpha.diversity$Observed, sample_data(phy.prune)$Group)
+</code></pre>
+<p><span>❓Does Infloran treatment impact the observed richness of the fecal microbiota?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+No, probably we are comparing to few samples
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> We are probably comparing to few samples to obtain statistical significant p-values.</span></p>
+</div>
+<p><span style="color:blue"><span>XIV] Let’s repeat some of the alpha diversity exploration, but group the samples if the infants were breast feed or not by the metadata category variable “</span><strong><span>EnteralFeed</span></strong><span>”:</span></span></p>
+<br>
+<pre><code>richness &lt;- plot_richness(phy.prune, color = "Enteral.Parenteral.feed", x = "Enteral.Parenteral.feed")
+richness &lt;- richness + geom_boxplot(aes(fill = Enteral.Parenteral.feed), alpha=0.2)
+plot(richness)
+</code></pre>
+<p><span style="color:blue"><span>XV] Run ANOVA to test if the Shannon indexes are significantly different between the enteral feed versus the parenteral feed infants.</span></span></p>
+<br>
+<pre><code>data &lt;- cbind(sample_data(phy.prune), alpha.diversity)
+phy.prune.anova &lt;- aov(Shannon ~ Enteral.Parenteral.feed, data)
+summary(phy.prune.anova)
+</code></pre>
+<br>
+<p><span>❓Does feeding impact the diversity of the fecal microbiota?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, and it is just about significant
+</div></details>
+<br>
+<h3 id="Explore-beta-diversity" data-id="Explore-beta-diversity"><a class="anchor hidden-xs" href="#Explore-beta-diversity" title="Explore-beta-diversity"><span class="octicon octicon-link"></span></a><span>Explore beta diversity</span></h3>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Beta diversity calculates the number of species that are not the same in two different environments. A high beta diversity index indicates a low level of similarity, while a low beta diversity index shows a high level of similarity</span></p>
+<h5 id="Short-description-of-some-common-beta-diversity-indices" data-id="Short-description-of-some-common-beta-diversity-indices"><a class="anchor hidden-xs" href="#Short-description-of-some-common-beta-diversity-indices" title="Short-description-of-some-common-beta-diversity-indices"><span class="octicon octicon-link"></span></a><span>Short description of some common beta diversity indices</span></h5>
+<ul>
+<li><span>Jaccard distance (a qualitative measure of community dissimilarity)</span></li>
+<li><span>Bray-Curtis distance (a quantitative measure of community dissimilarity)</span></li>
+<li><span>unweighted UniFrac distance (a qualitative measure of community dissimilarity that incorporates phylogenetic relationships between the features)</span></li>
+<li><span>weighted UniFrac distance (a quantitative measure of community dissimilarity that incorporates phylogenetic relationships between the features)</span></li>
+</ul>
+<p><span>In this exercise you will calculate beta diversity using the Bray-Curtis dissimilarity index. Data should be calculated using relativized data (by group), rather than the raw data, particularly if the beta diversity is high.</span></p>
+<h4 id="Normal-Beta-diversity-analysis-prosess" data-id="Normal-Beta-diversity-analysis-prosess"><a class="anchor hidden-xs" href="#Normal-Beta-diversity-analysis-prosess" title="Normal-Beta-diversity-analysis-prosess"><span class="octicon octicon-link"></span></a><span>Normal Beta diversity analysis prosess:</span></h4>
+<ol>
+<li><strong><span>Perform clearly-document well-justified preprocessing steps:</span></strong><span> Eg. filter low abundant and rare taxa</span></li>
+<li><strong><span>Calculate beta-diversity measures:</span></strong><span> This is used to quantify the differences in species populations between two different sites</span></li>
+<li><strong><span>Ordinatation:</span></strong><span> This procedure is used to arrange/order samples or features such that those that are more like each other are closer and vice versa in a lower dimension (2D in this case)</span></li>
+<li><strong><span>Generate plots:</span></strong><span> Generate informative graphics of the results from the diversity analysis</span></li>
+<li><strong><span>Permanova:</span></strong><span> Statistical tests to determine whether the samples or sample gropus differ significantly from each other</span></li>
+</ol>
+</div>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> You should already have preprocessed your data, so you can start with the </span><strong><span>phyloseq</span></strong><span> object </span><code>RelAB.phylum</code></p>
+</div>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Beta-diversity measures</span></p>
+<p><span>The distance function takes a </span><code>phyloseq-class</code><span> object and method option, and returns a </span><code>dist-class</code><span> distance object suitable for certain ordination methods and other distance-based analyses. There are currently 44 explicitly supported method options in the </span><strong><span>phyloseq</span></strong><span> package.</span></p>
+<p><span>The </span><code>distance()</code><span> function organises distance calculations into one function</span></p>
+<p><span>You can read more about the distance function </span><a href="https://joey711.github.io/phyloseq/distance.html" target="_blank" rel="noopener"><span>here</span></a></p>
+<p><span>For a beta diversity measure like Bray-Curtis Dissimilarity, you might simply use the relative abundance of each taxa in each sample, as the absolute counts are not appropriate to use directly in the context where count differences are not meaningful.</span></p>
+<p><span>You can read more about Bray-Curtis Dissimilarity </span><a href="https://www.statisticshowto.datasciencecentral.com/bray-curtis-dissimilarity/" target="_blank" rel="noopener"><span>here</span></a></p>
+</div>
+<p><span style="color:blue"><span>I] Calculate Bray Curtis distances on relative abundance data using the </span><code>distance</code><span> function:</span></span></p>
+<pre><code>distBC = distance(phyRelAB_filter, method = "bray")
+</code></pre>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Ordination</span></p>
+<p><span>Multidimensional scaling (MDS) is a popular approach for graphically representing relationships between objects (e.g. plots or samples) in multidimensional space. Dimension reduction via MDS is achieved by taking the original set of samples and calculating a dissimilarity (distance) measure for each pairwise comparison of samples. The samples are then usually represented graphically in two dimensions such that the distance between points on the plot approximates their multivariate dissimilarity as closely as possible.</span></p>
+<p><a href="https://www.researchgate.net/post/How_to_choose_ordination_method_such_as_PCA_CA_PCoA_and_NMDS" target="_blank" rel="noopener"><span>This</span></a><span> is a nice discussion about choice of ordination methods.</span></p>
+<p><span>Currently supported method options in </span><strong><span>phyloseq</span></strong><span> are: c(“DCA”, “CCA”, “RDA”, “CAP”, “DPCoA”, “NMDS”, “MDS”, “PCoA”)</span></p>
+<p><span>You can read more about ordination in this </span><a href="https://www.sciencedirect.com/science/article/pii/B9780080454054005243" target="_blank" rel="noopener"><span>paper</span></a></p>
+</div>
+<p><span style="color:blue"><span>II] Produce ordination of the data by performing MDS (“PCoA”) on the distance matrix using the </span><code>ordinate</code><span> function.</span></span></p>
+<br>
+<pre><code>ordPCoA = ordinate(phyRelAB_filter, method = "PCoA", distance = distBC)
+</code></pre>
+<p><span style="color:blue"><span>III] Generate and evaluate the “Scree Plot” for each ordination - an ordered barplot of the relative fraction of the total eigenvalues associated with each axis:</span></span></p>
+<br>
+<pre><code>plot_scree(ordPCoA, "Scree Plot: Bray-Curtis MDS")
+</code></pre>
+<center><img src="https://i.imgur.com/3pbpaqy.png" alt="drawing" width="600"></center>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In MDS, a small number of axes are explicitly chosen prior to the analysis and the data are fitted to those dimensions. The first axes represent &gt;60% of the total variation in the distances.</span></p>
+</div>
+<p><span style="color:blue"><span>IV] Make a PCoA plot for the Bray-Curtis distance-and-ordination using the </span><code>plot_ordination</code><span> function in </span><strong><span>phyloseq</span></strong><span>. Colour the samples by treatment (categorical variable “</span><strong><span>Group</span></strong><span>”):</span></span></p>
+<br>
+<pre><code>plot_ordination(phyRelAB_filter, ordPCoA, color = "Group") + ggtitle("PCoA: Bray-Curtis")
+</code></pre>
+<p><span>❓Would you say that the samples are clustered based on Infloran treatment?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes
+</div></details>
+<br>
+<p><span style="color:blue"><span>V] Make a similar plot, colouring the samples by treatment and give caesarean section born infants a different shape (categorical variable “</span><strong><span>Sectio</span></strong><span>”):</span></span></p>
+<br>
+<pre><code>plot_ordination(phyRelAB_filter, ordPCoA, color = "Group") + geom_point(aes(shape = Sevtio.VF, size = Sevtio.VF)) + scale_size_manual(values=c(3,3)) + ggtitle("PCoA: Bray-Curtis")
+</code></pre>
+<p><span>❓Would you say that clustering is a result of caesarean section?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+No
+</div></details>
+<br>
+<p><span style="color:blue"><span>VI] For aesthetics, an ellipse can be added to the plot:</span></span></p>
+<br>
+<pre><code>phyRelAB.elipse &lt;- plot_ordination(phyRelAB_filter, ordPCoA, color = "Group") + geom_point(aes(shape = Sevtio.VF, size = Sevtio.VF)) + scale_size_manual(values=c(3,3)) + ggtitle("PCoA: Bray-Curtis")
+
+#geom_point(size= 4) = Size of each point in plot
+
+phyRelAB.elipse &lt;- phyRelAB.elipse + theme_bw(base_size = 14) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+phyRelAB.elipse + scale_color_brewer(palette = "Dark2") + stat_ellipse(geom = "polygon", type="norm", alpha=0.1, aes(fill= Group))
+
+#alpha=0.1 = Transparency of ellipse
+#type="norm" = normal distribution (alternatively type="t" = t-distribution)
+</code></pre>
+<p><span style="color:blue"><span>VII] Zoom in on the plot. You should see that the clustering is the same.</span></span></p>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The goal of NMDS is to represent the original position of data in multidimensional space as accurately as possible using a reduced number of dimensions that can be easily plotted and visualised (like PCA).</span></p>
+<p><span>Unlike methods which attempt to maximise the variance or correspondence between objects in an ordination, NMDS attempts to represent, as closely as possible, the pairwise dissimilarity between objects in a low-dimensional space.</span></p>
+</div>
+<p><span style="color:blue"><span>VIII] Produce ordination of the data by performing NMDS on the distance matrix using the </span><code>ordinate</code><span> function.</span></span></p>
+<br>
+<pre><code>ordNMDS = ordinate(phyRelAB_filter, method = "NMDS", distance = distBC)
+</code></pre>
+<p><span style="color:blue"><span>IX] Make a NMDS plot for the Bray-Curtis distance-and-ordination using the </span><code>plot_ordination</code><span> function. Colour the samples by treatment (categorical variable “</span><strong><span>Group</span></strong><span>”):</span></span></p>
+<br>
+<pre><code>plot_ordination(phyRelAB_filter, ordNMDS, color = "Group") + ggtitle("NMDS: Bray-Curtis")
+</code></pre>
+<p><span style="color:blue"><span>X] Make a similar plot, colouring the samples by treatment and give caesarean section born infants a different shape (categorical variable “</span><strong><span>Sectio</span></strong><span>”):</span></span></p>
+<br>
+<pre><code>plot_ordination(phyRelAB_filter, ordNMDS, color = "Group") + geom_point(aes(shape = Sevtio.vf, size = Sevtio.VF)) + scale_size_manual(values=c(3,3)) + ggtitle("NMDS: Bray-Curtis")
+</code></pre>
+<p><span>❓What are the main differences to the PCoA plot?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Some samples cluster very tight and appear almost as one
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Statistical testing</span><br>
+<span>Although we can see clear separation in an ordination of the samples based on Infloran treatment, it is good to test this in a more appropriate way. It is common to perform test for significant differences between groups (e.g. ANOSIM, ADONIS, PERMANOVA).</span></p>
+<p><span>Analysis of similarities (ANOSIM) provides a way to test statistically whether there is a significant difference between two or more groups of sampling units. This is a permutational non-parametric test of significance of the sample-grouping against a null-hypothesis. The default number of permutations is 999. The method identifies of the between groups difference is larger than the within groups difference.</span></p>
+<p><span>You can read more about ANOISM </span><a href="https://jkzorz.github.io/2019/06/11/ANOSIM-test.html" target="_blank" rel="noopener"><span>here</span></a></p>
+<p><span>Another way to test significant difference is permutational ANOVA (PERMANOVA). A PERMANOVA lets you statistically determine if the centers (centroids) of the cluster of samples in one group (eg. treated) differs from the center of the samples for another group (untreated).</span></p>
+<p><span>Both tests are available in the </span><strong><span>vegan</span></strong><span> package.</span></p>
+<p><span>As always: A p value of 0.05 means that there is a 5% chance that you detected a difference between groups when indeed there was none (the null hypothesis).</span></p>
+</div>
+<p><span style="color:blue"><span>XI] Test the significance for the Bray-Curtis ordinations using ANOSIM. First, create vector with treatment group labels for each samples:</span></span></p>
+<br>
+<pre><code>group.test &lt;- get_variable(phyRelAB_filter, "Group")
+</code></pre>
+<br>
+<p><span style="color:blue"><span>XII] Run ANOSIM on the Bray-Curtis distance matrix of the </span><code>phyRelAB_filter</code><span> taxa table, with the factor treatment group using the Vegan function </span><code>anoism</code><span>.</span></span></p>
+<br>
+<pre><code>group_anosim_BC &lt;- anosim(distance(phyRelAB_filter, "bray"), group.test)
+</code></pre>
+<br>
+<p><span style="color:blue"><span>XIII] View the results:</span></span></p>
+<br>
+<pre><code>print(group_anosim_BC)
+</code></pre>
+<p><span>❓Is the difference between the gut communities in the Infloran treated infants and the untreated infants significant?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The grouping is highly significant, which indicates that there is a significant differences between the gut communities in the Infloran treated infants and the untreated infants.
+</div></details>
+<br>
+<p><span style="color:blue"><span>XIV] Test whether the treatment groups differ significantly from each other using the permutational ANOVA (PERMANOVA) analysis</span></span></p>
+<br>
+<pre><code>adonis(distBC ~ sample_data(phyRelAB_filter)$Group)
+</code></pre>
+<ul>
+<li><span>R-squared (R2) = the variation in distances is explained by the grouping being tested</span></li>
+<li><span>p value Pr(&gt;F) = tells you whether or not this result was likely a result of chance</span></li>
+</ul>
+<br>
+<p><span>❓Is the difference between the gut communities in the Infloran treated infants and the untreated infants significant, and how much of the variance can be explained by this treatment?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+~61,5% of the variation in distances can be explained by the tretment of Infloran.
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In sum, the results form the beta diversity analysis show that there is a large taxonomic difference between the two treatment groups. Supported by statistical testing, this strongly indicates that the the treatment with Infloran alters the gut microbiome of infants.</span></p>
+</div>
+</div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li><a href="#The-metadata" title="The metadata">The metadata</a></li>
+</ul>
+</li>
+<li><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
+</ul>
+</li>
+<li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li class=""><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li class=""><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li class=""><a href="#The-metadata" title="The metadata">The metadata</a></li>
+</ul>
+</li>
+<li class=""><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
+</ul>
+</li>
+<li class=""><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li class=""><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li class=""><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

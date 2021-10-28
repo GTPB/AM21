@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        9. Resistome profiling of metagenomes - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="9-Resistome-profiling-of-metagenomes" data-id="9-Resistome-profiling-of-metagenomes"><a class="anchor hidden-xs" href="#9-Resistome-profiling-of-metagenomes" title="9-Resistome-profiling-of-metagenomes"><span class="octicon octicon-link"></span></a><span>9. Resistome profiling of metagenomes</span></h1><div class="alert alert-success">
+<p><span>Antimicrobial resistance (AMR) is the ability of a microorganism (e.g., a bacterium, a virus) to resist the action of an antimicrobial agent. AMR is a global concern because new resistance mechanisms are emerging and are spreading globally.</span></p>
+<p><span>The human body harbours at various sites a complex microbial ecosystem and represents a vast reservoir for antimicrobial resistance genes (ARGs). The human resistome are all the genes that may encode antimicrobial resistance in the human microbiome.</span></p>
+<p>
+<img src="" width="400">
+</p><p><strong><span>In this exercise you will:</span></strong></p>
+<br>
+<ol>
+<li><span>Resistome profiling of sequence reads using </span><strong><span>ShortBRED</span></strong></li>
+<li><span>Resistome profiling of coding sequences using </span><strong><span>ShortBRED</span></strong></li>
+<li><span>Resistome profiling of multiple samples using </span><strong><span>ShortBRED</span></strong></li>
+<li><span>Visualisation of resistome profiles by hierarchical clustering using </span><strong><span>Hclust2</span></strong></li>
+</ol>
+<h4 id="Good-luck-with-the-exercises-and-have-fun👍😃👍" data-id="Good-luck-with-the-exercises-and-have-fun👍😃👍"><a class="anchor hidden-xs" href="#Good-luck-with-the-exercises-and-have-fun👍😃👍" title="Good-luck-with-the-exercises-and-have-fun👍😃👍"><span class="octicon octicon-link"></span></a><span>Good luck with the exercises and have fun👍😃👍</span></h4>
+</div><h2 id="1-Resistome-profiling-of-sequence-reads-using-ShortBRED" data-id="1-Resistome-profiling-of-sequence-reads-using-ShortBRED"><a class="anchor hidden-xs" href="#1-Resistome-profiling-of-sequence-reads-using-ShortBRED" title="1-Resistome-profiling-of-sequence-reads-using-ShortBRED"><span class="octicon octicon-link"></span></a><span>1. Resistome profiling of sequence reads using ShortBRED</span></h2><center><img src="https://i.imgur.com/lPsZoUc.png" alt="drawing" width="800"></center><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>ShortBRED</span></strong><span> is a system for profiling protein families of interest at very high specificity in shotgun meta’omic sequencing data.</span></p>
+<h4 id="ShortBRED-consists-of-two-main-scripts" data-id="ShortBRED-consists-of-two-main-scripts"><a class="anchor hidden-xs" href="#ShortBRED-consists-of-two-main-scripts" title="ShortBRED-consists-of-two-main-scripts"><span class="octicon octicon-link"></span></a><span>ShortBRED consists of two main scripts:</span></h4>
+<p><strong><span>ShortBRED-Identify</span></strong><span> - This takes a FASTA file of amino acid sequences, searches for overlap among itself and against a separate reference file of amino acid sequences, and then produces a FASTA file of markers.</span></p>
+<p><strong><span>ShortBRED-Quantify</span></strong><span> - This takes the FASTA file of markers and quantifies their relative abundance in a FASTA file of nucleotide metagenomic reads.</span></p>
+<p><span>You can read more about the tool </span><a href="https://huttenhower.sph.harvard.edu/shortbred" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><p><span style="color:blue"><span>I] Go to the directory </span><kbd><span>~/practical/</span></kbd><span> and copy the data for this exercise from the shared disk:</span></span></p><pre><code>cp -r /net/software/practical/9 .
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Remember to give yourself write permissions to the directory (and sub directories)</span></p>
+</div><p><span style="color:blue"><span>II] Go to the directory </span><kbd><span>~/practical/9/shortbred_sample1_reads/</span></kbd><span> and make symbolic links to the preprocessed synchronised FASTQ files generated prior to merging of overlapping reads (</span><code>sample1_R1_pair.fastq.gz</code><span> and </span><code>sample1_R2_pair.fastq.gz</code><span> in </span><kbd><span>~/practical/3/repair/</span></kbd><span>)</span></span></p><p><span style="color:blue"><span>III] </span><strong><span>ShortBRED</span></strong><span> does not accept PE inputs. In order to screen all reads (R1 + R2) you can concatenate the PE files:</span></span></p><pre><code>cat sample1_R1_pair.fastq.gz sample1_R2_pair.fastq.gz &gt; sample1_pair.fastq.gz
+</code></pre><p><span style="color:blue"><span>IV] Run quantification of AB resistance genes in the sample against the set of markers made from the CARD 2017 database using </span><strong><span>ShortBRED-Quantify</span></strong><span>:</span></span></p><pre><code>shortbred_quantify.py --markers /net/software/databases/shortbred/ShortBRED_CARD_2017_markers.faa --wgs sample1_pair.fastq.gz --results sample1_reads.txt --tmp sample1_quantify_reads --threads 16
+
+# --markers, AGR of interest file (protein seqs)
+# --wgs, input file
+# --results, result file
+# --tmp, tmp directory
+# --threads, number of threads
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The main results from </span><strong><span>ShortBRED-Quantify</span></strong><span> are placed in the same directory where you ran </span><strong><span>ShortBRED-Quantify</span></strong><span>. This lists each family, along with the normalised abundance for the family in RPKM (reads per kilobase of reference sequence per million sample reads).</span></p>
+<p><span>Description of the rest of the result files in the </span><code>tmp</code><span> folder for a run of </span><strong><span>ShortBRED-Quantify</span></strong><span> can be found </span><a href="https://bitbucket.org/biobakery/shortbred/wiki/Home" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><p><span style="color:blue"><span>V] View the content in </span><code>sample1_results.txt</code></span></p><p><span>❓How many marker gene families did you search against?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How many different ARG families is </span><strong><span>ShortBRED</span></strong><span> identifying in Sample 1? Hint: sort the Count column.</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+9 ARG families (tetQ, AAC(6\_)-Ie-APH(2__)-Ia, qacA, CfxA, norA, mgrA, ErmF, mecR1 and dfrC)
+</div></details><br><p><span>❓What is the length of the marker gene family </span><em><span>qacA</span></em><span> that reads in Sample 1 is matching?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:25%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 1 finished</span>
+ </span></div>
+</div><h1 id="2-Resistome-profiling-of-coding-sequences-using-ShortBRED" data-id="2-Resistome-profiling-of-coding-sequences-using-ShortBRED"><a class="anchor hidden-xs" href="#2-Resistome-profiling-of-coding-sequences-using-ShortBRED" title="2-Resistome-profiling-of-coding-sequences-using-ShortBRED"><span class="octicon octicon-link"></span></a><span>2. Resistome profiling of coding sequences using ShortBRED</span></h1><div class="alert alert-success">
+<p><span>💡</span><strong><span>ShortBRED</span></strong><span> can also be used to profile a set of ORFs from isolate genome (an “annotated” genome) using ShortBRED-Quantify and a set of markers.</span></p>
+<p><span>The command is similar to running </span><strong><span>ShortBRED</span></strong><span> on wgs files with sequence reaads, but uses the </span><code>--genome</code><span> flag to specify a genome instead of a wgs file. There are two additional flags, </span><code>--maxhits</code><span> and </span><code>--maxrejects</code><span> which instruct </span><strong><span>usearch</span></strong><span> to allow multiple markers to map to each ORF, and try multiple markers. If you set these to 0, </span><strong><span>usearch</span></strong><span> will test the full database of ORFs against each of the markers.</span></p>
+<h4 id="From-an-assembled-metagenome-you-can-either" data-id="From-an-assembled-metagenome-you-can-either"><a class="anchor hidden-xs" href="#From-an-assembled-metagenome-you-can-either" title="From-an-assembled-metagenome-you-can-either"><span class="octicon octicon-link"></span></a><span>From an assembled metagenome you can either:</span></h4>
+<ol>
+<li><span>Perform binning and perform quantification on all CDSs in each MAG</span></li>
+<li><span>Perform quantification on all CDSs in the complete metagenome</span></li>
+</ol>
+<h4 id="But-first-you-need-to-predict-all-protein-coding-sequences-in-the-assembled-metagenome" data-id="But-first-you-need-to-predict-all-protein-coding-sequences-in-the-assembled-metagenome"><a class="anchor hidden-xs" href="#But-first-you-need-to-predict-all-protein-coding-sequences-in-the-assembled-metagenome" title="But-first-you-need-to-predict-all-protein-coding-sequences-in-the-assembled-metagenome"><span class="octicon octicon-link"></span></a><span>But first you need to predict all protein coding sequences in the assembled metagenome.</span></h4>
+</div><p><span style="color:blue"><span>I] Go to the directory </span><kbd><span>~/practical/9/shortbred_sample1_cds/</span></kbd></span></p><p><span style="color:blue"><span>II] Make symbolic links to the assembled contig file (</span><code>sample1_metaspades_prepro.fasta</code><span>) for Sample 1 (should be in </span><kbd><span>~/practical/6/metaspades_prepro/sample1_metaspades_prepro/</span></kbd><span>)</span></span></p><center><img src="https://i.imgur.com/xlcXVbc.png" alt="drawing" width="300"></center><br><div class="alert alert-success">
+<p><span>💡	</span><strong><span>Prodigal</span></strong><span> is a protein-coding gene prediction software for prokaryotic genomes. In your assembled contigs there are gene coding for various proteins, and you can apply a gene prediction tools such as </span><strong><span>Prodigal</span></strong><span> to identify these protein coding genes</span></p>
+<p><span>You can read more about the tool </span><a href="https://github.com/hyattpd/Prodigal" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><p><span style="color:blue"><span>III] Run gene prediction using </span><strong><span>Prodigal</span></strong><span> on the contig file and name the output </span><code>sample1_cds.fasta</code><span>:</span></span></p><pre><code>prodigal -i sample1_metaspades_prepro.fasta -a sample1_cds.fasta
+
+# -i, input file with contigs
+# -o, predicted CDSs
+</code></pre><p><span style="color:blue"><span>IV] When </span><strong><span>Prodigal</span></strong><span> finishes, look at the output with the predicted protein coding sequences:</span></span></p><pre><code>head sample1_cds.fasta
+</code></pre><p><span>❓How many CDSs are predicted in Sample 1?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><br><p><span style="color:blue"><span>V] Run quantification of AB resistance genes in the sample against the CARD 2017 database:</span></span></p><pre><code>shortbred_quantify.py --genome sample1_cds.fasta --markers /net/software/databases/shortbred/ShortBRED_CARD_2017_markers.faa --tmp sample1_quantify_cds --maxhits 0 --maxrejects 0 --results sample1_cds.txt
+
+# --genome, name of the genome file (with CDSs)
+# --markers, AGR of interest file (protein seqs)
+# --results, result file
+# --tmp, tmp directory
+# --maxhits, the number of markers allowed to hit read
+# --maxrejects, the number of markers allowed to hit read
+</code></pre><p><span>❓How many different ARG families is </span><strong><span>ShortBRED</span></strong><span> identifying in Sample 1? Hint: sort the Count column.</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+7 ARG families: ErmF, tetQ, mecR1, qacA ,norA, mgrA and Staphylococcus (?)
+</div></details><br><p><span style="color:blue"><span>V] You can look up any of the hits in the CARD database (</span><a href="https://card.mcmaster.ca/home" target="_blank" rel="noopener"><span>https://card.mcmaster.ca/home</span></a><span>) using the the CARD accession number (ARO:)</span></span></p><p><span>❓Which antibiotic is “Staphylococcus” causing resistance against?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Daptomycin
+</div></details><br><p><span>❓What can be causing the differences in results from profiling reads versus profiling CDSs?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+One possibility is that the gene is missing from the assembly
+</div></details><br><div class="alert alert-warning">
+<h4 id="-Optional-exercise" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise" title="-Optional-exercise"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span>In this optional exercise you will try to identify the inconsistent results from performing resistome profiling on reads and on CDSs from the assembled metagenome.</span></p>
+<p><span>The AGR </span><code>dfrC</code><span> is identified in Sample 1 by profiling reads, but not by profiling CDSs. Is this because the gene is not present in the assembly?</span></p>
+<br>
+<center><img src="https://i.imgur.com/wN1xoY9.png" alt="drawing" width="800"></center>
+<br>
+<p><span>span style=“color:blue”&gt;Look up </span><code>dfrC</code><span> - ARO:3002865 in the CARD database (</span><a href="https://card.mcmaster.ca/home" target="_blank" rel="noopener"><span>https://card.mcmaster.ca/home</span></a><span>).</span></p>
+<br>
+<p><span style="color:blue"><span>Copy the protein sequence (a bit down on the page) of this database entry into a plain text file (you can use vi or any other text editor) and save it as </span><code>dfrC_cds.fasta</code></span></p>
+<br>
+<p><span style="color:blue"><span>In the directory where you have the predicted genes in Sample 1 from </span><strong><span>Prodigal</span></strong><span> (</span><code>Sample1_cds.fasta</code><span>), make a Blast database of this file:</span></span></p>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> You need to be in the </span><strong><span>Blast Conda</span></strong><span> environment</span></p>
+</div>
+<pre><code>makeblastdb -in Sample1_cds.fasta -dbtype prot
+</code></pre>
+<p><span style="color:blue"><span>Run </span><strong><span>BlastP</span></strong><span> with </span><code>dfrC_cds.fasta</code><span> against all the protein coding sequences in Sample 1:</span></span></p>
+<br>
+<pre><code>blastp -query dfrC_cds.fasta -db Sample1_cds.fasta -out dfrC_vs_sample1.txt
+</code></pre>
+<p><span>❓Do you find a homolog of </span><code>dfrC</code><span> in Sample 1?</span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:50%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 2 finished</span>
+ </span></div>
+</div><h2 id="3-Resistome-profiling-of-multiple-samples-using-ShortBRED" data-id="3-Resistome-profiling-of-multiple-samples-using-ShortBRED"><a class="anchor hidden-xs" href="#3-Resistome-profiling-of-multiple-samples-using-ShortBRED" title="3-Resistome-profiling-of-multiple-samples-using-ShortBRED"><span class="octicon octicon-link"></span></a><span>3. Resistome profiling of multiple samples using ShortBRED</span></h2><div class="alert alert-success">
+<p><span>💡In the next part of the exercise, you will capture the relative abundance numbers as these are normalised between samples. Hit counts are not directly comparable between samples. From this you can compare the resistome between samples and sample groups.</span></p>
+<p><span>In order to compare the eight samples, you must merge the results into one file. The result table from </span><strong><span>ShortBRED-Quantify</span></strong><span> has always the same length (marker genes). Therefore it is relatively easy to merge the result tables. Below is a description how to do this.</span></p>
+</div><div class="alert alert-danger">
+<p><span>We have prerun </span><strong><span>ShortBRED-Quantify</span></strong><span> for all 8 samples. The data is located here: </span><kbd><span>~/practical/9/shortbred_all</span></kbd></p>
+</div><p><span style="color:blue"><span>I] Go to the directory with the precomputed </span><strong><span>ShortBRED-Quantify</span></strong><span> data (</span><kbd><span>~/practical/9/shortbred_all</span></kbd><span>) and view the content. Note that the file names now starts with a capital letter.</span></span></p><p><span style="color:blue"><span>II] Make a “marker file” containing the markers (column 1 from any </span><code>Sample*_results.txt</code><span> file):</span></span></p><pre><code>awk '{print $1}' Sample1_results.txt &gt; AB_marker.tab
+</code></pre><p><span style="color:blue"><span>III] Run the script </span><code>cutColumnAndFilenameHeader.sh</code><span> to cut column 2 from all </span><code>Sample*_results.txt</code><span> files and replace header with filenames:</span></span></p><pre><code>./cutColumnAndFilenameHeader.sh 
+</code></pre><p><span style="color:blue"><span>IV] Join tables side-by-side and clean up the files in the directory:</span></span></p><pre><code>paste -d '\t' *.tab &gt; shortbred_merged.txt &amp;&amp; rm *.tmp &amp;&amp; rm *.tab
+</code></pre><p><span style="color:blue"><span>V] Open the merged outputs from </span><strong><span>ShortBRED-Quantify</span></strong><span> (</span><code>shortbred_merged.txt</code><span>) and remove the </span><code>.tmp</code><span> part from the header line for each sample. The final file should look something like this:</span></span></p><center><img src="https://i.imgur.com/J5Wng3y.png" alt="drawing" width="800"></center><br><p><span style="color:blue"><span>V] Many of the marker genes have no (0.0) reads mapping to them, and are therefore not interesting to keep. Remove all row that have only 0.0 for all eight samples:</span></span></p><pre><code>awk 'FNR == 1{print;next}{for(i=2;i&lt;=NF;i++) if($i &gt; 0.0){print;next}}' shortbred_merged.txt &gt; shortbred_mapped.txt
+</code></pre><p><span>❓How many different ARGs are identified together in all eight samples?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Sample 1-4 were taken from patients treated with probiotics, and Sample 4-8 were untreated. In previous exercises, you saw that the treatment had great impact on the taxonomic composition of the samples.</span></p>
+<p><span>Just by looking at the merged </span><strong><span>ShortBRED</span></strong><span> outputs, it is possible to see a different resistome pattern emerging between the treated and the untreated samples (remember from the taxonomic part that Sample 6 was an outlier relative to the other samples).</span></p>
+<br>
+<center><img src="https://i.imgur.com/kyVi910.png" alt="drawing" width="800"></center>
+<br>
+<p><span>In the next part, you will generates plots that can visualise these differences.</span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:75%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 3 finished</span>
+ </span></div>
+</div><h2 id="4-Visualisation-of-resistome-profiles-by-hierarchical-clustering-using-Hclust2" data-id="4-Visualisation-of-resistome-profiles-by-hierarchical-clustering-using-Hclust2"><a class="anchor hidden-xs" href="#4-Visualisation-of-resistome-profiles-by-hierarchical-clustering-using-Hclust2" title="4-Visualisation-of-resistome-profiles-by-hierarchical-clustering-using-Hclust2"><span class="octicon octicon-link"></span></a><span>4. Visualisation of resistome profiles by hierarchical clustering using Hclust2</span></h2><div class="alert alert-success">
+<p><span>💡</span><strong><span>Hclust2</span></strong><span>, which is a handy tool for plotting heat-maps with several useful options to produce high quality figures that can be used in publication.</span></p>
+<p><span>The input data for </span><strong><span>Hclust2</span></strong><span> has samples names on the first row, and metadata on the following rows. The first column lists the metadata categories and the marker genes. Note that the first cell in the table is empty!</span></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"><span>Sample1</span></th>
+<th style="text-align:center"><span>Sample2</span></th>
+<th style="text-align:center"><span>Sample3</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Group</span></td>
+<td style="text-align:center"><span>Treated</span></td>
+<td style="text-align:center"><span>Treated</span></td>
+<td style="text-align:center"><span>Untreated</span></td>
+</tr>
+<tr>
+<td><span>Sevtio/VF</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>1</span></td>
+</tr>
+<tr>
+<td><span>gb|AAA03550_1|ARO_3002523|AAC(2_)-Ia</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0666</span></td>
+</tr>
+<tr>
+<td><span>gb|AAC75733_1|ARO_3000074|emrB</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.555</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+</tr>
+<tr>
+<td><span>gb|AAO04716_1|ARO_3002865|dfrC</span></td>
+<td style="text-align:center"><span>0.333</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+</tr>
+<tr>
+<td><span>…</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.88</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>Clustering can be based on Jaccard distance between presence/absence profiles.</span></p>
+<p><span>You can read more about the tool </span><a href="https://bitbucket.org/nsegata/hclust2/src/default/" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><div class="alert alert-danger">
+<p><span>We have prepared the input table for </span><strong><span>Hclust2</span></strong><span> by combining information from </span><code>shortbred_mapped.txt</code><span> and the metadata from </span><code>metadata.txt</code><span>.</span></p>
+<p><span>The input file needs to have a metadata category with numbers as the first row! Therefore the </span><strong><span>Infloran</span></strong><span> category is placed on the first row.</span></p>
+<p><span>The table looks something like this (only showing the top of the table):</span></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"><span>Sample1</span></th>
+<th style="text-align:center"><span>Sample2</span></th>
+<th style="text-align:center"><span>Sample3</span></th>
+<th style="text-align:center"><span>Sample4</span></th>
+<th style="text-align:center"><span>Sample5</span></th>
+<th style="text-align:center"><span>Sample6</span></th>
+<th style="text-align:center"><span>Sample7</span></th>
+<th style="text-align:center"><span>Sample8</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Infloran</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>0</span></td>
+</tr>
+<tr>
+<td><span>Group</span></td>
+<td style="text-align:center"><span>Treated</span></td>
+<td style="text-align:center"><span>Treated</span></td>
+<td style="text-align:center"><span>Treated</span></td>
+<td style="text-align:center"><span>Treated</span></td>
+<td style="text-align:center"><span>Untreated</span></td>
+<td style="text-align:center"><span>Untreated</span></td>
+<td style="text-align:center"><span>Untreated</span></td>
+<td style="text-align:center"><span>Untreated</span></td>
+</tr>
+<tr>
+<td><span>Sevtio/VF</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+</tr>
+<tr>
+<td><span>Enteral/Parenteral feed</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>0</span></td>
+<td style="text-align:center"><span>1</span></td>
+<td style="text-align:center"><span>0</span></td>
+</tr>
+<tr>
+<td><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+<td style="text-align:center"><span>…</span></td>
+</tr>
+<tr>
+<td><span>gb|AAA21532_1|ARO_3003559|cepA</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+<td style="text-align:center"><span>329.8102799345704</span></td>
+<td style="text-align:center"><span>0.0</span></td>
+</tr>
+</tbody>
+</table>
+</div><p><span style="color:blue"><span>I] Generate heatmap using </span><strong><span>Hclust2</span></strong><span>:</span></span></p><pre><code>hclust2.py -i input_hclust2.txt -o shortbred_all_samples.png --skip_rows 1 --ftop 100 --f_dist_f correlation --cell_aspect_ratio 0.1 -s --fperc 99 --flabel_size 4 --metadata_rows 2,3,4 --legend_file shortbred_all_samples.legend.png --max_flabel_len 100 --metadata_height 0.075 --minv 100 --dpi 300 --slinkage complete --colorbar_font_size 8
+
+# -i, The input matrix
+# -o, The output image file
+# --skip_rows, Row numbers to skip (0-indexed, comma separated) from the input file
+# --ftop FTOP, Number of top features to select (ordering based on percentile specified by --fperc)
+# --f_dist_f, Distance function for features [default correlation]
+# --cell_aspect_ratio, Aspect ratio between width and height for the cells of the heatmap
+# -s, Square root scale
+# --fperc FPERC, Percentile of feature value distribution for sample selection
+# --flabel_size, Feature label font size
+# --metadata_rows, Row numbers to use as metadata
+# --legend_file, The output file for the legend of the provided metadata
+# --max_flabel_len, Max number of chars to report for sample labels
+# --metadata_height, Height of the metadata panel
+# --minv, Minimum value to display in the color map
+# --dpi, Image resolution in dpi [default 150]
+# --slinkage, Linkage method for sample clustering
+# --colorbar_font_size, Color bar label font size
+
+#To see the full list of options, type hclust2.py -h
+
+#OUTPUT: 	shortbred_all_samples.png, heatmap
+		shortbred_all_samples.legend.png, image with the legends
+</code></pre><p><span style="color:blue"><span>III] View the heatmap and the legend.</span></span></p><center><img src="https://i.imgur.com/Z19Bo0Y.png" alt="drawing" width="800"></center><center><img src="https://i.imgur.com/h7Zz07m.png" alt="drawing" width="800"></center><br><p><span>❓Does any of the metadata categories correlate to the hierarchical clustering of the resistome profiles?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, the tretment with probiotics
+</div></details><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:100%;background:#291;text-align:center;">
+   <span style="color:white"><span>Complete</span>
+ </span></div>
+</div><div class="alert alert-warning">
+<h4 id="-Optional-exercise1" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise1" title="-Optional-exercise1"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<h3 id="ARG-profiling-of-a-MAG-using-ResFinder" data-id="ARG-profiling-of-a-MAG-using-ResFinder"><a class="anchor hidden-xs" href="#ARG-profiling-of-a-MAG-using-ResFinder" title="ARG-profiling-of-a-MAG-using-ResFinder"><span class="octicon octicon-link"></span></a><span>ARG profiling of a MAG using ResFinder</span></h3>
+<br>
+<center><img src="https://i.imgur.com/H3HIbh1.png" alt="drawing" width="800"></center>
+<br>
+<div class="alert alert-success">
+<p><span>💡</span><strong><span>ResFinder</span></strong><span> identifies acquired antimicrobial resistance genes and/or chromosomal mutations in total or partial sequenced isolates of bacteria.</span></p>
+<p><strong><span>ResFinder</span></strong><span> consists of two programs, </span><code>ResFinder.py</code><span> identifing acquired genes, and </span><code>PointFinder.py</code><span> identifing chromosomal mutations.</span><br>
+<span>Software and databases are available online </span><a href="https://cge.cbs.dtu.dk/services/ResFinder-3.2/" target="_blank" rel="noopener"><span>here</span></a></p>
+<p><span>In this optional exercise, you will try to identify ARGs in a metagenomic assembled genome from Sample 1.</span></p>
+</div>
+<p><span style="color:blue"><span>Go to the directory </span><kbd><span>~/practical/9/mag/</span></kbd><span>. Here you will find one of the MAGs that were made from the binning using </span><strong><span>MaxBin</span></strong><span> in Module 5, bin003 (</span><code>sample1_maxbin.003.fasta</code><span>).</span></span></p>
+<br>
+<p><span style="color:blue"><span>Perform a taxonomic classification of the MAG using </span><strong><span>SendSketch</span></strong><span> and name the output </span><code>sample1_maxbin003_sketch.out</code></span></p>
+<br>
+<pre><code>/opt/bbmap/sendsketch.sh in=sample1_maxbin.003.fasta out=sample1_maxbin003_sketch.out outsketch=sample1_maxbin003_sketch.txt
+
+# in, sketch or fasta file to compare
+# out, comparison output
+# outsketch, write the sketch to a file
+</code></pre>
+<p><span>❓What specie is it likely that this MAG represent?</span></p>
+<br>
+<p><span style="color:blue"><span>Open a web browser and go to the </span><strong><span>ResFinder</span></strong><span> homepage (</span><a href="https://cge.cbs.dtu.dk/services/ResFinder-3.2/" target="_blank" rel="noopener"><span>https://cge.cbs.dtu.dk/services/ResFinder-3.2/</span></a><span>)</span></span></p>
+<br>
+<p><span style="color:blue"><span>Run ARG prediction for both Chromosomal mutations and Acquired antimicrobial resistance genes on the contigs. Select the most closely related species to search against.</span></span></p>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> If you are unlucky, you might end up in a long queue: Your job has been queued. You can try this link which is the results from a job we submitted before the stat of this course: </span><a href="https://cge.cbs.dtu.dk//cgi-bin/webface.fcgi?jobid=6176A38B0000362F7483E2D9" target="_blank" rel="noopener"><span>https://cge.cbs.dtu.dk//cgi-bin/webface.fcgi?jobid=6176A38B0000362F7483E2D9</span></a></p>
+</div>
+<p><span>❓How many potential ARGs are identified in this MAG by </span><strong><span>ResFinder</span></strong><span>?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4. cfxA3, mecA, qacA and msr(A)
+</div></details>
+<br>
+<p><span>❓How does these results correlate with the results you obtained using other tools for the complete Sample 1?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+ResFinder identifies msr(A) which confers resistance to macrolides with high confidence. This AGR is not identified by any of the other methods...
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Next, you will try to identify the inconsistent results from performing ARG profiling on a MAG and on the total CDSs from the assembled metagenome.</span></p>
+<p><span>The AGR </span><code>msrA</code><span> is identified in one of the MAGs of Sample 1 by </span><strong><span>ResFinder</span></strong><span>, but not by profiling all the CDSs in the assembled metagenome og Sample 1. Is this because the gene is not predicted by Prodigal for the metagenomic assembly, or is </span><strong><span>ShortBRED</span></strong><span> not able to identify this ARG in the sample?</span></p>
+<p><span>NB! You ran </span><strong><span>ShortBRED</span></strong><span> against the CARD database which has the </span><code>mrsA</code><span> gene included with the accession number: </span><strong><span>ARO:3000251</span></strong><span>. The (GenBank) accession number for the samme gene in </span><strong><span>ResFinder</span></strong><span> is </span><strong><span>X52085</span></strong><span>.</span></p>
+</div>
+<p><span style="color:blue"><span>Look up the protein sequence of </span><code>msrA</code><span> - X52085 in GenBank (</span><a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener"><span>https://www.ncbi.nlm.nih.gov/genbank/</span></a><span>).</span></span></p>
+<br>
+<p><span style="color:blue"><span>Save the protein sequence as </span><code>mrsA_cds.fasta</code></span></p>
+<br>
+<p><span style="color:blue"><span>In the directory where you have the predicted genes in Sample 1 from </span><strong><span>Prodigal</span></strong><span> (</span><code>Sample1_cds.fasta</code><span>), make a Blast database of this file (if you didn’t already do this in a previous optional exercise):</span></span></p>
+<br>
+<pre><code>makeblastdb -in Sample1_cds.fasta -dbtype prot
+</code></pre>
+<p><span style="color:blue"><span>Run </span><strong><span>BlastP</span></strong><span> with </span><code>mrsA_cds.fasta</code><span> against all the protein coding sequences in Sample 1:</span></span></p>
+<br>
+<pre><code>blastp -query mrsA_cds.fasta -db Sample1_cds.fasta -out mrsA_vs_sample1.txt
+</code></pre>
+<p><span>❓Do you find a homolog of </span><code>mrsA</code><span> in Sample 1?</span></p>
+<hr>
+<h2 id="That-was-the-end-of-this-practical---Good-job-👍" data-id="That-was-the-end-of-this-practical---Good-job-👍"><a class="anchor hidden-xs" href="#That-was-the-end-of-this-practical---Good-job-👍" title="That-was-the-end-of-this-practical---Good-job-👍"><span class="octicon octicon-link"></span></a><span>That was the end of this practical - Good job 👍</span></h2>
+<hr>
+</div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#9-Resistome-profiling-of-metagenomes" title="9. Resistome profiling of metagenomes">9. Resistome profiling of metagenomes</a><ul class="nav">
+<li><a href="#1-Resistome-profiling-of-sequence-reads-using-ShortBRED" title="1. Resistome profiling of sequence reads using ShortBRED">1. Resistome profiling of sequence reads using ShortBRED</a></li>
+</ul>
+</li>
+<li><a href="#2-Resistome-profiling-of-coding-sequences-using-ShortBRED" title="2. Resistome profiling of coding sequences using ShortBRED">2. Resistome profiling of coding sequences using ShortBRED</a><ul class="nav">
+<li><a href="#3-Resistome-profiling-of-multiple-samples-using-ShortBRED" title="3. Resistome profiling of multiple samples using ShortBRED">3. Resistome profiling of multiple samples using ShortBRED</a></li>
+<li><a href="#4-Visualisation-of-resistome-profiles-by-hierarchical-clustering-using-Hclust2" title="4. Visualisation of resistome profiles by hierarchical clustering using Hclust2">4. Visualisation of resistome profiles by hierarchical clustering using Hclust2</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#9-Resistome-profiling-of-metagenomes" title="9. Resistome profiling of metagenomes">9. Resistome profiling of metagenomes</a><ul class="nav">
+<li><a href="#1-Resistome-profiling-of-sequence-reads-using-ShortBRED" title="1. Resistome profiling of sequence reads using ShortBRED">1. Resistome profiling of sequence reads using ShortBRED</a></li>
+</ul>
+</li>
+<li><a href="#2-Resistome-profiling-of-coding-sequences-using-ShortBRED" title="2. Resistome profiling of coding sequences using ShortBRED">2. Resistome profiling of coding sequences using ShortBRED</a><ul class="nav">
+<li><a href="#3-Resistome-profiling-of-multiple-samples-using-ShortBRED" title="3. Resistome profiling of multiple samples using ShortBRED">3. Resistome profiling of multiple samples using ShortBRED</a></li>
+<li><a href="#4-Visualisation-of-resistome-profiles-by-hierarchical-clustering-using-Hclust2" title="4. Visualisation of resistome profiles by hierarchical clustering using Hclust2">4. Visualisation of resistome profiles by hierarchical clustering using Hclust2</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

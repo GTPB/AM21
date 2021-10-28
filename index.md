@@ -92,14 +92,32 @@ The student will have acquired a theoretical basis and practical experience to u
     - Welcome and introduction to ELIXIR
     - [Introduction to metagenomics](assets/01-intro/Day1_Intro_Metagenomics.pdf)
     - Metagenomic sequencing technologies
-2. Quality control and filtering
-    - [Quality control](assets/02-qc_filter/2.QC.pdf)
-    - [Exercise - Quality control & removal of optical duplicates](pages/02-qc/2.QualityControlAndRemovalOfOpticalDuplicates.md)
-    - [Exercise - test](pages/02-qc/test_page.md)
-    - [Exercise - Quality control & removal of optical duplicates](pages/02-qc/2.QualityControlAndRemovalOfOpticalDuplicates.html)
+2. Quality control
+    - [Lecture - Quality control](assets/02-qc/2.QC.pdf)
+    - [Exercise - Quality control](pages/02-qc/2.qc.html)
+3. Trimming and filtering
+    - [Lecture - Trimming and filtering](assets/03-trim/3.Trimming_filtering.pdf)
+    - [Exercise - Trimming and filtering](pages/03-trim/3.trim.html)
+4. Taxonomic classification
+    - [Lecture - Taxonomic classification](assets/04-taxonomy/4.Taxonomic_classification.pdf)
+    - [Exercise - Taxonomic classification](pages/04-taxonomy/4.taxonomic.html)
+5. Comparison of sample groups
+    - [Lecture - Comparison of sample groups](assets/05-comparison/2.QC.pdf)
+    - [Exercise - Comparison of sample groups](pages/05-comparison/5.comparison.html)
+6. Genome assembly from metagenomes
+    - [Lecture - Genome assembly from metagenomes](assets/06-assembly/6.Assembly_Validation.pdf)
+    - [Exercise - Genome assembly from metagenomes](pages/06-assembly/6.assembly.html)
+7. Metagenomic binning
+    - [Lecture - Metagenomic binning](assets/07-binning/7.Binning.pdf)
+    - [Exercise - Metagenomic binning](pages/07-binning/7.binning.html)
+8. Functional classification
+    - [Lecture - Functional classification](assets/08-functional/8.FunctionalAnalysis.pdf)
+    - [Exercise - Functional classification](pages/08-functional/8.functional.html)
+9. Resistome profiling
+    - [Lecture - Resistome profiling](assets/02-resistome/9.resistome.pdf)
+    - [Exercise - Resistome profiling](pages/02-resistome/9.resistome.html)
 
-
-
+05-comparison
 ---
 
 The source for this course webpage is [in github](https://github.com/GTPB/Web_course_template).

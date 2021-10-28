@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        7. Binning and MAGs - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="7-Binning-and-MAGs" data-id="7-Binning-and-MAGs"><a class="anchor hidden-xs" href="#7-Binning-and-MAGs" title="7-Binning-and-MAGs"><span class="octicon octicon-link"></span></a><span>7. Binning and MAGs</span></h1><div class="alert alert-success">
+<p><span>In the previous exercise you went through a thorough process of quality checking the data from a metagenomic sample obtained from the human gut, before you performed metagenomic assembly of the sequence data.</span></p>
+<p><span>In this exercise you will perform taxonomy independent binning of both assembled contigs and directly on sequence reads. You will also check the quality of the metagenomic bins.</span></p>
+<p><span>Finally, you will compare the results from the binning of contigs against the binning of reads by studying the most complete MAG from both methods in more detail.</span></p>
+<p><strong><span>In this exercise you will:</span></strong></p>
+<ol>
+<li><span>Metagenomic binning using </span><strong><span>MaxBin</span></strong></li>
+<li><span>Quality check using </span><strong><span>CheckM</span></strong></li>
+<li><span>Mapping of reads on metagenomic assembly using </span><strong><span>Bowtie2</span></strong><span> and </span><strong><span>SAMtools</span></strong></li>
+<li><span>Evaluate assembly accuracy using </span><strong><span>FRC</span></strong><span> and </span><strong><span>Artemis</span></strong></li>
+<li><span>Binning of sequence reads using </span><strong><span>MetaProb</span></strong></li>
+</ol>
+<h4 id="Good-luck-with-the-exercises-and-have-fun👍😃👍" data-id="Good-luck-with-the-exercises-and-have-fun👍😃👍"><a class="anchor hidden-xs" href="#Good-luck-with-the-exercises-and-have-fun👍😃👍" title="Good-luck-with-the-exercises-and-have-fun👍😃👍"><span class="octicon octicon-link"></span></a><span>Good luck with the exercises and have fun👍😃👍</span></h4>
+</div><h2 id="1-Binning-of-assembled-contigs-using-MaxBin" data-id="1-Binning-of-assembled-contigs-using-MaxBin"><a class="anchor hidden-xs" href="#1-Binning-of-assembled-contigs-using-MaxBin" title="1-Binning-of-assembled-contigs-using-MaxBin"><span class="octicon octicon-link"></span></a><span>1. Binning of assembled contigs using MaxBin</span></h2><center><img src="https://i.imgur.com/yJiOgAN.jpg" alt="drawing" width="300"></center><br><div class="alert alert-success">
+<p><span>💡</span><strong><span>MaxBin</span></strong><span> automates binning of assembled metagenomic contigs by first creating bins from initial identification of marker genes in the assembled sequences, then organise metagenomic sequences into individual bins based on similarities and differences in coverage and sequence composition. You can read more about </span><strong><span>MaxBin</span></strong><span> </span><a href="https://downloads.jbei.org/data/microbial_communities/MaxBin/MaxBin.html" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<p><strong><span>Maxbin</span></strong><span> needs both assembled metagenome and the sequence reads (alternatively reads coverage information) as input, and will report genome-related statistics, including estimated completeness, GC content and genome size in the binning summary page.</span></p>
+<p><span>By default </span><strong><span>MaxBin</span></strong><span> will look for 107 marker genes present in &gt;95% of bacteria and use for completeness and contamination estimations.</span></p>
+<p><span>NB! For this exercise, we have chosen to use the </span><strong><span>metaSPAdes</span></strong><span> assembly of the preprocessed data, not necessarily because it is the best assembly. You can choose to work with a different assembly if you prefer that.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>MaxBin</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>I] Go to the directory </span><kbd><span>~/practical/</span></kbd><span> and copy the data for this exercise from the shared disk:</span></span></p><pre><code>cp -r /net/software/practical/7 .
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Remember to give yourself write permissions to the directory (and sub directories)</span></p>
+</div><p><span style="color:blue"><span>II] Go to the directory </span><kbd><span>~/practical/7/maxbin/</span></kbd><span> and create symbolic links to the preprocessed synchronised FASTQ files generated prior to merging of overlapping reads (</span><code>sample1_R1_pair.fastq.gz</code><span> and </span><code>sample1_R2_pair.fastq.gz</code><span> in </span><kbd><span>~/practical/3/repair/</span></kbd><span>) AND to the assembly produced by </span><strong><span>MetaSPAdes</span></strong><span> (</span><code>sample1_metaspades_prepro.fasta</code><span> in </span><kbd><span>~/practical/6/metaspades_prepro/sample1_metaspades_prepro/</span></kbd><span>).</span></span></p><p><span style="color:blue"><span>III] Run </span><strong><span>MaxBin</span></strong><span> and create bins from the </span><strong><span>metaSPAdes</span></strong><span> assembled contigs. Plot the marker genes and name the output </span><code>sample1_maxbin</code><span>:</span></span></p><pre><code>run_MaxBin.pl -contig sample1_metaspades_prepro.fasta -reads sample1_R1_pair.fastq.gz -reads2 sample1_R2_pair.fastq.gz -out sample1_maxbin -plotmarker -thread 16
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>MaxBin</span></strong><span> will take 8 minutes to process your data when we tested it</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Below is a description of the </span><strong><span>MaxBin</span></strong><span> output.</span></p>
+<p><span>=</span><mark><span>MaxBin Output</span></mark><span>=</span><br>
+<span>Assume your output file header is (out). </span><strong><span>MaxBin</span></strong><span> will generate information using this file header as follows.</span></p>
+<pre><code>(out).0XX.fasta -- the XX bin. XX are numbers, e.g. out.001.fasta
+(out).summary -- a summary file describing which contigs are being classified into which bin.
+(out).log -- a log file recording the core steps of MaxBin algorithm
+(out).marker -- marker gene presence numbers for each bin. This table is ready to be plotted by R or other 3rd-party software.
+(out).marker.pdf -- visualization of the marker gene presence numbers using R. Will only appear if -plotmarker is specified.
+(out).noclass -- this file stores all sequences that pass the minimum length threshold but are not classified successfully.
+(out).tooshort -- this file stores all sequences that do not meet the minimum length threshold.
+(out).marker_of_each_gene.tar.gz -- this tarball file stores all markers predicted from the individual bins. Use "tar -zxvf (out).marker_of_each_gene.tar.gz" to extract the markers [(out).0XX.marker.fasta].
+
+(if -reassembly is given)
+(out)_reassem/(out).reads.0xx -- the collected reads for the 0xx bin.
+(out)_reassem/(out).reads.noclass - reads that cannot be assigned to any bin.
+</code></pre>
+</div><p><span style="color:blue"><span>IV] Open the </span><code>sample1_maxbin.summary</code><span> file.</span></span></p><p><span>❓How many bins did </span><strong><span>MaxBin</span></strong><span> generate for the assembly using the raw FASTQ files and how complete are the bins?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How complete is the largest bin, and what is the size of this MAG?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+95,3% complete, 2 505 860 bp
+</div></details><br><p><span style="color:blue"><span>V] Open the file </span><code>sample1_maxbin.marker</code><span> in a text editor.</span></span></p><p><span>❓ Are some marker genes present in more than one copy in one bin, and can you think of why?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, e.g. the marker gene Ribosomal_L6 in bin001 are present in two copies in the bin. Could be mis-assembled contigs (contigs that should have been merged). Could also be wrong clustering of contigs by **MaxBin**
+</div></details><br><p><span style="color:blue"><span>VI] The file </span><code>sample1_maxbin.marker.pdf</code><span> contain the same information as the previous file you looked at. Open the pfd file and look at the plot.</span></span></p><p><span>❓ How many marker genes are present in two copies in bin002 and how many are not detected?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+3 marker genes are present in two copies. 2 marker genes are not present
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Because of the high dominance of three species in the sample, </span><strong><span>Maxbin</span></strong><span> is only able to identify three genomic bins. This does not mean that there are not other low abundant species present in the sample.</span></p>
+</div><br><kbd>/opt/bbmap/</kbd><p><span style="color:blue"><span>VII] Run </span><code>sendsketch</code><span> to taxonomically classify bin001:</span></span></p><pre><code>/opt/bbmap/sendsketch.sh in=sample1_maxbin.001.fasta out=sample1_maxbin001_sketch.out outsketch=sample1_maxbin001_sketch.txt
+
+# in=, input bin (fasta)
+# out=, taxonomic output
+</code></pre><p><span>❓ What specie it likely that bin001 represent?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:20%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 1 finished</span>
+ </span></div>
+</div><br><h2 id="2-Assess-the-quality-of-metagenomic-bins" data-id="2-Assess-the-quality-of-metagenomic-bins"><a class="anchor hidden-xs" href="#2-Assess-the-quality-of-metagenomic-bins" title="2-Assess-the-quality-of-metagenomic-bins"><span class="octicon octicon-link"></span></a><span>2. Assess the quality of metagenomic bins</span></h2><center><img src="https://i.imgur.com/Yf4aYDl.png" alt="drawing" width="300"></center><br><div class="alert alert-success">
+<p><span>💡</span><a href="http://ecogenomics.github.io/CheckM/" target="_blank" rel="noopener"><span>CheckM</span></a><span> provides a set of tools for assessing the quality of genomes. It provides robust estimates of genome completeness and contamination by using collocated sets of genes that are ubiquitous and single-copy within a phylogenetic lineage. </span><strong><span>CheckM</span></strong><span> also provides tools for identifying genome bins that are likely candidates for merging based on marker set compatibility, similarity in genomic characteristics, and proximity within a reference genome tree.</span></p>
+<br>
+<p><span>Read more about </span><strong><span>CheckM</span></strong><span> </span><a href="https://github.com/Ecogenomics/CheckM/wiki" target="_blank" rel="noopener"><span>here</span></a></p>
+<br>
+<p><span>The recommended workflow for assessing the completeness and contamination of genome bins is to use lineage-specific marker sets (Lineage-specific Workflow). This workflow consists of 4 mandatory (M) steps and 1 recommended ® step:</span></p>
+<br>
+<pre><code>(M) &gt; checkm tree &lt;bin folder&gt; &lt;output folder&gt;
+(R) &gt; checkm tree_qa &lt;output folder&gt;
+(M) &gt; checkm lineage_set &lt;output folder&gt; &lt;marker file&gt;
+(M) &gt; checkm analyze &lt;marker file&gt; &lt;bin folder&gt; &lt;output folder&gt;
+(M) &gt; checkm qa &lt;marker file&gt; &lt;output folder&gt;
+</code></pre>
+</div><div class="alert alert-danger">
+<p><strong><span>CheckM</span></strong><span> is resource demanding and requires more than 16GB RAM to run. It is therefore not possible to run </span><strong><span>CheckM</span></strong><span> on these virtual machines, and we have prerun </span><strong><span>CheckM</span></strong><span> for you.</span></p>
+<h4 id="This-is-how-CheckM-was-run" data-id="This-is-how-CheckM-was-run"><a class="anchor hidden-xs" href="#This-is-how-CheckM-was-run" title="This-is-how-CheckM-was-run"><span class="octicon octicon-link"></span></a><span>This is how </span><strong><span>CheckM</span></strong><span> was run:</span></h4>
+<p><span style="color:blue"><span>The </span><strong><span>CheckM</span></strong><span> database was configured like this:</span></span></p>
+<br>
+<pre><code>checkm data setRoot /opt/databases/checkm_databases
+</code></pre>
+<p><span style="color:blue"><span>In </span><kbd><span>~/practical/7/checkm/bins_maxbin/</span></kbd><span> a copy of the bins produced by </span><strong><span>MaxBin</span></strong><span> in the previous exercise were copied. The bin files are the fasta files named </span><code>sample1_maxbin.00*</code><span> and should be located in </span><kbd><span>~/practical/7/maxbin/</span></kbd><span>.</span></span></p>
+<br>
+<p><span style="color:blue"><span>In the </span><code>checkm</code><span> directory (one directory up), </span><strong><span>CheckM</span></strong><span> was run using the following command:</span></span></p>
+<br>
+<pre><code>checkm lineage_wf -t 16 -r -x fasta --tab_table -f bin_table bins_maxbin checkm_out
+
+# -t, threads
+# -r, use reduced tree (requires &lt;16GB of memory) for determining lineage of each bin
+# -x, extension (e.g fasta)
+# --tab_table -f bin_table (tab separated table named bin_table that can be directly read by Excel)
+# bins_maxbin is the folder with the FASTA files of the bins from MaxBin
+# checkm_out is the output directory
+</code></pre>
+<p><span>The output from </span><strong><span>CheckM</span></strong><span> is in the directory </span><kbd><span>~/practical/7/checkm</span></kbd></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Checkm Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>I] Open the </span><code>bin_table</code><span> file.</span></span></p><p><span>❓Which taxonomic lineages has </span><strong><span>CheckM</span></strong><span> suggested your bins to belong to?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+*Bifidobacteriaceae*, *Prevotella* and *Staphylococcus*
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>CheckM</span></strong><span> use marker genes that are specific to a genome’s inferred lineage. This means that the tool identifies which taxonomic lineage the genomic bins belongs to and generate lineage-specific marker genes to provide refined estimates of genome completeness and contamination.</span></p>
+</div><p><span>❓How many genomes were used in generating the marker set for bin001 and how many marker genes does this lineage-specific marker gene set consist of?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+65 genomes, 476 lineage-specific markers
+</div></details><br><p><span>❓Does the </span><strong><span>CheckM</span></strong><span> completeness estimates correlate with the estimates from </span><strong><span>MaxBin</span></strong><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Although they use different gene marker sets they correlate well, but there are some differences
+</div></details><br><p><span>❓Are any of the bins contaminated?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, bin002 and bin003
+</div></details><br><p><span>❓Does </span><strong><span>CheckM</span></strong><span> report any of the genomic bins as complete, and which genus does this bin belong to?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>CheckM</span></strong><span> can produce a number of plots for assessing the quality of genome bins.</span></p>
+</div><p><span style="color:blue"><span>VII] Generate a </span><strong><span>“gc_plot”</span></strong><span> which is a visual plot for assessing the GC distribution of sequences within each genome bin:</span></span></p><pre><code>checkm gc_plot -x fasta bins_maxbin plots 95
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The first pane is a histogram of the number of non-overlapping 5 kbp windows with a give percent GC. A typical genome will produce a unimodal distribution.</span></p>
+<p><span>The second pane plots each sequence in the genome bin as a function of its deviation from the average GC of the entire genome (x-axis) and sequence length (y-axis).</span></p>
+<p><span>The dashed red lines indicate the expected deviation from the mean GC as a function of length. This expected deviation is pre-calculated from a set of trusted reference genomes and the percentile plotted is provided as an argument to this command. A good default value to use for this distribution parameter is 95.</span></p>
+</div><p><span style="color:blue"><span>VIII] Look at the GC plot produced for bin001.</span></span></p><p><span>❓Does the GC content in any of the contigs in this bin deviate significantly from the average GC content of the total contigs in the bin?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, 5 contigs have lower GC content (~35%) than the expected deviation from the mean GC
+</div></details><br><p><span>❓ Would you regard these contigs as contaminants in the bin?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Not necessarily. They could represent horizontally acquired DNA (e.g. plasmid DNA)
+</div></details><br><p><span style="color:blue"><span>IX] Look at the GC plot produced for bin003.</span></span></p><p><span>❓ Does the GC content in any of the contigs in this bin deviate significantly from the average GC content of the total contigs in the bin?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, many contigs. This genome bin is either very diverse, or it could be contaminated
+</div></details><br><p><span style="color:blue"><span>X] Generate a </span><strong><span>“tetra_plot”</span></strong><span> which is a visual plot for assessing the tetra nucleotide distribution of sequences within each genome bin, similar to the GC plot above. In </span><kbd><span>~/practical/7/checkm</span></kbd><span>, make a symbolic link to the file </span><code>sample1_metaspades_prepro.fasta</code><span> located in </span><kbd><span>~/practical/6/metaspades_prepro/sample1_metaspades_prepro/</span></kbd></span></p><p><span style="color:blue"><span>XI] Produce </span><strong><span>tetra nucleotide signatures</span></strong><span> for all sequences within a FASTA file. </span><strong><span>Tetra nucleotide signatures</span></strong><span> are required for a number of the plots produced by </span><strong><span>CheckM</span></strong><span>:</span></span></p><pre><code>checkm tetra sample1_metaspades_prepro.fasta sample1_metaspades_prepro.tsv
+</code></pre><p><span style="color:blue"><span>XII] Have a look at the tetra nucleotide signatures in </span><code>sample1_metaspades_prepro.tsv</code><span>.</span></span></p><p><span>❓There could be a maximum of 256 different tetra nucleotides, how many does </span><strong><span>CheckM</span></strong><span> report for your data?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+136 tetra nucleotides
+</div></details><br><p><span style="color:blue"><span>XIII] Generate the </span><strong><span>“tetra_plot”</span></strong><span>:</span></span></p><pre><code>checkm tetra_plot -x fasta checkm_out bins_maxbin plots sample1_metaspades_prepro.tsv 95
+</code></pre><p><span style="color:blue"><span>XIV] Look at the tetra nucleotide plot produced for bin001. The Manhattan distance is used for determine the difference between each sequences tetranucleotide signature and the tetranucleotide signature of the entire genome bin.</span></span></p><p><span>❓Does the tetra nucleotide signature in any of the contigs in this bin deviate significantly from the average tetra nucleotide signature of the total contigs in the bin?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, 5 contigs have a deviating signature than the expected deviation from the mean
+</div></details><br><p><span style="color:blue"><span>XV] Produce a histogram of the length of the contigs in each genome bin using </span><code>len_hist</code><span>.</span></span></p><pre><code>checkm len_hist -x fasta bins_maxbin plots
+</code></pre><p><span>❓Compare the plots from bin001 and bin003. Which genome bin is most fragmented with regards to the number of contigs making up the total MAG?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The MAG in bin003 is highly fragmented - has many small contigs
+</div></details><br><p><span>❓How many contigs does the MAG in bin001 consist of?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span style="color:blue"><span>XVI] Check how large fraction of the total assembled genome that did not get binned by </span><strong><span>MaxBin</span></strong><span> using </span><code>unbinned</code><span>:</span></span></p><pre><code>checkm unbinned -x fasta bins_maxbin sample1_metaspades_prepro.fasta unbinned.fna unbinned_stats.tsv
+</code></pre><p><span>❓How many percent of the bases in the </span><strong><span>metaSPAdes</span></strong><span> assembly did not get binned by </span><strong><span>MaxBin</span></strong><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+~5,58% of the total number of bases in the assembly did not get binned
+</div></details><br><div class="alert alert-warning">
+<h4 id="-Optional-exercise" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise" title="-Optional-exercise"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span style="color:blue"><span>Run </span><strong><span>BLAST</span></strong><span> on a on the largest unbinned contig and see what species it matches.</span><br>
+<span>Hint: You can use </span><strong><span>SeqKit</span></strong><span> to sort the FASTA file with the unbinned contigs.</span><br>
+<span>Hint: </span><strong><span>BLAST</span></strong><span> is installed in a separate </span><strong><span>Conda</span></strong><span> environment</span></span></p>
+<br>
+<p><span>❓Which Genus may the largest unbinned contig originate from?</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>Note:</span></strong><span> It is possible to refine the bins by either merging bins or removing contigs from a bin. </span><strong><span>CheckM</span></strong><span> can identify genome bins with complementary sets of marker genes and perform merging. Also, you can identify which contigs have multiple marker genes and remove them.</span></p>
+<p><span>However, it is not advised to do this unless you have strong evidence that supports this refinement. For example for contamination:</span></p>
+<p><span>“The contamination is an estimate based on the marker genes, however it is possible (or likely) that contigs that originate from another organism may not contain marker genes. Simply removing contigs with the duplicated marker genes will improve the stats but may not mean that your genome is decontaminated and may give a false impression of quality.”</span></p>
+</div><p><span>❓How would you summarise the results you have from the binning and the quality control of the bins?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Bin001 and 002 are very good (complete and few possible contaminants), while the content of bin003 is maybe a bit more doubtful...
+</div></details><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:40%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 2 finished</span>
+ </span></div>
+</div><br><h2 id="3-Mapping-of-reads-on-metagenomic-assembly" data-id="3-Mapping-of-reads-on-metagenomic-assembly"><a class="anchor hidden-xs" href="#3-Mapping-of-reads-on-metagenomic-assembly" title="3-Mapping-of-reads-on-metagenomic-assembly"><span class="octicon octicon-link"></span></a><span>3. Mapping of reads on metagenomic assembly</span></h2><center><img src="https://i.imgur.com/gxXejhV.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><span>💡In this part of the exercise you will explore one of the MAGs (bin001) in more detail, by mapping the sequence reads back onto the metagenomic assembly. This can be used for further quality assessment of the assembly. In order to investigate read mapping to a bin, a coverage file for the bin must be generated. The coverage file is basically an alignment file where the sequence reads have been aligned against the genome bin.</span></p>
+<p><span>You will use </span><strong><span>Bowtie2</span></strong><span> to perform the mapping. </span><strong><span>Bowtie2</span></strong><span> aligns short reads to an BWT indexed genome. </span><strong><span>SAMtools</span></strong><span> is a tool for manipulating alignments in the SAM format.</span></p>
+<p><span>You can read more about </span><strong><span>Bowtie2</span></strong><span> </span><a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml" target="_blank" rel="noopener"><span>here</span></a><span> and </span><strong><span>SAMtools</span></strong><span> </span><a href="http://samtools.sourceforge.net/" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<p><span>You will perform the following:</span></p>
+<ul>
+<li><span>Build an index using the assembled metagenome as a reference (</span><code>sample1_metaspades_prepro.fasta</code><span>) using </span><strong><span>Bowtie2</span></strong></li>
+<li><span>Align sequence reads against the reference and save the information in a SAM file using </span><strong><span>Bowtie2</span></strong></li>
+<li><span>Convert SAM file to BAM file using </span><strong><span>SAMtools</span></strong></li>
+<li><span>Sort and index the BAM file using </span><strong><span>SAMtools</span></strong><span> </span><code>sort</code><span> and </span><strong><span>SAMtools</span></strong><span> </span><code>index</code></li>
+</ul>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>Bowtie2</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>I] In the directory </span><kbd><span>/practical/7/checkm/align_reads/map_bin001/</span></kbd><span>, create symbolic links to the preprocessed synchronised FASTQ files generated by </span><strong><span>repair</span></strong><span> in Exercise 3 (</span><code>sample1_R1_pair.fastq.gz</code><span> and </span><code>sample1_R2_pair.fastq.gz</code><span>) AND to the most complete genome bin by </span><strong><span>MaxBin</span></strong><span> (</span><code>sample1_maxbin.001.fasta</code><span>):</span></span></p><pre><code>ln -s ~practical/3/repair/sample1_R* .
+ln -s ~practical/7/maxbin/sample1_maxbin.001.fasta .
+</code></pre><p><span style="color:blue"><span>II] Build a new index of the assembly file using </span><strong><span>bowtie2-build</span></strong><span> and name the indexed genome </span><code>bin001</code><span>:</span></span></p><pre><code>bowtie2-build sample1_maxbin.001.fasta bin001
+</code></pre><p><span style="color:blue"><span>III] Align the sequence reads from the preprocessed synchronised (FASTQ files) against the indexed metagenome sequence using </span><strong><span>Bowtie2</span></strong><span>.</span></span></p><pre><code>bowtie2 -x bin001 -1 sample1_R1_pair.fastq.gz -2 sample1_R2_pair.fastq.gz -S bin001.sam -p 16
+
+# -x, Reference index filename prefix
+# -1, Files with #1 mates, paired with files in &lt;m2&gt;
+# -2, Files with #2 mates, paired with files in &lt;m1&gt;
+# -S, File for SAM output
+# -p, Number of threads
+
+OUTPUT: bin001.sam
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The mapping takes approximately 10 minutes. If you don’t want to wait, we have prerun Bowtie2. The output </span><code>bin001.sam</code><span> is located in </span><kbd><span>~/practical/7/align_reads/map_bin001/</span></kbd></p>
+</div><p><span style="color:blue"><span>IV] Convert the SAM file to BAM using </span><strong><span>SAMtools</span></strong><span> </span><code>view</code><span>.</span></span></p><pre><code>samtools view -bS -o bin001.bam bin001.sam
+
+OUTPUT: bin001.bam
+</code></pre><p><span style="color:blue"><span>V] Sort the BAM file using </span><strong><span>SAMtools</span></strong><span> </span><code>sort</code><span>.</span></span></p><pre><code>samtools sort bin001.bam -o bin001.sorted.bam
+
+OUTPUT: bin001.sorted.bam
+</code></pre><p><span style="color:blue"><span>VI] Index the bam file using Samtools index:</span></span></p><pre><code>samtools index bin001.sorted.bam
+
+OUTPUT: bin001.sorted.bam.bai
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Now you have mapped the sequence reads onto the contigs making up the MAG in bin001.</span></p>
+</div><p><span style="color:blue"><span>VII] Calculate coverage for all contigs in bin001.</span></span></p><pre><code>checkm coverage -x fasta bins_maxbin coverage.tsv align_reads/map_bin001/bin001.sorted.bam
+
+OUTPUT: coverage.tsv
+</code></pre><p><span style="color:blue"><span>VIII] Open </span><code>coverage.tsv</code><span>.</span></span></p><p><span>❓What is the average coverage of bin001?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+~268 X
+</div></details><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:60%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 3 finished</span>
+ </span></div>
+</div><h2 id="4-Evaluate-assembly-accuracy-using-FRCbam-and-Artemis" data-id="4-Evaluate-assembly-accuracy-using-FRCbam-and-Artemis"><a class="anchor hidden-xs" href="#4-Evaluate-assembly-accuracy-using-FRCbam-and-Artemis" title="4-Evaluate-assembly-accuracy-using-FRCbam-and-Artemis"><span class="octicon octicon-link"></span></a><span>4. Evaluate assembly accuracy using FRCbam and Artemis</span></h2><center><img src="https://i.imgur.com/Q6c2jUt.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><span>💡 Read congruency is an important measure in determining assembly accuracy. Clusters of read pairs that align incorrectly are strong indicators of mis-assembly.</span></p>
+<p><span>In this part of the exercise you will use the mapping you performed of the sequence reads against the most complete MAG (bin001), and produce read alignment statistics using </span><strong><span>FRC</span></strong><span>. </span><strong><span>FRC</span></strong><span> uses anomalously mapped paired-end and mate-pair reads to identify suspicious areas, called features. </span><strong><span>FRC</span></strong><span> can compute Feature Response Curves in order to validate and rank assemblies and assemblers. These curves enable the evaluation and analysis of de novo assembly/assemblers.</span></p>
+<h3 id="Description-of-features" data-id="Description-of-features"><a class="anchor hidden-xs" href="#Description-of-features" title="Description-of-features"><span class="octicon octicon-link"></span></a><span>Description of features:</span></h3>
+<center><img src="https://i.imgur.com/wrHH5w7.png" alt="drawing" width="800"></center>
+<br>
+<p><span>You can read more about the tool </span><a href="https://github.com/vezzi/FRC_align" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<p><span>You should use the mapping results from </span><strong><span>Bowtie2</span></strong><span> and </span><strong><span>SAMtools</span></strong><span> to assess the basic alignment statistics, and </span><strong><span>FRC</span></strong><span> to compare the alignment statistics from the alignments.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>SAMtools</span></strong><span> and </span><strong><span>FRC</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environments - first </span><strong><span>Samtools</span></strong><span>.</span></p>
+</div><p><span style="color:blue"><span>I] Move to the folder </span><kbd><span>/practical/7/checkm/align_reads/map_bin001/</span></kbd><span>.</span></span></p><p><span style="color:blue"><span>II] First, run alignment statistics for bin001 using </span><strong><span>Samtools flagstat</span></strong><span>:</span></span></p><pre><code>samtools flagstat bin001.sorted.bam &gt; bin001_prepro_stats.txt
+</code></pre><p><span>❓ How well do the reads align back to this MAG?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+84.81% of the reads align to this MAG
+</div></details><br><p><span style="color:blue"><span>III] Run </span><strong><span>FRC</span></strong><span> with the mapped reads on bin001:</span></span></p><pre><code>FRC --pe-sam bin001.sorted.bam --pe-max-insert 700 --genome-size 3000000 --output bin001_prepro
+
+# --pe-sam, sorted bam file obtained aligning PE library against assembly
+# --pe-max-insert, maximum insert size of the sequence library
+# --genome-size, estimated size of genome (MAG in this case)
+# --output, name of output directory
+</code></pre><p><span style="color:blue"><span>IV] Plot the FRC curve (</span>&lt;output&gt;<span>_FRC.txt) using </span><strong><span>Gnuplot</span></strong><span> by pasting the complete command below into the terminal:</span></span></p><pre><code>gnuplot &lt;&lt; EOF
+set terminal png size 800,600
+set output 'FRC_Curve_bin001.png'
+set title "FRC Curve" font ",14"
+set key right bottom font ",8"
+set autoscale
+set ylabel "Approximate Coverage (%)"
+set xlabel "Feature Threshold"
+files = "bin001_prepro_FRC.txt"
+plot for [data in files] data using 1:2 with lines title data
+EOF
+</code></pre><p><span style="color:blue"><span>V] Open the plot (</span><code>FRC_Curve_bin001.png</code><span>)</span></span></p><p><span>The resulting plot is ordered by decreasing contig size and plotted by accumulating the number of features.</span></p><p><span>❓What is happening towards the upper right corner of the plot?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Adding small contigs basically just adds more features (possible mis-assemblies) and is constituting very little of the coverage of the genome
+</div></details><br><p><span style="color:blue"><span>VI] Open the </span><code>bin001_prepro_assemblyTable.csv</code></span></p><p><span>❓How many reads mapped with the wrong distance (more than 700 bp)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2 reads
+</div></details><br><p><span>❓How many reads mapped with one read in one contig and the mate in another contig (WRONG_CONTIG)?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-warning">
+<h4 id="-Optional-exercise1" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise1" title="-Optional-exercise1"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<center><img src="https://i.imgur.com/1iaXjFN.png" alt="drawing" width="400"></center>
+<br>
+<div class="alert alert-success">
+<p><span>💡</span><strong><span>Artemis</span></strong><span> is a DNA viewer program used for both Prokaryotic and Eukaryotic annotations. It allows the user to get away from the relatively faceless EMBL and Genbank style database files and view the sequence in a graphical and highly interactive format. </span><strong><span>Artemis</span></strong><span> is designed to present multiple lines of information within a single context. This manifests itself as being able to zoom in to look for fine DNA motifs as well as being able to zoom out and bring into view operons, several kilobases of a genome or in fact to view an entire genome in one screen. It is also possible to perform quite sophisticated analyses and store the output within the ‘Artemis environment’ to be accessed later.</span></p>
+</div>
+<p><span style="color:blue"><span>VII] Start up the </span><strong><span>Artemis</span></strong><span> software by typing </span><code>art</code><span> in the terminal.</span></span></p>
+<br>
+<p><span style="color:blue"><span>VIII] Click ‘</span><strong><span>File</span></strong><span>’ and select ‘</span><strong><span>Open File Manager</span></strong><span>’</span></span></p>
+<br>
+<p><span style="color:blue"><span>IX] Browse to the directory named </span><kbd><span>/practical/7/checkm/align_reads/map_bin001/</span></kbd><span> and load up the contigs of bin001 by double clicking on the FASTA file (</span><code>sample1_maxbin.001.fasta</code><span>). Make sure to select ‘</span><strong><span>All Files</span></strong><span>’ from the bottom tab.</span></span></p>
+<p><span>This should open an </span><strong><span>Artemis</span></strong><span> genome viewer window. Hopefully you will now have an </span><strong><span>Artemis</span></strong><span> window like this! If not, ask for assistance.</span></p>
+<br>
+<center><img src="https://i.imgur.com/THezhml.png" alt="drawing" width="800"></center>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This is not an exercise where you will become experts using </span><strong><span>Artemis</span></strong><span>.</span></p>
+<p><span>But very briefly:</span></p>
+<ul>
+<li><span>Active window: The files you have open in </span><strong><span>Artemis</span></strong><span>. An “Entry” is a file of DNA sequences and/or a file with positional information. Several entries can be overlaid onto the sequence information displayed in the main </span><strong><span>Artemis</span></strong><span> view panel</span></li>
+<li><span>Overview window: The DNA sequenced zoomed out</span></li>
+<li><span>Overview window: The DNA sequenced zoomed in on nucleotide level</span></li>
+<li><span>Feature list: List of annotation if any and contigs</span></li>
+</ul>
+<p><span>The General Feature Format - GFF is a file format used for describing genes and other features of DNA, RNA and protein sequences. The filename extension associated with such files is .GFF</span></p>
+</div>
+<p><span style="color:blue"><span>IX] Next, you should load the GFF file from </span><strong><span>FRC</span></strong><span> into </span><strong><span>Artemis</span></strong><span>. The easiest is to drag &amp; drop the </span><code>bin001_preproFeatures.gff</code><span> file from the </span><strong><span>File Browser</span></strong><span> and into the main </span><strong><span>Artemis</span></strong><span> window. Select </span><strong><span>“No”</span></strong><span> to display warnings.</span></span></p>
+<br>
+<p><span style="color:blue"><span>X] Use the </span><strong><span>Zoom bar</span></strong><span> in the </span><strong><span>Overview window</span></strong><span> to zoom out so you can see at least the entire length of the first contig. You will see features from FRC appearing toward the end of this contig.</span></span></p>
+<br>
+<center><img src="https://i.imgur.com/nylo2aO.png" alt="drawing" width="800"></center>
+<br>
+<p><span style="color:blue"><span>XI] Select the first feature.</span></span></p>
+<br>
+<p><span>❓Why has </span><strong><span>FRC</span></strong><span> marked this region as a feature?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The region is marked because it has a relative high coverage (many mapped sequence reads) relative to the rest of the MAG
+</div></details>
+<br>
+<p><span style="color:blue"><span>XII] Load the sequence read alignment (mapping) from </span><strong><span>Bowtie2/SAMtools</span></strong><span> into </span><strong><span>Artemis</span></strong><span>: From the </span><strong><span>File</span></strong><span> menu select </span><strong><span>Read BAM / CRAM / VCF …</span></strong><span>, and select the file named </span><code>bin001.sorted.bam</code></span></p>
+<br>
+<p><span>A </span><strong><span>Bam view</span></strong><span> will appear in </span><strong><span>Artemis</span></strong><span>, displaying the alignment of all mapped reads on the MAG. You might need to change the view (right-click in the </span><strong><span>Bam view</span></strong><span> and select </span><strong><span>Views</span></strong><span> -&gt; </span><strong><span>Coverage</span></strong><span>)</span></p>
+<br>
+<center><img src="https://i.imgur.com/3WJJNWY.png" alt="drawing" width="800"></center>
+<br>
+<p><span style="color:blue"><span>XIII] Check a few more features marked by </span><strong><span>FRC</span></strong><span>. Does the </span><strong><span>FRC</span></strong><span> features match the sequence read mapping?</span></span></p>
+<br>
+<p><span style="color:blue"><span>XIV] Center </span><strong><span>Artemis</span></strong><span> around the region that start at base position 358149 with the feature label “HIGH_OUTIE_PE”.</span></span></p>
+<br>
+<p><span>❓What does the FRC marked in this region mean?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Region with high number of mis-oriented or too distant read pairs
+</div></details>
+<br>
+<p><span style="color:blue"><span>XV] Zoom a little bit in on this region. Change the view so you can see all mapped reads (right-click in the </span><strong><span>Bam view</span></strong><span> and select </span><strong><span>Views</span></strong><span> -&gt; </span><strong><span>Stack</span></strong><span>).</span></span></p>
+<br>
+<p><span style="color:blue"><span>XVI] Right-click again in the </span><strong><span>Bam view</span></strong><span>, select “Filter reads” from the menu that appear. Filter the reads so you hide the “Proper Pair” (the ok reads)</span></span></p>
+<br>
+<center><img src="https://i.imgur.com/qswLs0s.png" alt="drawing" width="200"></center>
+<br>
+<center><img src="https://i.imgur.com/yqmBHov.png" alt="drawing" width="200"></center>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> You should now see something similar as below. Reads marked as:</span></p>
+<ul>
+<li><span>blue are paired reads</span></li>
+<li><span>green are collapsed duplicated reads that span the same region</span></li>
+<li><span>black are singletons where the mate has not been mapped to the MAG</span></li>
+</ul>
+<p><span>You can read more about the </span><strong><span>Bam View</span></strong><span> </span><a href="http://europepmc.org/article/MED/20071372" target="_blank" rel="noopener"><span>here</span></a></p>
+</div>
+<br>
+<center><img src="https://i.imgur.com/b38DA1S.png" alt="drawing" width="800"></center>
+<br>
+<p><span style="color:blue"><span>XVII] You can optionally explore each reads by right-clicking on a read in the </span><strong><span>Bam View</span></strong><span> and select “Show details of: the read you selected”</span></span></p>
+<br>
+<center><img src="https://i.imgur.com/ZHR23GQ.png" alt="drawing" width="400"></center>
+<br>
+<p><span style="color:blue"><span>XVIII] Close </span><strong><span>Artemis</span></strong></span></p>
+</div><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:80%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 5 finished</span>
+ </span></div>
+</div><br><h2 id="5-Binning-of-sequence-reads-using-MetaProb" data-id="5-Binning-of-sequence-reads-using-MetaProb"><a class="anchor hidden-xs" href="#5-Binning-of-sequence-reads-using-MetaProb" title="5-Binning-of-sequence-reads-using-MetaProb"><span class="octicon octicon-link"></span></a><span>5. Binning of sequence reads using MetaProb</span></h2><center><img src="https://i.imgur.com/gzKqyAX.png" alt="drawing" width="500"></center><br><div class="alert alert-success">
+<p><span>💡</span><strong><span>MetaProb</span></strong><span> is a assembly-assisted tool for reference-free binning of metagenomic sequence reads. The binning process is performed in two phases. Phase 1 groups overlapping reads into groups. Phase 2 builds the probabilistic sequence signatures of independent reads and merges the groups into clusters.</span><br>
+<strong><span>MetaProb</span></strong><span> can run on single-end and on paired-end sequences, and only accepts decompressed FASTQ as input.</span></p>
+</div><div class="alert alert-danger">
+<p><span>We have prerun </span><strong><span>MetaProb</span></strong><span> for Sample 1. The data is located here: </span><kbd><span>~/practical/7/metaprob</span></kbd></p>
+<h3 id="This-is-how-MetaProb-was-run-on-Sample-1" data-id="This-is-how-MetaProb-was-run-on-Sample-1"><a class="anchor hidden-xs" href="#This-is-how-MetaProb-was-run-on-Sample-1" title="This-is-how-MetaProb-was-run-on-Sample-1"><span class="octicon octicon-link"></span></a><span>This is how MetaProb was run on Sample 1:</span></h3>
+<p><strong><span>MetaProb</span></strong><span> is a quite memory intensive tool. It took 16 minutes to perform the binning on a machine with 256 GB RAM but ran out of memory on a “normal machine” with 8 GB RAM and 2 CPUs…</span></p>
+<p><span>Therefore, we have run the binning analysis with </span><strong><span>MetaProb</span></strong><span> beforehand using the preprocessed data from Exercise 3 (after </span><code>repair</code><span>) as input. The following command was used to produce the results:</span></p>
+<br>
+<pre><code>MetaProb -pi sample1_R1_pair.fastq sample1_R2_pair.fastq -numSp 4
+</code></pre>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Metaprobe Conda</span></strong><span> environment.</span></p>
+</div><p><span>❓What does the parameters pi and numSp mean? Hint: type </span><code>MetaProb</code><span> in the terminal window.</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Paired-end and expected number of species in the sample
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The result from </span><strong><span>MetaProb</span></strong><span> is by default written to a new directory named ´output´ (you must rename, move or delete this directory if you want to do the binning again).</span></p>
+<p><span>Here you will find the binning log file </span><code>binning.info</code><span>, and for each input file one </span><code>clusters.csv</code><span> and one </span><code>groups.csv</code><span> file is produced. The </span><code>sample1_R1_pair.fastq.clusters.csv</code><span> and </span><code>sample1_R2_pair.fastq.clusters.csv</code><span> will contain a list of all the reads that was clustered into bins.</span></p>
+</div><p><span style="color:blue"><span>I] Go to the directory </span><kbd><span>/practical/7/metaprob/</span></kbd><span>. You should see the two input files (uncompressed FASTQ) and the output directory from </span><strong><span>MetaProb</span></strong><span>.</span></span></p><p><span style="color:blue"><span>II] Open the log file </span><code>binning.info</code><span> in the </span><code>output</code><span> directory.</span></span></p><p><span>❓</span><strong><span>MetaProb</span></strong><span> was run on a powerful machine with 512 GB RAM. How much RAM did </span><strong><span>MetaProb</span></strong><span> require for this job and how long did it take to run the job?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Almost 54 GB RAM and 43 hours
+</div></details><br><p><span>❓Of the 5635422 sequence reads, how many reads were clustered into bins? Hint: see Cluster details (id_cls,num_seq)</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+All reads clustered into the four bins. Many reads may have been "forced" into a bin erroneously.
+</div></details><br><p><span>❓What is the bin containing most sequence reads, and how many reads does it contain?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+cluster number 3, 4399340 reads
+</div></details><br><p><span>❓What is the smallest bin, and how many reads does it contain?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+cluster number 0, 79474 reads
+</div></details><br><p><span style="color:blue"><span>III] View the </span><code>sample_R1_pair.fastq.clusters.csv</code><span> file:</span></span></p><pre><code>head sample_R1_pair.fastq.clusters.csv
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The csv file has two columns. In column A you will see the unique names of each read in your input FASTQ file (</span><code>sample_R1_pair.fastq</code><span>). In colomn B you will see a number between 0 and 3 which represent each of the four clusters was defined when performing the binning (with the </span><code>-numSp 4</code><span> flag).</span></p>
+<p><span>You can use the script </span><strong><a href="http://metaprobsplit.py" target="_blank" rel="noopener"><span>metaprobsplit.py</span></a></strong><span> (should be in </span><kbd><span>~/practical/7/metaprob</span></kbd><span>) written by Espen Robertsen to sort all the original reads into separate FASTQ files based on which bin it belongs to. Hence, in this case the script should produce four separate FASTQ files for R1 and eight for R2.</span></p>
+<p><span>The script has both a PE and a SE mode. However we recommend that you run the script in SE mode, thereby producing separate R1 and R2 reads</span></p>
+<h3 id="Important" data-id="Important"><a class="anchor hidden-xs" href="#Important" title="Important"><span class="octicon octicon-link"></span></a><span>Important:</span></h3>
+<p><span>The script writes the results to a new directory named </span><kbd><span>/output</span></kbd><span>, so remember to rename this directory when you run the script twice from the same directory.</span></p>
+</div><p><span style="color:blue"><span>IV] First rename the </span><strong><span>MetaProb</span></strong><span> output directory from  </span><kbd><span>/output</span></kbd><span> to </span><kbd><span>/metaprob_out</span></kbd></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>metaprob_split.py</span></strong><span> you need activate the  </span><strong><span>Stamp Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>V] Split the sequence reads for R1 into separatate FASTQ files for each bin using the script </span><strong><span>metaprob_split.py</span></strong><span>:</span></span></p><pre><code>python metaprob_split.py --a sample1_R1_pair.fastq --aa metaprob_out/sample1_R1_pair.fastq.clusters.csv
+</code></pre><p><span style="color:blue"><span>V] Rename </span><kbd><span>/output</span></kbd><span> to </span><kbd><span>/output_R1</span></kbd></span></p><pre><code>mv output output_R1
+</code></pre><p><span style="color:blue"><span>VI] Split the sequence reads for R2 into separatate FASTQ files for each bin:</span></span></p><pre><code>python metaprob_split.py --a sample1_R2_pair.fastq --aa metaprob_out/sample1_R2_pair.fastq.clusters.csv
+</code></pre><p><span style="color:blue"><span>VII] Rename </span><kbd><span>/output</span></kbd><span> to </span><kbd><span>/output_R2</span></kbd></span></p><pre><code>mv output output_R2
+</code></pre><p><span style="color:blue"><span>VIII] Go into </span><kbd><span>/output_R1</span></kbd><span>.</span></span></p><p><span>❓How many FASTQ files are produced?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+4
+</div></details><p><span>❓How many sequence reads does the R1 and R2 FASTQ files for cluster number 3 contain?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+R1: 2199669 reads, R2: 2199669 reads
+</div></details><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The largest cluster (cluster number 3) is probably corresponding to the most complete bin from </span><strong><span>MaxBin</span></strong><span> on the assembled reads (</span><code>sample1_maxbin.001.fasta</code><span>)</span></p>
+</div><p><span style="color:blue"><span>IX] In the </span><kbd><span>/practical/7/metaprobe/cluster3/</span></kbd><span> directory, make symbolic links to the FASTQ files corresponding to this cluster:</span></span></p><pre><code>ln -s ~/practical/7/metaprob/output_R1/sample1_R1_pair.3.fastq .
+ln -s ~/practical/7/metaprob/output_R2/sample1_R2_pair.3.fastq .
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Spades Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>X] Assemble the reads in </span><kbd><span>/cluster3</span></kbd><span> using </span><strong><span>SPAdes</span></strong><span> (the same asssembler as you used for the whole metagenome, only this variant is for single genomes).</span></span></p><pre><code>spades.py -1 sample1_R1_pair.3.fastq -2 sample1_R2_pair.3.fastq  -o spades_cluster3
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> SPAdes takes around 40 minutes to complete. If a long break does not fit in to the time schedule, we have precomputed the assembly. It is located here </span><kbd><span>/practical/7/metaprobe/prerun_cluster3/</span></kbd></p>
+</div><p><span style="color:blue"><span>XI] When the assembly is done go to the </span><kbd><span>/spades_cluster3</span></kbd><span> folder (or in </span><kbd><span>/prerun_cluster3/spades_cluster3</span></kbd><span>).</span></span></p><p><span>❓How many contigs does the assembly consist of?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How many basepairs is the genome sequence?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2735898 bp
+</div></details><br><p><span>❓What is the size of the largest contig? HINT: Sort the contigs by size using </span><strong><span>Seqkit</span></strong></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+243615 bp
+</div></details><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:100%;background:#291;text-align:center;">
+   <span style="color:white"><span>Complete</span>
+ </span></div>
+</div><br><hr><h2 id="That-was-the-end-of-this-practical---Good-job-👍" data-id="That-was-the-end-of-this-practical---Good-job-👍"><a class="anchor hidden-xs" href="#That-was-the-end-of-this-practical---Good-job-👍" title="That-was-the-end-of-this-practical---Good-job-👍"><span class="octicon octicon-link"></span></a><span>That was the end of this practical - Good job 👍</span></h2><hr><div class="alert alert-warning">
+<h4 id="-Optional-exercise2" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise2" title="-Optional-exercise2"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<p><span>In this optional exercise, you will compare the binned contigs from </span><strong><span>MaxBin</span></strong><span> (assembled with </span><strong><span>metaSPAdes</span></strong><span>) and the assembly of the binned reads from </span><strong><span>MetaProb</span></strong><span> (assembled with </span><strong><span>SPAdes</span></strong><span>) using using </span><strong><span>ABACAS</span></strong><span> and </span><strong><span>ACT</span></strong><span>.</span></p>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The default settings of </span><strong><span>SPAdes</span></strong><span> is to keep all contigs. It is important to evaluate the assembly results before you continue working with downstream analysis as error in the assembly may produce downstream errors.</span></p>
+</div>
+<p><span style="color:blue"><span>Remove all contigs &gt; 200 bp:</span></span></p>
+<br>
+<p><span>❓How many contigs were &gt; 200 bp?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+165 contigs
+</div></details>
+<br>
+<p><span style="color:blue"><span>Rename the FASTA file with contigs &gt; 200 bp to </span><code>sample1_spades_prepro.fasta</code></span></p>
+<br>
+<div class="alert alert-success">
+<br>
+<center><img src="https://i.imgur.com/HvY5qLp.png" alt="drawing" width="400"></center>
+<br>
+<p><span>💡</span><strong><span>ABACAS</span></strong><span> is a software tool that align and order contigs from one genome relative to another genome - normally a complete reference genome, and identify syntenies of assembled contigs against the reference. In this comparison we don’t have a reference genome but will use the </span><code>sample1_maxbin.001.fasta</code><span> as reference and align the contigs in </span><code>sample1_spades_prepro.fasta</code><span> against it.</span></p>
+<p><strong><span>ABACAS</span></strong><span> generates a comparison file that can be used to visualise ordered and oriented contigs in the comparison tool </span><strong><span>ACT</span></strong><span>. To learn more about ABACAS go </span><a href="http://abacas.sourceforge.net/" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<p><strong><span>ACT</span></strong><span> (Artemis Comparison Tool) is a tool for displaying pairwise comparisons between two or more DNA sequences. It can be used to identify and analyse regions of similarity and difference between genomes and to explore conservation of synteny, in the context of the entire sequences and their annotation. It can read complete EMBL, GENBANK and GFF entries or sequences in FASTA or raw format.</span></p>
+<p><span>You can read more about the tool </span><a href="https://www.sanger.ac.uk/science/tools/artemis-comparison-tool-act" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> activate the </span><strong><span>Abacas Conda</span></strong><span> environment.</span></p>
+</div>
+<p><span style="color:blue"><span>Go to the directory </span><kbd><span>/practical/7/comparison/</span></kbd></span></p>
+<br>
+<p><span style="color:blue"><span>Here you should find the binned contigs of bin001 from </span><strong><span>MaxBin</span></strong><span> (assembled with </span><strong><span>metaSPAdes</span></strong><span>) and the assembly of the binned reads from </span><strong><span>MetaProb</span></strong><span> (assembled with </span><strong><span>SPAdes</span></strong><span>), </span><code>sample1_maxbin.001.fasta</code><span> and </span><code>sample1_spades_prepro.fasta</code><span>.</span></span></p>
+<br>
+<p><span style="color:blue"><span>Use the </span><code>sample1_maxbin.001.fasta</code><span> as reference, but </span><strong><span>ABACAS</span></strong><span> only accepts a single FASTA file as the reference - yours is a multi FASTA with multiple contigs. You need to merge the contigs in the </span><code>sample1_maxbin.001.fasta</code><span> file and produce a singe sequence FASTA file:</span></span></p>
+<br>
+<pre><code>cat sample1_maxbin.001.fasta | grep -v '^&gt;' | cat &lt;( echo '&gt;seq_name') - &gt; sample1_maxbin.001_merged.fasta
+</code></pre>
+<p><span style="color:blue"><span>Run </span><strong><span>ABACAS</span></strong><span> using the following command:</span></span></p>
+<br>
+<pre><code>abacas -r sample1_maxbin.001_merged.fasta -q sample1_spades_prepro.fasta -p promer -d -a -b -m
+
+-a, append contigs in bin to the pseudomolecule
+-b, print contigs in bin to file 
+-d, use default nucmer/promer parameters
+-m, print ordered contigs to file in multifasta format
+</code></pre>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>ABACAS</span></strong><span> will produce many output files. The most important here are:</span></p>
+<ul>
+<li><code>sample1_spades_prepro.fasta_sample1_maxbin.001_merged.fasta.fasta</code><span> = re-ordered contig file</span></li>
+<li><code>sample1_spades_prepro.fasta_sample1_maxbin.001_merged.fasta.tab</code><span> = tab file with position of the contigs</span></li>
+<li><code>sample1_spades_prepro.fasta_sample1_maxbin.001_merged.fasta.crunch</code><span> = comparison file</span></li>
+</ul>
+</div>
+<div class="alert alert-success">
+<p><span>💡</span><strong><span>ACT</span></strong><span> is based on </span><strong><span>Artemis</span></strong><span>, and so you will already be familiar with many of its core functions, and is essentially composed of three layers or windows. The top and bottom layers are mini </span><strong><span>Artemis</span></strong><span> windows (with their inherited functionality), showing the linear representations of the DNA sequences with their associated features. The middle window shows red and blue blocks, which span this middle layer and link conserved regions within the two sequences, in the forward and reverse orientation respectively.</span></p>
+<p><span>Consequently, if you were comparing two identical sequences in the same orientation you would see a solid red block extending over the length of the two sequences in this middle layer. If one of the sequences was reversed, and therefore present in the opposite orientation, there would be a blue 􏰀hour glass􏰁 shape linking the two sequences. Unique regions in either of the sequences, such as insertions or deletions, would show up as breaks (white spaces) between the solid red or blue blocks.</span></p>
+</div>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> activate the </span><strong><span>Artemis Conda</span></strong><span> environment.</span></p>
+</div>
+<p><span style="color:blue"><span>Start </span><strong><span>ACT</span></strong><span> by typing </span><code>act</code><span> in the terminal window. A small start up window will appear.</span></span></p>
+<br>
+<p><span style="color:blue"><span>In the </span><strong><span>File</span></strong><span> menu, press </span><strong><span>Open</span></strong><span>. A </span><strong><span>File browser</span></strong><span> window will appear together with a window where you specify the input files for </span><strong><span>ACT</span></strong><span>.</span></span></p>
+<br>
+<center><img src="https://i.imgur.com/CMGD8kf.png" alt="drawing" width="800"></center>
+<br>
+<p><span style="color:blue"><span>Load the the following files into </span><strong><span>ACT</span></strong><span>:</span></span></p>
+<ul>
+<li><span style="color:blue"><strong><span>Sequence file 1</span></strong><span>: </span><code>sample1_spades_prepro.fasta_sample1_maxbin.001_merged.fasta.fasta</code></span></li>
+<li><span style="color:blue"><strong><span>Sequence file 2</span></strong><span>: </span><code>sample1_maxbin.001.fasta</code></span></li>
+<li><span style="color:blue"><strong><span>Comparison file 1</span></strong><span>: </span><code>sample1_spades_prepro.fasta_sample1_maxbin.001_merged.fasta.crunch</code></span></li>
+</ul>
+<br>
+<p><span style="color:blue"><span>Use the zoom bars in the left part of the window to zoom out so you can see the complete MAGs as shown below. Ask if you need assistance:)</span></span></p>
+<br>
+<center><img src="https://i.imgur.com/dMLueQF.png" alt="drawing" width="800"></center>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Quick explanation of the </span><strong><span>ACT</span></strong><span> view:</span></p>
+<br>
+<ol>
+<li><span>Drop-down menus. These are mostly the same as in </span><strong><span>Artemis</span></strong><span>. The major difference you􏰁’ll find is that after clicking on a menu header you will then need to select a DNA sequence before going to the full drop-down menu.</span></li>
+<li><span>This is the </span><strong><span>Sequence view panel</span></strong><span> for 􏰀Sequence file 1􏰁 (Query Sequence) you selected earlier. It􏰁s a slightly compressed version of the </span><strong><span>Artemis</span></strong><span> main view panel. The panel retains the sliders for scrolling along the genome and for zooming in and out.</span></li>
+<li><span>The </span><strong><span>Comparison View</span></strong><span>. This panel displays the regions of similarity between two sequences. Red blocks link similar regions of DNA with the intensity of red colour directly proportional to the level of similarity. Double clicking on a red block will centralise it. Blue blocks link regions that are inverted with respect to each other.</span></li>
+<li><span>Artemis-style </span><strong><span>Sequence View panel</span></strong><span> for 􏰀Sequence file 2􏰁 (Reference Sequence).</span></li>
+<li><span>Right button click in the </span><strong><span>Comparison View panel</span></strong><span> brings up this important ACT-specific menu.</span></li>
+</ol>
+</div>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> What you are looking at now is a comparison of two MAGs: the re-ordered contigs form the assembly of the binned reads from the largest cluster from </span><strong><span>MetaProb</span></strong><span> against the binned contigs of the largest bin from </span><strong><span>MaxBin</span></strong><span> As you can see in </span><strong><span>ACT</span></strong><span> there are some differences, and it is not trivial to say which of the methods produced the most correct assembly.</span></p>
+<h3 id="Colour-code-of-contigs" data-id="Colour-code-of-contigs"><a class="anchor hidden-xs" href="#Colour-code-of-contigs" title="Colour-code-of-contigs"><span class="octicon octicon-link"></span></a><span>Colour code of contigs:</span></h3>
+<p><span>####</span><span style="color:blue"><span>Dark blue: contigs with forward orientation</span><br>
+<span>####</span><span style="color:green"><span>Green: contigs with reverse orientations</span><br>
+<span>####</span><span style="color:cyan"><span>Sky blue: contigs that overlap with the next contig</span></span></span></span></p>
+</div>
+<p><span style="color:blue"><span>Zoom in on towards the end of </span><strong><span>Sequence file 1</span></strong><span> (</span><code>sample1_spades_prepro.fasta_sample1_maxbin.001_merged.fasta.fasta</code><span>)</span></span></p>
+<br>
+<center><img src="https://i.imgur.com/spYtVK2.png" alt="drawing" width="800"></center>
+<br>
+<p><span>❓What do you think the yellow contigs are?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+These are contigs in the Query sequence that are not mapping to the Reference sequence.
+</div></details>
+<br>
+<p><span style="color:blue"><span>Run </span><strong><span>QUAST</span></strong><span> and compare </span><code>sample1_maxbin.001.fasta</code><span> and </span><code>sample1_spades_prepro.fasta</code><span>. We have provided a complete genome of </span><em><span>Bifidobacterium longum</span></em><span>, the specie the previous analysis has suggested this to be. The genome sequence is located in </span><kbd><span>~/practical/7/comparison/reference/</span></kbd></span></p>
+<br>
+<pre><code>quast.py sample1_maxbin.001.fasta sample1_spades_prepro.fasta -r reference/Bifidobacterium_longum_subsp._infantis_ATCC_15697___JCM_1222___DSM_20088.fasta -o quast_out -t 16
+
+# -r, reference genome
+</code></pre>
+<p><span>❓Which assembly is largest (total lenght)?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+sample1_maxbin.001.fasta - 2 842 855 bp
+</div></details>
+<br>
+<p><span>❓Which assembly is most complete relative to the reference?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+sample1_maxbin.001.fasta (covers 98.249 of the reference genome)
+</div></details>
+<br>
+<p><span>❓Which assembly has most unaligned contigs relative to the reference?</span></p>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+sample1_spades_prepro.fasta (41 unaligned contigs)
+</div></details></div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#7-Binning-and-MAGs" title="7. Binning and MAGs">7. Binning and MAGs</a><ul class="nav">
+<li><a href="#1-Binning-of-assembled-contigs-using-MaxBin" title="1. Binning of assembled contigs using MaxBin">1. Binning of assembled contigs using MaxBin</a></li>
+<li><a href="#2-Assess-the-quality-of-metagenomic-bins" title="2. Assess the quality of metagenomic bins">2. Assess the quality of metagenomic bins</a></li>
+<li><a href="#3-Mapping-of-reads-on-metagenomic-assembly" title="3. Mapping of reads on metagenomic assembly">3. Mapping of reads on metagenomic assembly</a></li>
+<li><a href="#4-Evaluate-assembly-accuracy-using-FRCbam-and-Artemis" title="4. Evaluate assembly accuracy using FRCbam and Artemis">4. Evaluate assembly accuracy using FRCbam and Artemis</a></li>
+<li><a href="#5-Binning-of-sequence-reads-using-MetaProb" title="5. Binning of sequence reads using MetaProb">5. Binning of sequence reads using MetaProb</a></li>
+<li><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#7-Binning-and-MAGs" title="7. Binning and MAGs">7. Binning and MAGs</a><ul class="nav">
+<li><a href="#1-Binning-of-assembled-contigs-using-MaxBin" title="1. Binning of assembled contigs using MaxBin">1. Binning of assembled contigs using MaxBin</a></li>
+<li><a href="#2-Assess-the-quality-of-metagenomic-bins" title="2. Assess the quality of metagenomic bins">2. Assess the quality of metagenomic bins</a></li>
+<li><a href="#3-Mapping-of-reads-on-metagenomic-assembly" title="3. Mapping of reads on metagenomic assembly">3. Mapping of reads on metagenomic assembly</a></li>
+<li><a href="#4-Evaluate-assembly-accuracy-using-FRCbam-and-Artemis" title="4. Evaluate assembly accuracy using FRCbam and Artemis">4. Evaluate assembly accuracy using FRCbam and Artemis</a></li>
+<li><a href="#5-Binning-of-sequence-reads-using-MetaProb" title="5. Binning of sequence reads using MetaProb">5. Binning of sequence reads using MetaProb</a></li>
+<li><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
