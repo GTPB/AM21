@@ -76,6 +76,8 @@ The student will have acquired a theoretical basis and practical experience to u
 **Erik Hjerde** has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
 
 </table>
+
+<br/>
   
 <table>
 <img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
@@ -88,7 +90,7 @@ The student will have acquired a theoretical basis and practical experience to u
 </table>
 
 
-<br>
+<br/>
   
 #### Software
 
@@ -131,9 +133,6 @@ The student will have acquired a theoretical basis and practical experience to u
 
 05-comparison
 ---
-
-The source for this course webpage is [in github](https://github.com/GTPB/Web_course_template).
-
 <br/>
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web_course_template</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">GTPB</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
