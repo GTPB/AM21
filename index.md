@@ -70,12 +70,12 @@ The student will have acquired a theoretical basis and practical experience to u
 
 ### Instructors
 
-<p>
+<table>
 <img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
 
 **Erik Hjerde** has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
 
-</p>
+</table>
   
 <p>
 <img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
