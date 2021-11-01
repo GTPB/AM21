@@ -99,8 +99,7 @@ The course is intended for researchers and students that are, or are planning to
 ## Detailed Program
 
 
-    <html>
-  <table width="910" align="center">
+  <table>
 
     <tr>
       <td width="130">
@@ -408,7 +407,7 @@ The course is intended for researchers and students that are, or are planning to
 
 
   </table>
-    </html>
+  </html>
 
 
 
