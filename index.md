@@ -108,7 +108,7 @@ The student will have acquired a theoretical basis and practical experience to u
     - [Lecture - Taxonomic classification](assets/04-taxonomy/4.Taxonomic_classification.pdf)
     - [Exercise - Taxonomic classification](pages/04-taxonomy/4.taxonomic.html)
 5. Comparison of sample groups
-    - [Lecture - Comparison of sample groups](assets/05-comparison/2.QC.pdf)
+    - [Lecture - Comparison of sample groups](assets/05-comparison/5.SampleGroups.pdf)
     - [Exercise - Comparison of sample groups](pages/05-comparison/5.comparison.html)
 6. Genome assembly from metagenomes
     - [Lecture - Genome assembly from metagenomes](assets/06-assembly/6.Assembly_Validation.pdf)
@@ -123,7 +123,12 @@ The student will have acquired a theoretical basis and practical experience to u
     - [Lecture - Resistome profiling](assets/02-resistome/9.resistome.pdf)
     - [Exercise - Resistome profiling](pages/02-resistome/9.resistome.html)
 
-05-comparison
+
+### Introduction to Linux and Anaconda
+
+1. Lecture, demo and hands-on
+    - [Introduction to Linux and Anaconda](assets/00-linux/Module_1_Introduction_to_linux_and_anaconda.pdf)
+
 ---
 
 The source for this course webpage is [in github](https://github.com/GTPB/Web_course_template).
