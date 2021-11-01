@@ -64,7 +64,7 @@ The course is intended for researchers and students that are, or are planning to
       various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user 
       support and training.
 
-    </td></tr>
+    </td>
 
 
     <tr><td>
@@ -74,7 +74,7 @@ The course is intended for researchers and students that are, or are planning to
         administration of the useglaxy.no project and various other topics.
 
 
-    </td></tr>
+    </td>
  </table>
  
 
@@ -407,11 +407,6 @@ The course is intended for researchers and students that are, or are planning to
 
 
   </table>
-  </html>
-
-
-
----
 
 
 ### Learning materials
