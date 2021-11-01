@@ -64,8 +64,6 @@ The course is intended for researchers and students that are, or are planning to
 
   </td></tr>
 </table>
-
----
   
 <table>
     <td><tr>
@@ -79,7 +77,6 @@ The course is intended for researchers and students that are, or are planning to
     </td></tr>
 </table>
 
-<br>
 <br/>
 
 ## Detailed Program
