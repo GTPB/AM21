@@ -54,6 +54,34 @@ The course will start with the main preprocessing steps of raw sequence data, be
 
 The course is intended for researchers and students that are, or are planning to work with data analysis of metagenomic data. 
 
+### Instructors
+
+<table>
+  <tr><td>
+<img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
+
+*Erik Hjerde* has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
+
+  </td></tr>
+</table>
+
+---
+  
+<table>
+    <td><tr>
+<img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
+
+
+
+*Espen Robertsen* has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping, administration of the useglaxy.no project and various other topics.
+
+
+    </td></tr>
+</table>
+
+<br>
+<br/>
+
 ## Detailed Program
 
 <html>
@@ -379,29 +407,7 @@ The student will have acquired a theoretical basis and practical experience to u
 * performing quality control, assembly and binning of metagenomic sequence data
 * performing functional analysis and resistome analysis of metagenomes
 
-### Instructors
 
-<table>
-<img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
-
-**Erik Hjerde** has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
-
-</table>
-
----
-  
-<table>
-<img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
-
-
-
-**Espen Robertsen** has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping, administration of the useglaxy.no project and various other topics.
-
-
-</table>
-
-
-<br/>
   
 #### Software
 
