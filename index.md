@@ -95,6 +95,11 @@ All data can be downloaded locally through [data](assets/data.zip)
 
 [GTPB Timetable](http://gtpb.igc.gulbenkian.pt/bicourses/2021/AM21/Timetable.html)
 
+### Logging on to the Virtual machines
+
+1. Select a machine you will use for the rest of the course here: [https://docs.google.com/spreadsheets/d/1Rt8SYqUg4Aqlsg7SUkaaSctqWjDqPMvH4-TZMufbo4o/edit#gid=0](https://docs.google.com/spreadsheets/d/1Rt8SYqUg4Aqlsg7SUkaaSctqWjDqPMvH4-TZMufbo4o/edit#gid=0)
+2. Start the machine from here: [https://biolab.azurewebsites.net/](https://biolab.azurewebsites.net/)
+
 
 ### Learning materials
 
