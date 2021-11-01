@@ -56,7 +56,7 @@ The course is intended for researchers and students that are, or are planning to
 
 ### Instructors
 
-    <table>
+<table>
     <tr><td>
 <img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
     <b>Erik Hjerde</b> has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics
@@ -75,8 +75,9 @@ The course is intended for researchers and students that are, or are planning to
 
 
     </td></tr>
-    </table>
-    </html>
+ </table>
+ 
+
 ### Learning objectives
 
     On exit from this training course, the sparticipant will have acquired a theoretical basis and practical experience to understand the basic 
@@ -96,6 +97,7 @@ The course is intended for researchers and students that are, or are planning to
 
 
 ## Detailed Program
+
 
     <html>
   <table width="910" align="center">
