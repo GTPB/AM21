@@ -79,6 +79,26 @@ The course is intended for researchers and students that are, or are planning to
 
 <br/>
 
+
+
+### Learning objectives
+
+The student will have acquired a theoretical basis and practical experience to understand the basic concepts of metagenomic analysis in order to conduct academic studies related to microbiome samples. This includes:
+
+* performing advanced downstream analysis on both taxonomic functional profiles
+* performing quality control, assembly and binning of metagenomic sequence data
+* performing functional analysis and resistome analysis of metagenomes
+
+
+  
+#### Software
+
+- All software and databases together with the exercise data will be pre-installed on the course machines you will be using during the practical exercises of the course.
+
+- All data can be downloaded locally through
+[data](assets/data.zip)
+
+
 ## Detailed Program
 
 <html>
@@ -390,26 +410,12 @@ The course is intended for researchers and students that are, or are planning to
 
 
   </table>
+</html>
 
 </br>
 
+---
 
-### Learning objectives
-
-The student will have acquired a theoretical basis and practical experience to understand the basic concepts of metagenomic analysis in order to conduct academic studies related to microbiome samples. This includes:
-
-* performing advanced downstream analysis on both taxonomic functional profiles
-* performing quality control, assembly and binning of metagenomic sequence data
-* performing functional analysis and resistome analysis of metagenomes
-
-
-  
-#### Software
-
-- All software and databases together with the exercise data will be pre-installed on the course machines you will be using during the practical exercises of the course.
-
-- All data can be downloaded locally through
-[data](assets/data.zip)
 
 ### Learning materials
 
