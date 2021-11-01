@@ -56,15 +56,14 @@ The course is intended for researchers and students that are, or are planning to
 
 ### Instructors
 
-
-    <img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
-    <b>Erik Hjerde</b> has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics
+<img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
+<b>Erik Hjerde</b> has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics
       and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from
       various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user 
       support and training.
 
-    <img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
-     <b>Espen Robertsen</b> has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has 
+ <img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
+ <b>Espen Robertsen</b> has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has 
         been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping,
         administration of the useglaxy.no project and various other topics.
     
@@ -81,17 +80,18 @@ The course is intended for researchers and students that are, or are planning to
 
 
   
-#### Software
+### Software
 
     All software and databases together with the exercise data will be pre-installed on the course machines you will be using during the practical exercises of the course.
 
     All data can be downloaded locally through [data](assets/data.zip)
 
 
-## Detailed Program
+### Detailed Program
 
 [GTPB Timetable](http://gtpb.igc.gulbenkian.pt/bicourses/2021/AM21/Timetable.html)
 
+<hr>
 
 ### Learning materials
 
