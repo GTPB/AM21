@@ -70,20 +70,28 @@ The student will have acquired a theoretical basis and practical experience to u
 
 ### Instructors
 
+<table>
 <img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
 
 **Erik Hjerde** has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
 
+</table>
+
+<br/>
+  
+<table>
 <img src="pages/images/Espen_Robertsen.jpeg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
 
-<hr>
 
 
 **Espen Robertsen** has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping, administration of the useglaxy.no project and various other topics.
 
 
+</table>
 
 
+<br/>
+  
 #### Software
 
 - All software and databases together with the exercise data will be pre-installed on the course machines you will be using during the practical exercises of the course.
@@ -130,9 +138,6 @@ The student will have acquired a theoretical basis and practical experience to u
     - [Introduction to Linux and Anaconda](assets/00-linux/Module_1_Introduction_to_linux_and_anaconda.pdf)
 
 ---
-
-The source for this course webpage is [in github](https://github.com/GTPB/Web_course_template).
-
 <br/>
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web_course_template</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">GTPB</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
