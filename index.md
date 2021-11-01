@@ -390,11 +390,9 @@ The course is intended for researchers and students that are, or are planning to
 
 
   </table>
-  </table>
 
-</html>
+</br>
 
-<br/>
 
 ### Learning objectives
 
