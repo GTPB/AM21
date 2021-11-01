@@ -60,7 +60,10 @@ The course is intended for researchers and students that are, or are planning to
   <tr><td>
 <img src="pages/images/Erik_Hjerde.jpg" height="220px" width="170px" align="left" style="margin-right: 3%; margin-bottom: 0.3em;">
 
-    <b>Erik Hjerde</b> has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user support and training.
+    <b>Erik Hjerde</b> has a background in biology with a PhD in Genomics. During his career he has been working mainly with prokaryotes with focus on genomics
+      and transcriptomics. In the last years, the focus has moved more towards metagenomic analysis on communities from both the human host as well as from
+      various ecological habitats. He is the head of one national (Norwegian) work package within ELIXIR, that focuses on providing bioinformatic end user 
+      support and training.
 
   </td></tr>
 </table>
@@ -71,7 +74,9 @@ The course is intended for researchers and students that are, or are planning to
 
 
 
-      <b>Espen Robertsen</b> has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping, administration of the useglaxy.no project and various other topics.
+      <b>Espen Robertsen</b> has a background in biology with a PhD in Metagenomics. While still doing some metagenomic research, his main focus recently has 
+        been database integrations and software development. Espen is involved in various ELIXIR projects involving sensitive data, pipeline prototyping,
+        administration of the useglaxy.no project and various other topics.
 
 
     </td></tr>
@@ -79,11 +84,12 @@ The course is intended for researchers and students that are, or are planning to
 
 <br/>
 
-
+    </html>
 
 ### Learning objectives
 
-The student will have acquired a theoretical basis and practical experience to understand the basic concepts of metagenomic analysis in order to conduct academic studies related to microbiome samples. This includes:
+The student will have acquired a theoretical basis and practical experience to understand the basic concepts of metagenomic analysis in order to conduct 
+academic studies related to microbiome samples. This includes:
 
 * performing advanced downstream analysis on both taxonomic functional profiles
 * performing quality control, assembly and binning of metagenomic sequence data
