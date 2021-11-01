@@ -56,9 +56,6 @@ The course is intended for researchers and students that are, or are planning to
 
 ## Detailed Program
 
-
-http://gtpb.igc.gulbenkian.pt/bicourses/2021/AM21/Timetable.html
-
 <html>
   <table width="910" align="center">
 
@@ -368,12 +365,11 @@ http://gtpb.igc.gulbenkian.pt/bicourses/2021/AM21/Timetable.html
 
 
   </table>
-
-
+  </table>
 
 </html>
 
----
+<br/>
 
 ### Learning objectives
 
