@@ -96,12 +96,6 @@ All data can be downloaded locally through [data](assets/data.zip)
 [GTPB Timetable](http://gtpb.igc.gulbenkian.pt/bicourses/2021/AM21/Timetable.html)
 
 
-
-
-
-
-<hr2>
-
 ### Learning materials
 
 
