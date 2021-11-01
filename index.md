@@ -75,12 +75,6 @@ The course is intended for researchers and students that are, or are planning to
         administration of the useglaxy.no project and various other topics.
 
 
-    </td></tr>
-</table>
-
-<br/>
-
-    </html>
 
 ### Learning objectives
 
