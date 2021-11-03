@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="4-Taxonomic-profiling" data-id="4-Taxonomic-profiling"><a class="anchor hidden-xs" href="#4-Taxonomic-profiling" title="4-Taxonomic-profiling"><span class="octicon octicon-link"></span></a><span>4. Taxonomic profiling</span></h1><div class="alert alert-success">
+    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="4-Taxonomic-profiling" data-id="4-Taxonomic-profiling"><a class="anchor hidden-xs" href="#4-Taxonomic-profiling" title="4-Taxonomic-profiling"><span class="octicon octicon-link"></span></a><span>4. Taxonomic profiling</span></h1><div class="alert alert-success">
 <p><span>When doing a taxonomic classification, we want to find out what kind of organisms the sample contains. Who is there?</span></p>
 <br>
 <p><span>You will continue to work with the data that you have preprocessed in Module2. The DNA was isolated from the gut of premature human infants. The microbial diversity in the gut of premature infants is therefore very low.</span></p>
@@ -404,189 +404,9 @@ The NCBI taxonomic label (number) has been replaced by the name of the taxa name
 </div></details><br><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> As mentioned </span><strong><span>MEGAN</span></strong><span> needs a tab-delimited input file with one taxa per row and the number of reads matching this taxa. The </span><strong><span>Kaiju</span></strong><span> output has one reads per row (2817723 rows), and multiple reads may originate from the same taxa. You need to summarize the number of reads from each individual taxa before importing the taxonomic profile into </span><strong><span>MEGAN</span></strong></p>
 </div><p data-original-title="" title=""><span style="color:blue"><span>V] Summarise all taxa in</span><br>
-<code>sample1_refseq_kaiju.out.taxa</code><span> using this command:</span></span></p><p><span>This command is not displayed correctly!!!</span></p><pre><code>awk -F '\t' 'BEGIN{FS=OFS="\t"}{print $8}' sample1_refseq_kaiju.out.taxa | sort | uniq -c | sed -E 
-    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
-        <div class="pull-right dropdown">
-            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
-                <i class="fa fa-bars"></i>
-            </a>
-            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
-                <div class="toc"><ul class="nav">
-<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
-<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
-<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-            </ul>
-        </div>
-    </div>
-    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
-        <div class="toc"><ul class="nav">
-<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
-<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
-<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
-    <script>
-        var markdown = $(".markdown-body");
-        //smooth all hash trigger scrolling
-        function smoothHashScroll() {
-            var hashElements = $("a[href^='#']").toArray();
-            for (var i = 0; i < hashElements.length; i++) {
-                var element = hashElements[i];
-                var $element = $(element);
-                var hash = element.hash;
-                if (hash) {
-                    $element.on('click', function (e) {
-                        // store hash
-                        var hash = this.hash;
-                        if ($(hash).length <= 0) return;
-                        // prevent default anchor click behavior
-                        e.preventDefault();
-                        // animate
-                        $('body, html').stop(true, true).animate({
-                            scrollTop: $(hash).offset().top
-                        }, 100, "linear", function () {
-                            // when done, add hash to url
-                            // (default click behaviour)
-                            window.location.hash = hash;
-                        });
-                    });
-                }
-            }
-        }
+<code>sample1_refseq_kaiju.out.taxa</code><span> using this command:</span></span></p><pre><code>awk -F '\t' 'BEGIN{FS=OFS="\t"}{print $8}' sample1_refseq_kaiju.out.taxa | sort | uniq -c | sed -E 's/^ *//; s/ /\t/' | awk 'BEGIN {FS="\t"; OFS="\t"} {print $2, $1}' &gt; sample1_refseq_kaiju_megan.txt
 
-        smoothHashScroll();
-        var toc = $('.ui-toc');
-        var tocAffix = $('.ui-affix-toc');
-        var tocDropdown = $('.ui-toc-dropdown');
-        //toc
-        tocDropdown.click(function (e) {
-            e.stopPropagation();
-        });
-
-        var enoughForAffixToc = true;
-
-        function generateScrollspy() {
-            $(document.body).scrollspy({
-                target: ''
-            });
-            $(document.body).scrollspy('refresh');
-            if (enoughForAffixToc) {
-                toc.hide();
-                tocAffix.show();
-            } else {
-                tocAffix.hide();
-                toc.show();
-            }
-            $(document.body).scroll();
-        }
-
-        function windowResize() {
-            //toc right
-            var paddingRight = parseFloat(markdown.css('padding-right'));
-            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
-            toc.css('right', right + 'px');
-            //affix toc left
-            var newbool;
-            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
-            //for ipad or wider device
-            if (rightMargin >= 133) {
-                newbool = true;
-                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
-                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
-                tocAffix.css('left', left + 'px');
-            } else {
-                newbool = false;
-            }
-            if (newbool != enoughForAffixToc) {
-                enoughForAffixToc = newbool;
-                generateScrollspy();
-            }
-        }
-        $(window).resize(function () {
-            windowResize();
-        });
-        $(document).ready(function () {
-            windowResize();
-            generateScrollspy();
-        });
-
-        //remove hash
-        function removeHash() {
-            window.location.hash = '';
-        }
-
-        var backtotop = $('.back-to-top');
-        var gotobottom = $('.go-to-bottom');
-
-        backtotop.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToTop)
-                scrollToTop();
-            removeHash();
-        });
-        gotobottom.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToBottom)
-                scrollToBottom();
-            removeHash();
-        });
-
-        var toggle = $('.expand-toggle');
-        var tocExpand = false;
-
-        checkExpandToggle();
-        toggle.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            tocExpand = !tocExpand;
-            checkExpandToggle();
-        })
-
-        function checkExpandToggle () {
-            var toc = $('.ui-toc-dropdown .toc');
-            var toggle = $('.expand-toggle');
-            if (!tocExpand) {
-                toc.removeClass('expand');
-                toggle.text('Expand all');
-            } else {
-                toc.addClass('expand');
-                toggle.text('Collapse all');
-            }
-        }
-
-        function scrollToTop() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: 0
-            }, 100, "linear");
-        }
-
-        function scrollToBottom() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: $(document.body)[0].scrollHeight
-            }, 100, "linear");
-        }
-    </script>
-</body>
-
-</html>
-s/^ *//; s/ /\t/' | awk 'BEGIN {FS="\t"; OFS="\t"} {print $2, $1}' &gt; sample1_refseq_kaiju_megan.txt
-</code></pre><pre><code># awk remove all columns except column 8 containing the taxonomic label
+# awk remove all columns except column 8 containing the taxonomic label
 # sort will sort the taxa
 # uniq will count the number of occurrences of each taxa, collapse identical taxa into one and write a second row with the number of occurrences for each taxa
 # sed will change the delimiter to tab
@@ -610,190 +430,8 @@ Acetoanaerobium sticklandii	6
 Acetobacteraceae	1
 </code></pre><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>Reduce number of taxa.</span></strong><span> It is very normal to reduce the number of taxa in a taxonomic profile, by filtering out the least abundant taxa. This can be done for example by removing all taxa with less than 1 % abundance, or by removing all taxa with less reads than a certain number we set as a threshold. Reducing the number of taxa will also make viewing in </span><strong><span>MEGAN</span></strong><span> easier.</span></p>
-</div><p><span style="color:blue"><span>VIII] Sort </span><code>sample1_refseq_kaiju_megan.txt</code><span> so that the most abundant taxa are at the top:</span></span></p><pre><code>sort -t
-    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
-        <div class="pull-right dropdown">
-            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
-                <i class="fa fa-bars"></i>
-            </a>
-            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
-                <div class="toc"><ul class="nav">
-<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
-<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
-<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-            </ul>
-        </div>
-    </div>
-    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
-        <div class="toc"><ul class="nav">
-<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
-<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
-<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
-    <script>
-        var markdown = $(".markdown-body");
-        //smooth all hash trigger scrolling
-        function smoothHashScroll() {
-            var hashElements = $("a[href^='#']").toArray();
-            for (var i = 0; i < hashElements.length; i++) {
-                var element = hashElements[i];
-                var $element = $(element);
-                var hash = element.hash;
-                if (hash) {
-                    $element.on('click', function (e) {
-                        // store hash
-                        var hash = this.hash;
-                        if ($(hash).length <= 0) return;
-                        // prevent default anchor click behavior
-                        e.preventDefault();
-                        // animate
-                        $('body, html').stop(true, true).animate({
-                            scrollTop: $(hash).offset().top
-                        }, 100, "linear", function () {
-                            // when done, add hash to url
-                            // (default click behaviour)
-                            window.location.hash = hash;
-                        });
-                    });
-                }
-            }
-        }
+</div><p><span style="color:blue"><span>VIII] Sort </span><code>sample1_refseq_kaiju_megan.txt</code><span> so that the most abundant taxa are at the top:</span></span></p><pre><code>sort -k2 -nr sample1_refseq_kaiju_megan.txt &gt; sample1_refseq_kaiju_megan_sorted.txt
 
-        smoothHashScroll();
-        var toc = $('.ui-toc');
-        var tocAffix = $('.ui-affix-toc');
-        var tocDropdown = $('.ui-toc-dropdown');
-        //toc
-        tocDropdown.click(function (e) {
-            e.stopPropagation();
-        });
-
-        var enoughForAffixToc = true;
-
-        function generateScrollspy() {
-            $(document.body).scrollspy({
-                target: ''
-            });
-            $(document.body).scrollspy('refresh');
-            if (enoughForAffixToc) {
-                toc.hide();
-                tocAffix.show();
-            } else {
-                tocAffix.hide();
-                toc.show();
-            }
-            $(document.body).scroll();
-        }
-
-        function windowResize() {
-            //toc right
-            var paddingRight = parseFloat(markdown.css('padding-right'));
-            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
-            toc.css('right', right + 'px');
-            //affix toc left
-            var newbool;
-            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
-            //for ipad or wider device
-            if (rightMargin >= 133) {
-                newbool = true;
-                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
-                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
-                tocAffix.css('left', left + 'px');
-            } else {
-                newbool = false;
-            }
-            if (newbool != enoughForAffixToc) {
-                enoughForAffixToc = newbool;
-                generateScrollspy();
-            }
-        }
-        $(window).resize(function () {
-            windowResize();
-        });
-        $(document).ready(function () {
-            windowResize();
-            generateScrollspy();
-        });
-
-        //remove hash
-        function removeHash() {
-            window.location.hash = '';
-        }
-
-        var backtotop = $('.back-to-top');
-        var gotobottom = $('.go-to-bottom');
-
-        backtotop.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToTop)
-                scrollToTop();
-            removeHash();
-        });
-        gotobottom.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToBottom)
-                scrollToBottom();
-            removeHash();
-        });
-
-        var toggle = $('.expand-toggle');
-        var tocExpand = false;
-
-        checkExpandToggle();
-        toggle.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            tocExpand = !tocExpand;
-            checkExpandToggle();
-        })
-
-        function checkExpandToggle () {
-            var toc = $('.ui-toc-dropdown .toc');
-            var toggle = $('.expand-toggle');
-            if (!tocExpand) {
-                toc.removeClass('expand');
-                toggle.text('Expand all');
-            } else {
-                toc.addClass('expand');
-                toggle.text('Collapse all');
-            }
-        }
-
-        function scrollToTop() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: 0
-            }, 100, "linear");
-        }
-
-        function scrollToBottom() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: $(document.body)[0].scrollHeight
-            }, 100, "linear");
-        }
-    </script>
-</body>
-
-</html>
-\t' -k2 -nr sample1_refseq_kaiju_megan.txt &gt; sample1_refseq_kaiju_megan_sorted.txt
-
-# -t, delimiter is tab
 # -k which column to sort by
 # -nr numerical values with the most abundant at the top
 </code></pre><p><span style="color:blue"><span>IX] Open </span><code>sample1_refseq_kaiju_megan_sorted.txt</code><span> in a text editor and remove all taxa with less than 100 counts (sequence reads). Save the new file as </span><code>sample1_refseq_kaiju_megan_100.txt</code></span></p><p><span>❓How many taxa are left?</span></p><div class="alert alert-danger">
@@ -867,11 +505,11 @@ Higher abundance of this taxa.
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
 <li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
@@ -881,11 +519,11 @@ Higher abundance of this taxa.
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
