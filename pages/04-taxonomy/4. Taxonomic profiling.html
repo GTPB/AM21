@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        4. Taxonomic profiling - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="4-Taxonomic-profiling" data-id="4-Taxonomic-profiling"><a class="anchor hidden-xs" href="#4-Taxonomic-profiling" title="4-Taxonomic-profiling"><span class="octicon octicon-link"></span></a><span>4. Taxonomic profiling</span></h1><div class="alert alert-success">
+<p><span>When doing a taxonomic classification, we want to find out what kind of organisms the sample contains. Who is there?</span></p>
+<br>
+<p><span>You will continue to work with the data that you have preprocessed in Module2. The DNA was isolated from the gut of premature human infants. The microbial diversity in the gut of premature infants is therefore very low.</span></p>
+<br>
+<p><span>The aim of this assignment is to perform taxonomic classification of organisms present in the dataset using several different methods/tools.</span></p>
+<h4 id="In-this-exercise-you-will" data-id="In-this-exercise-you-will"><a class="anchor hidden-xs" href="#In-this-exercise-you-will" title="In-this-exercise-you-will"><span class="octicon octicon-link"></span></a><span>In this exercise you will:</span></h4>
+<ol>
+<li><span>Taxonomic classification using a reference database of protein sequences using </span><strong><span>Kaiju</span></strong></li>
+<li><span>Taxonomic classification using a K-mer based method using </span><strong><span>Kraken</span></strong></li>
+<li><span>Taxonomic classification using clade specific marker genes using </span><strong><span>MetaPhlAn2</span></strong></li>
+<li><span>Visalisation of taxonomic profiles with </span><strong><span>MEGAN</span></strong></li>
+</ol>
+</div><h2 id="1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" data-id="1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju"><a class="anchor hidden-xs" href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju"><span class="octicon octicon-link"></span></a><span>1. Taxonomic classification using a reference database of protein sequences using Kaiju</span></h2><center><img src="https://i.imgur.com/S2XgF3B.png" alt="drawing" width="300"></center><div class="alert alert-success">
+<p><span>💡</span><strong><span>Kaiju</span></strong><span> is a software tool for the taxonomic classification of high-throughput sequencing reads, e.g., Illumina or Roche/454, from whole-genome sequencing of metagenomic DNA. Reads are directly assigned to taxa using the NCBI taxonomy and a reference database of protein sequences from microbial and viral genomes.</span></p>
+<br>
+<p><span>You can read more about the tool </span><a href="https://github.com/bioinformatics-centre/kaiju" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<br>
+<p><span>As true for most taxonomic classification tools, your data is screened against a database of known sequences in order to classify your data. Before you can perform taxonomic classification of your reads, </span><strong><span>Kaiju’s</span></strong><span> database index needs to be built from the reference protein database. Even a relative small database such as the RefSeq generates large files when they are indexed (The indexing of the content is absolutely required in order to use a database). When RefSeq is indexed properly, it requires 32 GB of space.</span></p>
+<br>
+<p><span>The complete Reference Genomes from NCBI RefSeq was downloaded and index like this:</span></p>
+<pre><code>makeDB.sh -r
+</code></pre>
+<p><span>The indexing took about 2 hours to perform. This database contain only completely assembled and annotated reference genomes of Archaea and Bacteria from the NCBI RefSeq database. You can read more about RefSeq </span><a href="https://www.ncbi.nlm.nih.gov/refseq/" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<br>
+<p><span>Unfortunately, running </span><strong><span>Kaiju</span></strong><span> against RefSeq requires 21GB RAM. Your VM only have 16GB RAM, so we have indexed a smaller database called proGenomes. This database generally covers a broader phylogenetic range compared to the RefSeq dataset, and is therefore recommended, especially for environmental samples. As of February 2018, this database contains ca. 19M protein sequences, which amounts to a requirement of 13GB RAM for running Kaiju.</span></p>
+</div><p><span style="color:blue"><span>I] In </span><kbd><span>~/practical</span></kbd><span> copy the data for this exercise from the shared disk:</span></span></p><pre><code>cp -R /net/software/practical/4 .
+</code></pre><p><span style="color:blue"><span>II] Change the permissions of this directory:</span></span></p><pre><code>chmod -R a+rwx 4
+</code></pre><p><span style="color:blue"><span>III] In </span><kbd><span>~/practical/4/</span></kbd><span> create a directory named </span><code>kaiju</code><span> and enter this directory:</span></span></p><pre><code>mkdir kaiju
+cd kaiju
+</code></pre><p><span style="color:blue"><span>IV] Make symbolic links to the preprocessed FASTQ files from the </span><code>3. Trimming &amp; filtering</code><span> (the paired FASTQ from </span><strong><span>repair</span></strong><span>). You might have named the after you own choice - which is ok. In the following examples, we call these input files </span><code>sample1_R1_pair.fastq.gz</code><span> and </span><code>sample1_R2_pair.fastq.gz</code></span></p><pre><code>ln -s ~/practical/3/repair/sample1_R* .
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>Kaiju</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>V] View the </span><strong><span>Kaiju</span></strong><span> run options (or arguments), type:</span></span></p><pre><code>kaiju -h
+</code></pre><p><span style="color:blue"><span>VI] Run </span><strong><span>Kaiju</span></strong><span> against the ProGenomes database:</span></span></p><pre><code>kaiju -t /net/software/databases/proGenomes/nodes.dmp -f /net/software/databases/proGenomes/kaiju_db.fmi -i &lt;(gunzip -c sample1_R1_pair.fastq.gz) -j &lt;(gunzip -c sample1_R2_pair.fastq.gz) -z 4 -x -s 75 -a greedy -e 5 -o sample1_proGenomes_kaiju.out -v
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The different arguments are</span></p>
+<ul>
+<li><span>-t = Path to the pre-indexed database</span></li>
+<li><span>-f = Path to the pre-indexed database</span></li>
+<li><span>-z = Set the number of parallell threads to 4</span></li>
+<li><span>-x = Enable SEG low complexity filter</span></li>
+<li><span>-s = Set the minimum match score in ‘Greedy mode’ to 75</span></li>
+<li><span>-a greedy = Run </span><strong><span>Kaiju</span></strong><span> in ‘Greedy mode’ and allow 5 mismatches</span></li>
+<li><span>-e = Number of allowed substitutions</span></li>
+<li><span>-o = Name the output </span><code>sample1_proGenomes_kaiju.out</code></li>
+<li><span>-v = Enable the verbose output to get a rich output format</span></li>
+</ul>
+</div><div class="alert alert-danger">
+<p><span>Running Kaiju on this dataset will take 17 minutes on a 8 GB RAM, 16 CPU machine. If you don’t want to wait for the tool to finish, we have provided the Kaiju output here: </span><kbd><span>~/practical/4/prerun_kaiju/</span></kbd></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>Kaiju</span></strong><span> will print one line for each read or read pair. The verbose output contains tab-separated columns with information about the length or score of the best match used for classification, NCBI taxon identifier of the assigned taxon, accession numbers, etc:</span></p>
+<ul>
+<li><span>either C or U, indicating whether the read is classified or unclassified.</span></li>
+<li><span>name of the read</span></li>
+<li><span>NCBI taxon identifier of the assigned taxon</span></li>
+<li><span>the length or score of the best match used for classification</span></li>
+<li><span>the taxon identifiers of all database sequences with the best match</span></li>
+<li><span>the accession numbers of all database sequences with the best match</span></li>
+<li><span>matching fragment sequence(s)</span></li>
+</ul>
+</div><p><span style="color:blue"><span>VII] View the top of the </span><strong><span>Kaiju</span></strong><span> output:</span></span></p><pre><code>head sample1_proGenomes_kaiju.out
+</code></pre><p><span>❓Which NCBI taxon does the first sequence classified </span><code>(C)</code><span> read represent?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Look up the taxon ID in the [NCBI taxonomy browser](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi).
+</div></details><br><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-info">
+<p><span>💡 You can use </span><strong><span>Krona</span></strong><span> to visualise the results </span><strong><span>Kaiju</span></strong><span>. </span><strong><span>Krona</span></strong><span> allows hierarchical data to be explored with zooming, multi-layered pie charts. </span><strong><span>Krona</span></strong><span> charts can be created using an </span><strong><span>Excel</span></strong><span> template or </span><strong><span>KronaTools</span></strong><span>, which includes support for several bioinformatics tools and raw data formats. The interactive charts are self-contained and can be viewed with any modern web browser.</span></p>
+<p><span>In order to visualise the results in </span><strong><span>Krona</span></strong><span>, you first need to convert the </span><strong><span>Kaiju</span></strong><span> results into a file ready for import in </span><strong><span>Krona Tools</span></strong><span>.</span></p>
+<p><strong><span>Krona Tools</span></strong><span> require an input file with the full taxon path, like shown below:</span></p>
+<pre><code>91803	root	cellular organisms	Bacteria	FCB group	Bacteroidetes/Chlorobi group	Bacteroidetes	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides ovatus
+87964	root	cellular organisms	Bacteria	FCB group	Bacteroidetes/Chlorobi group	Bacteroidetes	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides thetaiotaomicron
+</code></pre>
+</div><center><img src="https://i.imgur.com/QXS5c40.png" alt="drawing" width="400"></center><p><span style="color:blue"><span>VIII] Convert the </span><strong><span>Kaiju</span></strong><span> output file into the proper </span><strong><span>Krona Tools</span></strong><span> format using </span><strong><span>kaiju2krona</span></strong><span>:</span></span></p><pre><code>kaiju2krona -t /net/software/databases/proGenomes/nodes.dmp -n /net/software/databases/proGenomes/names.dmp -i sample1_proGenomes_kaiju.out -o sample1_proGenomes_kaiju.krona
+</code></pre><p><span style="color:blue"><span>IX] The file </span><code>sample1_proGenomes_kaiju.krona</code><span> can then be imported into </span><strong><span>Krona</span></strong><span> and converted into an HTML file using Krona’s </span><strong><span>ktImportText</span></strong><span> program. </span><strong><span>Activate the Conda </span><code>Krona</code><span> environment first!</span></strong></span></p><pre><code>ktImportText -o sample1_proGenomes_kaiju.html sample1_proGenomes_kaiju.krona
+</code></pre><p><span style="color:blue"><span>X] Open the HTML file you just generated in a web browser.</span></span></p><p><span>❓How many reads did not get assign to bacteria?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2841 reads
+</div></details><br><p><span>❓What seems to be the most abundant genera?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓How many percent of the reads have mapped to this genera?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+77%
+</div></details><br><p><span>❓Locate the genus </span><em><span>Escherichia coli</span></em><span>. How many of the reads in your sample originate from this specie and how many percent does this species represent from the total reads (Hint: you can type the name in the search field)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+27 reads, 0,001%
+</div></details><br><p><span>The program </span><strong><span>kaiju2table</span></strong><span> can convert Kaiju’s tab-separated output file into a summary report file for a given taxonomic rank, e.g., species.</span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>kaiju2table</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>XI] Print a report at species level with species that comprise at least 1 percent of the total reads. Name the output file containing the report </span><code>sample1_proGenomes_kaiju_species.summary</code><span>:</span></span></p><pre><code>kaiju2table -t /net/software/databases/proGenomes/nodes.dmp -n /net/software/databases/proGenomes/names.dmp -r species -m 0.1 -o sample1_proGenomes_species.summary sample1_proGenomes_kaiju.out
+</code></pre><p><span>❓ What does the </span><code>-r</code><span> and </span><code>-m</code><span> flag do?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+-r = Report taxonomic rank, -m = minimum required percentage for the taxon to be reported
+</div></details><br><p><span>❓How many percent of the reads belongs to the most abundant species in the sample?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓ How many of the reads in your sample originate from </span><em><span>Lactobacillus rhamnosus</span></em><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+9086 reads
+</div></details><br><p><span>❓ Look at the last line in the report, how many percent of the reads could not be classified (does not match anything in the database)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+28%
+</div></details><br><p><span>❓ How many percent of the classified reads could not be assign at species level?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+16,5%
+</div></details><br><p><span style="color:blue"><span>XII] Create a report on genus level. Name the output file containing the report </span><code>sample1_proGenomes_genus.summary</code></span></p><p><span>❓How many percent of the classified reads could not be assign at genus level?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+1,766%
+</div></details><br><p><span>❓ What is the most abundant genera, and how many percent of the reads have mapped to this genera?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Bifidobacterium, 55,6%
+</div></details><div class="alert alert-warning">
+<h4 id="-Optional-exercise" data-id="-Optional-exercise"><a class="anchor hidden-xs" href="#-Optional-exercise" title="-Optional-exercise"><span class="octicon octicon-link"></span></a><img class="emoji" alt=":white_check_mark:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/white_check_mark.png"><span> Optional exercise</span></h4>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In the folder </span><kbd><span>~/practical/4/optional_refseq_kaiju/</span></kbd><span> we have run the same rawdata files against the complete RefSeq database. Running </span><strong><span>Kaiju</span></strong><span> against this database require at least 21GB RAM.</span></p>
+</div>
+<p><span style="color:blue"><span>XIII] Move to this folder and generate summary reports at both genus and species level. </span><strong><span>NB! The path to the RefSeq database is:</span></strong><span> </span><code>/net/software/databases/refseq_kaiju/</code></span></p>
+<br>
+<p><span>❓ What are the major differences when comparing the same data against two different databases (if any)?</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+More reads are classified using RefSeq, but less reads are can be assigned to species and genus level. Also, much fewer taxa are identified using RefSeq. This could be due to that RefSeq assign reads more accurately, hence assigning the reads to a lower taxonomic level.
+</div></details>
+<br>
+<p><span>❓ Compare the number of reads assigned to the species </span><em><span>Bifidobacterium longum</span></em><span>? Can you explain the differences?</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+RefSeq has more data from this specie and fewer subspecies, hence more reads match this specie using RefSeq. The ProGenome database has more subspecies, and assign reads (accurately?) to these subspecies and not to Bifidobacterium longum 
+</div></details>
+<br>
+<div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In the folder </span><kbd><span>~/practical/4/optional_e_kaiju/</span></kbd><span> we have run the same rawdata files against the complete non-redundant protein database nr. This database took 256 GB of diskspace, therefore we could not put it on the VM.</span></p>
+<p><span>The </span><strong><span>Kaiju</span></strong><span> output file is named </span><code>sample1_e_kaiju.out</code><span>, the </span><strong><span>Kaiju</span></strong><span> report on species level </span><code>sample1_e_kaiju_species.summary</code><span> and the </span><strong><span>Kaiju</span></strong><span> report on genus level </span><code>sample1_e_kaiju_genus.summary</code></p>
+</div>
+</div><div class="alert alert-warning">
+<p><span style="color:blue"><span>XIV] Move to this folder and open the summary reports.</span></span></p>
+<br>
+<p><span>❓ What are the major differences when comparing the same data against RefSeq (if any)?</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Less reads can be assigned to species and genus level when using RefSeq. Probably due to the larger database
+</div></details>
+<br>
+<p><span style="color:blue"><span>XV] Generate a </span><strong><span>Krona</span></strong><span> plot of the </span><code>sample1_e_kaiju.out</code><span> file like you did previously.</span></span></p>
+<br>
+<p><span>❓ Can you see the differences you just described between the analysis against RefSeq and the complete nr in the plot?</span></p>
+<br>
+<details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes...
+</div></details>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:25%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 1 finished</span>
+ </span></div>
+</div><h2 id="2-Taxonomic-classification-using-a-K-mer-based-method" data-id="2-Taxonomic-classification-using-a-K-mer-based-method"><a class="anchor hidden-xs" href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2-Taxonomic-classification-using-a-K-mer-based-method"><span class="octicon octicon-link"></span></a><span>2. Taxonomic classification using a K-mer based method</span></h2><center><img src="https://i.imgur.com/mGSYGg9.png" alt="drawing" width="800"></center><br><div class="alert alert-success">
+<p><span>💡</span><strong><span>Kraken</span></strong><span> is a system for ultrafast assignment of taxonomic labels to short DNA sequences using exact alignments of k-mers and a novel classification algorithm.</span></p>
+<p><strong><span>Kraken’s</span></strong><span> default database contains just under 6 billion (6e9) distinct k-mers, and requires at least 160 GB of disk space. We will therefore use MiniKraken - Kraken run with a reduced database. The database is 4 GB and contains about 2.7% of kmers from the original database. You can read more </span><a href="https://ccb.jhu.edu/software/kraken/MANUAL.html" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div><p><span style="color:blue"><span>I] Create a directory named </span><code>kraken</code><span> in </span><kbd><span>~/practical/4/</span></kbd><span> and make symbolic links to the preprocessed FASTQ files from the </span><code>3. Trimming &amp; filtering</code><span> - the paired FASTQ from </span><strong><span>repair</span></strong><span> (</span><code>sample1_R1_pair.fastq.gz</code><span> and </span><code>sample1_R2_pair.fastq.gz</code><span>).</span></span></p><p><span style="color:blue"><span>II] Activate the correct </span><strong><span>Conda</span></strong><span> environment and view the </span><strong><span>Kraken</span></strong><span> run options (or arguments), type:</span></span></p><pre><code>kraken -h
+</code></pre><p><span>In order to classify reads with </span><strong><span>Kraken</span></strong><span>, you need to tell the program where the database is locate. We have downloaded the reduced database, formatted it and placed it here: </span><kbd><span>/net/software/databases/minikraken/</span></kbd><span>.</span></p><p><span style="color:blue"><span>II] Run </span><strong><span>Kraken</span></strong><span> on the two FASTQ files and name the output </span><code>sample1_kraken.out</code><span>. Remember that it is a paired end sample:</span></span></p><pre><code>kraken --db /net/software/databases/minikraken/ --paired sample1_R1_pair.fastq.gz sample1_R2_pair.fastq.gz --output sample1_kraken.out --threads 4
+</code></pre><p><span>❓ What does the --paired flag do?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Specify that the input is PE
+</div></details><br><p><span style="color:blue"><span>III] Look at the first lines in output file (</span><code>head sample1_kraken.out</code><span>).</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Each sequence classified by </span><strong><span>Kraken</span></strong><span> results in a single line of output. Output lines contain five tab-delimited fields; from left to right, they are:</span></p>
+<ul>
+<li><span>“C”/“U”: one letter code indicating that the sequence was either classified or unclassified.</span></li>
+<li><span>The sequence ID, obtained from the FASTA/FASTQ header.</span></li>
+<li><span>The taxonomy ID Kraken used to label the sequence; this is 0 if the sequence is unclassified.</span></li>
+<li><span>The length of the sequence in bp.</span></li>
+<li><span>A space-delimited list indicating the LCA mapping of each k-mer in the sequence. For example, “562:13 561:4 A:31 0:1 562:3” would indicate that:</span>
+<ul>
+<li><span>the first 13 k-mers mapped to taxonomy ID #562</span></li>
+<li><span>the next 4 k-mers mapped to taxonomy ID #561</span></li>
+<li><span>the next 31 k-mers contained an ambiguous nucleotide</span></li>
+<li><span>the next k-mer was not in the database</span></li>
+<li><span>the last 3 k-mers mapped to taxonomy ID #562</span></li>
+</ul>
+</li>
+</ul>
+</div><p><span style="color:blue"><span>IV] In order to make a </span><strong><span>Krona</span></strong><span> chart of the </span><strong><span>Kraken</span></strong><span> output you need to remove some of the columns in the </span><code>sample1_kraken.out</code><span> file:</span></span></p><pre><code>cut -f2,3 sample1_kraken.out &gt; sample1_kraken.krona.in
+</code></pre><p><span style="color:blue"><span>V] Make a </span><strong><span>Krona</span></strong><span> chart from the file </span><code>sample1_kraken.krona.in</code><span> using Krona’s </span><strong><span>ktImportText</span></strong><span> program (activate the Krona environment):</span></span></p><pre><code>ktImportTaxonomy sample1_kraken.krona.in -o sample1_kraken.html
+</code></pre><p><span style="color:blue"><span>VI] Open the Krona chart from the </span><strong><span>Kraken</span></strong><span> analysis.</span></span></p><p><span>❓How many percent of the reads belongs to the most abundant species in the sample?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><p><span>❓What is the most abundant genera, and how of the reads have mapped to this genera?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+ *Bifidobacterium longum*, 1728338 reads
+</div></details><br><p><span>❓Does any of the reads map to the specie </span><em><span>Escherichia coli</span></em><span>? How many of the reads in your sample originate from this specie?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+39 reads
+</div></details><br><p><span style="color:blue"><span>VII] Generate a taxonomic report of the </span><strong><span>Kraken</span></strong><span> output. NB! It is important that the database used must be the same as the one used to generate the output file (activate the Kraken environment):</span></span></p><pre><code>kraken-report --db /net/software/databases/minikraken/ sample1_kraken.out &gt; sample1_kraken.rpt
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The output of kraken-report is tab-delimited, with one line per taxon. The fields of the output, from left-to-right, are as follows:</span></p>
+<ul>
+<li><span>Percentage of reads covered by the clade rooted at this taxon</span></li>
+<li><span>Number of reads covered by the clade rooted at this taxon</span></li>
+<li><span>Number of reads assigned directly to this taxon</span></li>
+<li><span>A rank code, indicating U = unclassified, D = domain, K = kingdom, P = phylum, C = class, O = order, F = family, G = genus, or S = species. All other ranks are simply ‘-’.</span></li>
+<li><span>NCBI taxonomy ID</span></li>
+<li><span>indented scientific name</span></li>
+</ul>
+</div><p><span style="color:blue"><span>VIII] Open the </span><strong><span>Kraken</span></strong><span> report in a text editor (e.g. </span><strong><span>Gedit</span></strong><span>)</span></span></p><p><span>❓How many percent of the reads were unclassified?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+24.18%
+</div></details><br><p><span>❓How many percent of the reads belongs to the most abundant species in the sample?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Like for </span><strong><span>Kaiju</span></strong><span>, we have prerun the same data against a larger database - the complete </span><strong><span>Kraken</span></strong><span> database. The database is 505 GB in size, therefore we could not put it on the VM. The output is </span><kbd><span>~/practical/4/stor_kraken/</span></kbd></p>
+<p><span>The </span><strong><span>Kaiju</span></strong><span> output file is named </span><code>sample1_stor_kraken.out</code><span>, the </span><strong><span>Kraken</span></strong><span> report is called </span><code>sample1_stor_kraken.rpt</code><span>.</span></p>
+</div><p><span style="color:blue"><span>XI] Compare this report with the report from the run against the smaller database (minikraken).</span></span></p><p><span>❓Against which database does the analysis produce least unclassified reads and how many reads are unclassified?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+8.43% using the complete **Kraken** database
+</div></details><br><p><span>❓Are there any major differences in the taxa that are found using the two different databases?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The analysis using the complete **Kraken** database assign even more reads to *Bifidobacterium*, and detects more subspecies in many other genus
+</div></details><br><p><span style="color:blue"><span>X] Make a </span><strong><span>Krona</span></strong><span> chart from the </span><code>sample1_stor_kraken.out</code></span></p><p><span>❓ Can you see any taxonomic differences between the analysis against </span><strong><span>Minikraken</span></strong><span> and the complete </span><strong><span>Kraken</span></strong><span> database in the </span><strong><span>Krona</span></strong><span> plot?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes...
+</div></details><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:50%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 2 finished</span>
+ </span></div>
+</div><h2 id="3-Taxonomic-classification-using-clade-specific-markes" data-id="3-Taxonomic-classification-using-clade-specific-markes"><a class="anchor hidden-xs" href="#3-Taxonomic-classification-using-clade-specific-markes" title="3-Taxonomic-classification-using-clade-specific-markes"><span class="octicon octicon-link"></span></a><span>3. Taxonomic classification using clade specific markes</span></h2><center><img src="https://i.imgur.com/AI0ScPd.png" alt="drawing" width="400"></center><div class="alert alert-success">
+<p><span>💡</span><strong><span>MetaPhlAn3</span></strong><span> is part of </span><strong><span>bioBakery</span></strong><span> which is a collection of tools and workflows for executing common microbial community analyses.</span></p>
+<p><strong><span>MetaPhlAn3</span></strong><span> can be used for profiling the composition of microbial communities from metagenomic shotgun sequencing data. </span><strong><span>MetaPhlAn3</span></strong><span> relies on unique clade-specific marker genes identified from ~17,000 reference genomes (~13,500 bacterial and archaeal, ~3,500 viral, and ~110 eukaryotic).</span></p>
+<p><span>You can read more about </span><strong><span>MetaPhlAn3</span></strong><span> </span><a href="https://github.com/biobakery/MetaPhlAn/wiki/MetaPhlAn-3.0" target="_blank" rel="noopener"><span>here</span></a></p>
+</div><p><span style="color:blue"><span>I] Create a directory named </span><code>metaphlan</code><span> in </span><kbd><span>~/practical/4/</span></kbd><span> and make symbolic links to the preprocessed FASTQ files from the </span><code>sample1_R1_pair.fastq.gz</code><span> and </span><code>sample1_R2_pair.fastq.gz</code><span> from the exercise </span><code>3. Trimming &amp; filtering</code><span> - the paired FASTQ from </span><strong><span>repair</span></strong></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>MetaPhlAn3</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><p><span style="color:blue"><span>II] View the </span><strong><span>MetaPhlAn3</span></strong><span> run options (or arguments), type:</span></span></p><pre><code>metaphlan2.py -h
+</code></pre><p><span style="color:blue"><span>III] Run </span><strong><span>MetaPhlAn3</span></strong><span> on the two FASTQ files and name the output </span><code>sample1_metaphlan.txt</code><span>. Remember that it is a paired end sample:</span></span></p><pre><code>metaphlan sample1_R1_pair.fastq.gz,sample1_R2_pair.fastq.gz --bowtie2db /opt/databases/metaphlan3_db --bowtie2out sample1.bz2 --nproc 16 --input_type fastq -o sample1_metaphlan.txt
+
+# --bowtie2db, location of the database
+</code></pre><div class="alert alert-info">
+<p><span>MetaPhlAn3 will take around 8 minutes to process this data, so it is possible to stretch your legs now:).</span></p>
+</div><p><span>❓ What does the --nproc flag do?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Specify the number of CPUs
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>MetaPhlAn3</span></strong><span> has created two output files. The first file </span><code>sample1.bz2</code><span> is a compressed file and contains the intermediate mapping results to unique sequence markers. Alignments are listed one per line in tab-separated columns of read and reference marker.</span></p>
+</div><p><span style="color:blue"><span>IV] Look at the start of this file:</span></span></p><pre><code>bzcat sample1.bz2 | head
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The second file contains the final computed organism abundances. Organism abundances are listed one clade per line, tab-separated from the clade’s percent abundance.</span></p>
+</div><p><span style="color:blue"><span>V] Look at the first lines in output file:</span></span></p><pre><code>head sample1_metaphlan.txt
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> After three lines with information on how the output was generated, the abundance profile should look similar to this - a text file with four columns:</span></p>
+<center><img src="https://i.imgur.com/fboE7XQ.png" alt="drawing" width="800"></center>
+<br>
+<p><span>The first column lists clades, ranging from taxonomic kingdoms (Bacteria, Archaea, etc.) through species. The taxonomic level of each clade is prefixed to indicate its level:</span></p>
+<p><span>Kingdom: k__, Phylum: p__, Class: c__, Order: o__, Family: f__, Genus: g__, Species: s__</span></p>
+<p><span>The second column list the NCBI taxonomy of the taxa</span></p>
+<p><span>The third column list the relative abundances of the identified taxa. Since sequence-based profiling is relative and does not provide absolute cellular abundance measures, clades are hierarchically summed. Each level will sum to 100%; that is, the sum of all kingdom-level clades is 100%, the sum of all genus-level clades (including unclassified) is also 100%, and so forth.</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to make a </span><strong><span>Krona</span></strong><span> chart of the </span><strong><span>MetaPhlAn3</span></strong><span> output you need to convert it using the script </span><strong><a href="http://metaphlan2krona.py" target="_blank" rel="noopener"><span>metaphlan2krona.py</span></a></strong><span>. However, this script was written for </span><strong><span>MetaPhlAn2</span></strong><span> which generate an abundance profile output with </span><strong><span>only two</span></strong><span> columns:</span></p>
+<center><img src="https://i.imgur.com/UNMAVj5.png" alt="drawing" width="800"></center>
+<br>
+<p><span>In order for  </span><strong><a href="http://metaphlan2krona.py" target="_blank" rel="noopener"><span>metaphlan2krona.py</span></a></strong><span> to work properly, you first need to do some manipulations to the </span><strong><span>MetaPhlAn3</span></strong><span> output to simulate a </span><strong><span>MetaPhlAn2</span></strong><span> output</span></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Metaphlan</span></strong><span> conda environment</span></p>
+</div><p><span style="color:blue"><span>V] Remove column 2 and 4 from the </span><code>sample1_metaphlan.txt</code><span>:</span></span></p><pre><code>cut -f1,3 sample1_metaphlan.txt &gt; sample1_metaphlan_ok.txt
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Krona</span></strong><span> conda environment</span></p>
+</div><p><span style="color:blue"><span>VI] Convert the output to </span><strong><span>Krona</span></strong><span> format:</span></span></p><pre><code>metaphlan2krona.py -p sample1_metaphlan_ok.txt -k sample1_metaphlan.krona
+</code></pre><p><span style="color:blue"><span>VII] Then make the HTML plot in the correct conda environment:</span></span></p><pre><code>ktImportText -o sample1_metaphlan.html sample1_metaphlan.krona
+</code></pre><p><span>❓ Can you see any major taxonomic differences between this taxonomic profile, and the profiles you got from the analysis using </span><strong><span>Kaiju</span></strong><span> and </span><strong><span>Kraken</span></strong><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Yes, fewer taxa identified
+</div></details><br><p><span>❓How many of the reads in your sample originate from </span><em><span>Escherichia coli</span></em><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+0
+</div></details><br><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:75%;background:#291;text-align:center;">
+   <span style="color:white"><span>Part 3 finished</span>
+ </span></div>
+</div><h2 id="4-Visualisation-of-taxonomic-profiles-with-MEGAN" data-id="4-Visualisation-of-taxonomic-profiles-with-MEGAN"><a class="anchor hidden-xs" href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4-Visualisation-of-taxonomic-profiles-with-MEGAN"><span class="octicon octicon-link"></span></a><span>4. Visualisation of taxonomic profiles with MEGAN</span></h2><center><img src="https://i.imgur.com/3N0R6tX.png" alt="drawing" width="800"></center><div class="alert alert-success">
+<p><span>💡</span><strong><span>MEGAN</span></strong><span> is a comprehensive toolbox for analysing microbiome data and comes with a user-friendly interface. </span><strong><span>MEGAN</span></strong><span> can perform both taxonomic and functional analysis and visualise the results in various plots and charts.</span></p>
+<br>
+<p><span>You can read more about the tool </span><a href="http://ab.inf.uni-tuebingen.de/software/megan6/" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+<br>
+<p><span>The main application of </span><strong><span>MEGAN</span></strong><span> is to parse and analyse the result of a </span><strong><span>BLAST</span></strong><span> comparison of a set of reads against one or more reference databases, typically using </span><strong><span>BLASTN</span></strong><span> to compare against NCBI-NT. </span><strong><span>MEGAN</span></strong><span> also supports import of data from other programs such as </span><strong><span>Kaiju</span></strong><span> or </span><strong><span>Kraken</span></strong><span> in a delimiter-separated format (using comma’s or tabs). An example of such file is:</span></p>
+<table>
+<thead>
+<tr>
+<th><span>Taxon</span></th>
+<th><span>#reads</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Specie A</span></td>
+<td><span>100</span></td>
+</tr>
+<tr>
+<td><span>Specie B</span></td>
+<td><span>400</span></td>
+</tr>
+<tr>
+<td><span>Specie C</span></td>
+<td><span>50</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> There are several ways to create a tab-separated taxon summary file. In this exercise you will use the taxonomic profile you generated using  </span><strong><span>Kaiju</span></strong><span>. This output file include all taxonomic levels.</span></p>
+</div><p><span style="color:blue"><span>I] Create a directory named </span><code>megan</code><span> in </span><kbd><span>~/practical/4/</span></kbd><span> and make symbolic links to the </span><strong><span>Kaiju</span></strong><span> output against RefSeq (</span><code>sample1_refseq_kaiju.out</code><span>):</span></span></p><pre><code>-ln -s ~/practical/4/optional_refseq_kaiju/sample1_refseq_kaiju.out
+</code></pre><p><span style="color:blue"><span>II] Look at the first part of the file </span><code>sample1_refseq_kaiju.out</code><span>:</span></span></p><pre><code>head sample1_refseq_kaiju.out
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The taxonomic annotation is in column 8 and is a NCBI ID number. You can read more about NCBI taxonomy </span><a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank" rel="noopener"><span>here</span></a><span>.</span></p>
+</div><p><span style="color:blue"><span>III] Add taxonomy labels (names not just numbers) to each assigned read using </span><code>kaiju-addTaxonNames</code><span>, but do not specify the taxonomic rank, since some reads have been assigned to species level, while other have been assign to lower taxonomic levels.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>kaiju-addTaxonNames</span></strong><span> you need activate the </span><strong><span>Kaiju</span></strong><span> </span><strong><span>Conda</span></strong><span> environment.</span></p>
+</div><pre><code>kaiju-addTaxonNames -t /net/software/databases/refseq_kaiju/nodes.dmp -n /net/software/databases/refseq_kaiju/names.dmp -i sample1_refseq_kaiju.out -o sample1_refseq_kaiju.out.taxa
+
+OUTPUT: sample1_refseq_kaiju.out.taxa
+</code></pre><p><span style="color:blue"><span>IV] Look at the first part of the file </span><code>sample1_refseq_kaiju.out.taxa</code><span>.</span></span></p><p><span>❓ Do you spot any changes in this file relative to </span><code>sample1_refseq_kaiju.out</code><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+The NCBI taxonomic label (number) has been replaced by the name of the taxa names in the last column
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> As mentioned </span><strong><span>MEGAN</span></strong><span> needs a tab-delimited input file with one taxa per row and the number of reads matching this taxa. The </span><strong><span>Kaiju</span></strong><span> output has one reads per row (2817723 rows), and multiple reads may originate from the same taxa. You need to summarize the number of reads from each individual taxa before importing the taxonomic profile into </span><strong><span>MEGAN</span></strong></p>
+</div><p data-original-title="" title=""><span style="color:blue"><span>V] Summarise all taxa in</span><br>
+<code>sample1_refseq_kaiju.out.taxa</code><span> using this command:</span></span></p><p><span>This command is not displayed correctly!!!</span></p><pre><code>awk -F '\t' 'BEGIN{FS=OFS="\t"}{print $8}' sample1_refseq_kaiju.out.taxa | sort | uniq -c | sed -E 
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
+<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
+<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
+<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
+<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
+s/^ *//; s/ /\t/' | awk 'BEGIN {FS="\t"; OFS="\t"} {print $2, $1}' &gt; sample1_refseq_kaiju_megan.txt
+</code></pre><pre><code># awk remove all columns except column 8 containing the taxonomic label
+# sort will sort the taxa
+# uniq will count the number of occurrences of each taxa, collapse identical taxa into one and write a second row with the number of occurrences for each taxa
+# sed will change the delimiter to tab
+# awk will change order of column 1 (counts) and column 2 (taxa)
+
+OUTPUT: sample1_refseq_kaiju_megan.txt
+</code></pre><p><span>❓ How many unique taxa are there in the sample?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+1543 (including non-assigned reads)
+</div></details><br><p><span style="color:blue"><span>VI] Open the file </span><code>sample1_refseq_kaiju_megan.txt</code><span> in a text editor. The first lines should look something like this:</span></span></p><pre><code>	513462
+Acaryochloris marina MBIC11017	1
+Acetoanaerobium sticklandii	6
+Acetobacteraceae	1
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The first column displaying taxon, and the second showing how many sequence reads that mapped to this taxon. Note that the taxa are on various taxonomic levels (genus, species, etc.). The first row contain the reads with no taxonomic labels (did not match anything in RefSeq).</span></p>
+</div><p><span style="color:blue"><span>VII] Add “NA” to all the unassigned reads in the first row, second column in a text editor:</span></span></p><pre><code>NA	513462
+Acaryochloris marina MBIC11017	1
+Acetoanaerobium sticklandii	6
+Acetobacteraceae	1
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>Reduce number of taxa.</span></strong><span> It is very normal to reduce the number of taxa in a taxonomic profile, by filtering out the least abundant taxa. This can be done for example by removing all taxa with less than 1 % abundance, or by removing all taxa with less reads than a certain number we set as a threshold. Reducing the number of taxa will also make viewing in </span><strong><span>MEGAN</span></strong><span> easier.</span></p>
+</div><p><span style="color:blue"><span>VIII] Sort </span><code>sample1_refseq_kaiju_megan.txt</code><span> so that the most abundant taxa are at the top:</span></span></p><pre><code>sort -t
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
+<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
+<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
+<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
+<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
+\t' -k2 -nr sample1_refseq_kaiju_megan.txt &gt; sample1_refseq_kaiju_megan_sorted.txt
+
+# -t, delimiter is tab
+# -k which column to sort by
+# -nr numerical values with the most abundant at the top
+</code></pre><p><span style="color:blue"><span>IX] Open </span><code>sample1_refseq_kaiju_megan_sorted.txt</code><span> in a text editor and remove all taxa with less than 100 counts (sequence reads). Save the new file as </span><code>sample1_refseq_kaiju_megan_100.txt</code></span></p><p><span>❓How many taxa are left?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This file can now be visualised in MEGAN👍</span></p>
+</div><p><span style="color:blue"><span>X] Open </span><strong><span>MEGAN6</span></strong><span>:</span></span></p><pre><code>MEGAN
+</code></pre><p><span style="color:blue"><span>XII] Press </span><strong><span>‘File’</span></strong><span>, select </span><strong><span>‘Import’</span></strong><span> and </span><strong><span>‘CSV Format’</span></strong><span>:</span></span></p><center><img src="https://i.imgur.com/Esh5pqh.png" alt="drawing" width="300"></center><br><p><span style="color:blue"><span>XIII] Select the </span><code>sample1_refseq_kaiju_megan_100.txt</code><span> to load the data into </span><strong><span>MEGAN</span></strong><span>:</span></span></p><p><span style="color:blue"><span>XIV] Select </span><strong><span>‘Class Count’</span></strong><span>, </span><strong><span>‘Tab’</span></strong><span> and </span><strong><span>‘Taxonomy’</span></strong><span>. Press </span><strong><span>‘Apply’</span></strong><span>:</span></span></p><center><img src="https://i.imgur.com/dDzl1uI.png" alt="drawing" width="300"></center><br><p><span>A new window with the taxonomic assignments on a hierarchical tree structure will appear.</span></p><center><img src="https://i.imgur.com/DRhSCD2.png" alt="drawing" width="600"></center><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> As you can see, </span><strong><span>MEGAN</span></strong><span> does not recognise “root” and “NA” as NCBI taxa. Instead, </span><strong><span>MEGAN</span></strong><span> display the sum of the reads from these categories as “Not assigned”.</span></p>
+</div><p><span>In addition there is some information about the file you just imported in the “</span><strong><span>Message window</span></strong><span>”:</span></p><br><center><img src="https://i.imgur.com/n4R2uvm.png" alt="drawing" width="600"></center><br><p><span style="color:blue"><span>XV] Click on the circle representing Bacteria. Two numbers will appear:</span></span></p><p><span style="color:blue"><span> 1. Assigned means how many reads that were classified to the Bacteria taxa - that is on domain level</span></span></p><p><span style="color:blue"><span> 2. Summed means how many reads in total in the sample that are assigned to this AND deeper hierarchical levels of this domain</span></span></p><center><img src="https://i.imgur.com/0YI9q0t.png" alt="drawing" width="600"></center><br><p><span>❓How many reads are assigned to the Bacteria level and not placed further down in the taxonomic hierarchy (eg. at family or genus level)?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2 325 reads. These sequence reads do not map to any deeper taxa and therefore is not possible to assign more precise taxonomy to.
+</div></details><br><p><span style="color:blue"><span>XV] Open </span><code>sample1_refseq_kaiju_megan_100.txt</code><span>.</span></span></p><p><span>❓How many reads are assigned to the Bacteria level by </span><strong><span>Kaiju</span></strong><span>? Is it the same number as in </span><strong><span>MEGAN</span></strong><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+2 145 reads. Not the same number!!
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Be aware that the NCBI taxonomy in </span><strong><span>MEGAN</span></strong><span> and </span><strong><span>Kaiju</span></strong><span> may not always be in sync. E.g. the specie </span><code>Marinifilaceae bacterium SPP2</code><span> with 180 read counts from the taxonomic profile from </span><strong><span>Kaiju</span></strong><span> is not recognized by </span><strong><span>MEGAN</span></strong><span>. Instead, MEGAN has “counted” these 180 read counts as Bacteria.</span></p>
+<p><span>The NCBI taxonomy is constantly increasing as new taxa are described and added, hence these discrapencies are often a result of the tools not being in sync</span></p>
+</div><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span>On the top of the hierarchical tree structure window, there are many options for what you can do with the data. You can mouse over all the symbols at the top to see their functions.</span></p>
+</div><p><span style="color:blue"><span>XVI] Press the “</span><strong><span>Rank</span></strong><span>” button, and expand the tree to the Family level.</span></span></p><p><span>❓What does the different sizes of the circles represent?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Relative abundance. Larger circle = higher abundance of the taxon
+</div></details><br><p><span>❓How many reads are </span><strong><span>in total</span></strong><span> assigned to the family </span><em><span>Bifidobacteriaceae</span></em><span>?</span></p><div class="alert alert-danger">
+<p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
+</div><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Tip: If you have problems reading the information when pointing the mouse over the taxa, you can select the taxa -&gt; select “Options” form the top menu -&gt; select “List Summary…”</span></p>
+</div><p><span style="color:blue"><span>XVII] Click on the “</span><strong><span>Rank</span></strong><span>” button and select Species. </span><strong><span>MEGAN</span></strong><span> will try to expand the taxonomic tree all the way to species level.</span></span></p><p><span>The tree will expand to species level, and taxa assigned to Species level will be highlighted. Notice that some taxa are not highlighted, eg. </span><strong><span>Campylobacter</span></strong><span>.</span></p><p><span>❓ Why do you think there are no leaves on species level for the genus </span><em><span>Campylobacter</span></em><span>?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Because **Kaiju** could not assign taxonomy on species level to any of the reads belonging to this genus.
+</div></details><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>MEGAN</span></strong><span> cannot display subspecies, but collapse subspecies reads to species level.</span></p>
+</div><p><span style="color:blue"><span>XVIII] Click on the circle representing </span><em><span>Bifidobacterium longum</span></em><span>.</span></span></p><p><span>❓ How many reads are in total were assigned at subspecies level?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Summed (subspecies + species level) = 1440617 - Assigned (species level) = 539411 = 901206 at subspecies level
+</div></details><br><p><span>You can double check this by looking into your </span><code>sample1_refseq_kaiju_megan_100.txt</code><span> file</span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> </span><strong><span>MEGAN</span></strong><span> has an interactive GUI, so you can select several nodes in the window by pressing </span><strong><span>Shift + mouse</span></strong><span> button. Alternatively, go to the “</span><strong><span>Select</span></strong><span>” menu.</span></p>
+</div><p><span style="color:blue"><span>XIX] Either way you choose, select all leaves at Phylum level and click on the “</span><strong><span>Draw data as heatmaps</span></strong><span>”.</span></span></p><br><center><img src="https://i.imgur.com/aHhM2ms.png" alt="drawing" width="600"></center><br><p><span>❓ What does the darker green colour mean?</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+Higher abundance of this taxa.
+</div></details><br><p><span style="color:blue"><span>XX] Click on the symbol “</span><strong><span>Show charts</span></strong><span>” and select “</span><strong><span>Show bar charts</span></strong><span>”. In the new window showing the distribution of reads at the level of the sample that appears, click on the “</span><strong><span>Classes</span></strong><span>” tab in the left part of the window (next to “</span><strong><span>Series</span></strong><span>”).</span></span></p><center><img src="https://i.imgur.com/vMuUIvP.png" alt="drawing" width="600"></center><br><p><span style="color:blue"><span>XXI] Try to change the appearance of the taxonomic profile by selecting some of the other chart views on the top, for example “</span><strong><span>Bar chart</span></strong><span>”</span></span></p><p><span>❓ Approximately how many percent of the reads belong to </span><em><span>Actinobacteria</span></em><span>? Hint: Press the % sign at the top.</span></p><details>
+<summary>Solution - Click to expand 
+</summary>
+<div style="background-color:#c9cace">
+~90%.
+</div></details><br><p><span style="color:blue"><span>XXII] Make a word cloud of the taxonomic profile before you close this </span><strong><span>MEGAN</span></strong><span>.</span></span></p><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><strong><span>MEGAN</span></strong><span> is very useful for visualisation and comparison of multiple samples. We will use the tool more extensively later in the course.</span></p>
+</div><summary><span style="font-weight:bold">Progress tracker</span></summary><div style="padding:1px;background:#CCC;">
+ <div style="width:100%;background:#291;text-align:center;">
+   <span style="color:white"><span>Complete</span>
+ </span></div>
+</div><br><div class="alert alert-warning">
+<p><span>That was the end of this practical - Good job 👍</span></p>
+</div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
+<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
+<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
+<li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
+<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
