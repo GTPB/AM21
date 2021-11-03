@@ -106,8 +106,8 @@ All data can be downloaded locally through [data](assets/data.zip)
 
 1. Introduction
     - Welcome and introduction to ELIXIR
-    - [Introduction to metagenomics](assets/0.Intro_Metagenomics.pdf)
-    - Metagenomic sequencing technologies
+    - [Introduction to metagenomics](assets/01-intro/0.Intro_Metagenomics.pdf)
+    - [Metagenomic sequencing technologies](assets/01-intro/Sequencing_portugal.pdf)
 2. Quality control
     - [Lecture - Quality control](assets/02-qc/2.QC.pdf)
     - [Exercise - Quality control](pages/02-qc/2.qc.html)
