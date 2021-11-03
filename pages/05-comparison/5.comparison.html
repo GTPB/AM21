@@ -88,8 +88,8 @@ done
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>kaiju-addTaxonNames</span></strong><span> you need activate the </span><strong><span>Kaiju Conda</span></strong><span> environment.</span></p>
 </div><p><span style="color:blue"><span>IV] Make sure you have execution permissions for the script and run it:</span></span></p><pre><code>./kaiju_addTaxonomy_fullLineage_batch.sh
 
-OUTPUT: Sample*_refseq_kaiju.out.taxa
-</code></pre><p><span style="color:blue"><span>VI] View the top of the output of </span><code>Sample1_refseq_kaiju.out.taxa</code><span>.</span></span></p><p><span>❓How many taxonomic levels are there (last column)?</span></p><details>
+OUTPUT: Sample*_kaiju_refseq.out.taxa
+</code></pre><p><span style="color:blue"><span>VI] View the top of the output of </span><code>Sample1_kaiju_refseq.out.taxa</code><span>.</span></span></p><p><span>❓How many taxonomic levels are there (last column)?</span></p><details>
 <summary>Solution - Click to expand 
 </summary>
 <div style="background-color:#c9cace">
@@ -416,408 +416,10 @@ ntaxa(phy_pruned)
 </code></pre><p><span style="color:blue"><span>XII] Write the data frame to a tab delimited text file (table), name the file </span><code>tax_filtered.txt</code><span>:</span></span></p><pre><code>write.table(exp_table, "tax_filtered.txt", quote=F, sep="\t", col.names=NA)
 
 # OUTPUT: tax_filtered.txt
-</code></pre><p><span style="color:blue"><span>XIII] View </span><code>bacteria_filtered.txt</code><span> and </span><code>tax_filtered.txt</code><span> in a text editor. You will see that they are complementary to each other and that the rows are in the same order in both files. Therefore they can be joined side by side.</span></span></p><p><span style="color:blue"><span>XIV] Before joining them, you need to the make the taxonomy description in </span><code>tax_filtered.txt</code><span> readable for </span><strong><span>MEGAN</span></strong><span>. Replace </span><code>tab</code><span> separator with </span><code>;</code><span> separator:</span></span></p><pre><code>cut -d
-    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
-        <div class="pull-right dropdown">
-            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
-                <i class="fa fa-bars"></i>
-            </a>
-            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
-                <div class="toc"><ul class="nav">
-<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
-<li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
-<li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
-<li><a href="#The-metadata" title="The metadata">The metadata</a></li>
-</ul>
-</li>
-<li><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
-<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
-</ul>
-</li>
-<li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
-<li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
-<li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
-<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-            </ul>
-        </div>
-    </div>
-    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
-        <div class="toc"><ul class="nav">
-<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
-<li class=""><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
-<li class=""><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
-<li class=""><a href="#The-metadata" title="The metadata">The metadata</a></li>
-</ul>
-</li>
-<li class=""><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
-<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
-</ul>
-</li>
-<li class=""><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
-<li class=""><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
-<li class=""><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
-<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
-    <script>
-        var markdown = $(".markdown-body");
-        //smooth all hash trigger scrolling
-        function smoothHashScroll() {
-            var hashElements = $("a[href^='#']").toArray();
-            for (var i = 0; i < hashElements.length; i++) {
-                var element = hashElements[i];
-                var $element = $(element);
-                var hash = element.hash;
-                if (hash) {
-                    $element.on('click', function (e) {
-                        // store hash
-                        var hash = this.hash;
-                        if ($(hash).length <= 0) return;
-                        // prevent default anchor click behavior
-                        e.preventDefault();
-                        // animate
-                        $('body, html').stop(true, true).animate({
-                            scrollTop: $(hash).offset().top
-                        }, 100, "linear", function () {
-                            // when done, add hash to url
-                            // (default click behaviour)
-                            window.location.hash = hash;
-                        });
-                    });
-                }
-            }
-        }
-
-        smoothHashScroll();
-        var toc = $('.ui-toc');
-        var tocAffix = $('.ui-affix-toc');
-        var tocDropdown = $('.ui-toc-dropdown');
-        //toc
-        tocDropdown.click(function (e) {
-            e.stopPropagation();
-        });
-
-        var enoughForAffixToc = true;
-
-        function generateScrollspy() {
-            $(document.body).scrollspy({
-                target: ''
-            });
-            $(document.body).scrollspy('refresh');
-            if (enoughForAffixToc) {
-                toc.hide();
-                tocAffix.show();
-            } else {
-                tocAffix.hide();
-                toc.show();
-            }
-            $(document.body).scroll();
-        }
-
-        function windowResize() {
-            //toc right
-            var paddingRight = parseFloat(markdown.css('padding-right'));
-            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
-            toc.css('right', right + 'px');
-            //affix toc left
-            var newbool;
-            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
-            //for ipad or wider device
-            if (rightMargin >= 133) {
-                newbool = true;
-                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
-                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
-                tocAffix.css('left', left + 'px');
-            } else {
-                newbool = false;
-            }
-            if (newbool != enoughForAffixToc) {
-                enoughForAffixToc = newbool;
-                generateScrollspy();
-            }
-        }
-        $(window).resize(function () {
-            windowResize();
-        });
-        $(document).ready(function () {
-            windowResize();
-            generateScrollspy();
-        });
-
-        //remove hash
-        function removeHash() {
-            window.location.hash = '';
-        }
-
-        var backtotop = $('.back-to-top');
-        var gotobottom = $('.go-to-bottom');
-
-        backtotop.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToTop)
-                scrollToTop();
-            removeHash();
-        });
-        gotobottom.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToBottom)
-                scrollToBottom();
-            removeHash();
-        });
-
-        var toggle = $('.expand-toggle');
-        var tocExpand = false;
-
-        checkExpandToggle();
-        toggle.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            tocExpand = !tocExpand;
-            checkExpandToggle();
-        })
-
-        function checkExpandToggle () {
-            var toc = $('.ui-toc-dropdown .toc');
-            var toggle = $('.expand-toggle');
-            if (!tocExpand) {
-                toc.removeClass('expand');
-                toggle.text('Expand all');
-            } else {
-                toc.addClass('expand');
-                toggle.text('Collapse all');
-            }
-        }
-
-        function scrollToTop() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: 0
-            }, 100, "linear");
-        }
-
-        function scrollToBottom() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: $(document.body)[0].scrollHeight
-            }, 100, "linear");
-        }
-    </script>
-</body>
-
-</html>
-\t' --fields=2-8 tax_filtered.txt | tr '[\t]' '[;]' &gt; tmp_tax_filtered.txt
-</code></pre><p><span style="color:blue"><span>XV] Remove column 1 in </span><code>bacteria_filtered.txt</code></span></p><pre><code>cut -d
-    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
-        <div class="pull-right dropdown">
-            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
-                <i class="fa fa-bars"></i>
-            </a>
-            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
-                <div class="toc"><ul class="nav">
-<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
-<li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
-<li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
-<li><a href="#The-metadata" title="The metadata">The metadata</a></li>
-</ul>
-</li>
-<li><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
-<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
-</ul>
-</li>
-<li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
-<li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
-<li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
-<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-            </ul>
-        </div>
-    </div>
-    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
-        <div class="toc"><ul class="nav">
-<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
-<li class=""><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
-<li class=""><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
-<li class=""><a href="#The-metadata" title="The metadata">The metadata</a></li>
-</ul>
-</li>
-<li class=""><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
-<li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
-</ul>
-</li>
-<li class=""><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
-<li class=""><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
-<li class=""><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
-<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
-</ul>
-</li>
-</ul>
-</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
-    <script>
-        var markdown = $(".markdown-body");
-        //smooth all hash trigger scrolling
-        function smoothHashScroll() {
-            var hashElements = $("a[href^='#']").toArray();
-            for (var i = 0; i < hashElements.length; i++) {
-                var element = hashElements[i];
-                var $element = $(element);
-                var hash = element.hash;
-                if (hash) {
-                    $element.on('click', function (e) {
-                        // store hash
-                        var hash = this.hash;
-                        if ($(hash).length <= 0) return;
-                        // prevent default anchor click behavior
-                        e.preventDefault();
-                        // animate
-                        $('body, html').stop(true, true).animate({
-                            scrollTop: $(hash).offset().top
-                        }, 100, "linear", function () {
-                            // when done, add hash to url
-                            // (default click behaviour)
-                            window.location.hash = hash;
-                        });
-                    });
-                }
-            }
-        }
-
-        smoothHashScroll();
-        var toc = $('.ui-toc');
-        var tocAffix = $('.ui-affix-toc');
-        var tocDropdown = $('.ui-toc-dropdown');
-        //toc
-        tocDropdown.click(function (e) {
-            e.stopPropagation();
-        });
-
-        var enoughForAffixToc = true;
-
-        function generateScrollspy() {
-            $(document.body).scrollspy({
-                target: ''
-            });
-            $(document.body).scrollspy('refresh');
-            if (enoughForAffixToc) {
-                toc.hide();
-                tocAffix.show();
-            } else {
-                tocAffix.hide();
-                toc.show();
-            }
-            $(document.body).scroll();
-        }
-
-        function windowResize() {
-            //toc right
-            var paddingRight = parseFloat(markdown.css('padding-right'));
-            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
-            toc.css('right', right + 'px');
-            //affix toc left
-            var newbool;
-            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
-            //for ipad or wider device
-            if (rightMargin >= 133) {
-                newbool = true;
-                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
-                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
-                tocAffix.css('left', left + 'px');
-            } else {
-                newbool = false;
-            }
-            if (newbool != enoughForAffixToc) {
-                enoughForAffixToc = newbool;
-                generateScrollspy();
-            }
-        }
-        $(window).resize(function () {
-            windowResize();
-        });
-        $(document).ready(function () {
-            windowResize();
-            generateScrollspy();
-        });
-
-        //remove hash
-        function removeHash() {
-            window.location.hash = '';
-        }
-
-        var backtotop = $('.back-to-top');
-        var gotobottom = $('.go-to-bottom');
-
-        backtotop.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToTop)
-                scrollToTop();
-            removeHash();
-        });
-        gotobottom.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (scrollToBottom)
-                scrollToBottom();
-            removeHash();
-        });
-
-        var toggle = $('.expand-toggle');
-        var tocExpand = false;
-
-        checkExpandToggle();
-        toggle.click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            tocExpand = !tocExpand;
-            checkExpandToggle();
-        })
-
-        function checkExpandToggle () {
-            var toc = $('.ui-toc-dropdown .toc');
-            var toggle = $('.expand-toggle');
-            if (!tocExpand) {
-                toc.removeClass('expand');
-                toggle.text('Expand all');
-            } else {
-                toc.addClass('expand');
-                toggle.text('Collapse all');
-            }
-        }
-
-        function scrollToTop() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: 0
-            }, 100, "linear");
-        }
-
-        function scrollToBottom() {
-            $('body, html').stop(true, true).animate({
-                scrollTop: $(document.body)[0].scrollHeight
-            }, 100, "linear");
-        }
-    </script>
-</body>
-
-</html>
-\t' --fields=2-9 bacteria_filtered.txt &gt; tmp_bacteria_filtered.txt
+</code></pre><p><span style="color:blue"><span>XIII] View </span><code>bacteria_filtered.txt</code><span> and </span><code>tax_filtered.txt</code><span> in a text editor. You will see that they are complementary to each other and that the rows are in the same order in both files. Therefore they can be joined side by side.</span></span></p><p><span style="color:blue"><span>XIV] Before joining them, you need to the make the taxonomy description in </span><code>tax_filtered.txt</code><span> readable for </span><strong><span>MEGAN</span></strong><span>. Replace </span><code>tab</code><span> separator with </span><code>;</code><span> separator:</span></span></p><pre><code>cut --fields=2-8 tax_filtered.txt | tr '[\t]' '[;]' &gt; tmp_tax_filtered.txt
+</code></pre><p><span style="color:blue"><span>XV] Remove column 1 in </span><code>bacteria_filtered.txt</code></span></p><pre><code>cut --fields=2-9 bacteria_filtered.txt &gt; tmp_bacteria_filtered.txt
 </code></pre><p><span>Join the </span><code>tmp_bacteria_filtered.txt</code><span> and </span><code>tax_filtered.txt</code><span> side by side. Name the joined file </span><code>tmp_tax_filtered.txt</code><span>:</span></p><pre><code>paste tmp_tax_filtered.txt tmp_bacteria_filtered.txt &gt; tmp_filtered.txt
-</code></pre><p><span style="color:blue"><span>XV] View </span><code>tmp_filtered.txt</code><span> in a text editor. You will see that column 1 has the complete taxonomic ranks as header. Change the header of column 1 to “taxa”. Name the final file </span><code>merged_kaiju_filtered.txt</code></span></p><pre><code># OUTPUT: merged_kaiju_filtered.txt	
+</code></pre><p><span style="color:blue"><span>XV] View </span><code>tmp_filtered.txt</code><span> in a text editor. You will see that column 1 has the complete taxonomic ranks as header. Replace the header of column 1 from </span><code>Domain;Phylum;Class;Order;Family;Genus;Species</code><span> to </span><code>taxa</code><span>. Name the final file </span><code>merged_kaiju_filtered.txt</code></span></p><pre><code># OUTPUT: merged_kaiju_filtered.txt	
 </code></pre><p><span>The final output should look like this (number may differ from screenshot):</span></p><center><img src="https://i.imgur.com/UnVZSMb.png" alt="drawing" width="800"></center><br><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> This files contain both taxonomy and filtered read counts for all eight samples</span></p>
 <p><span>You will do more filtering and preprocessing of the data in </span><strong><span>phyloseq</span></strong><span> before performing diversity analysis tomorrow.</span></p>
@@ -1627,7 +1229,7 @@ The grouping is highly significant, which indicates that there is a significant 
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
 <li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
 <li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
 <li><a href="#The-metadata" title="The metadata">The metadata</a></li>
@@ -1640,7 +1242,7 @@ The grouping is highly significant, which indicates that there is a significant 
 <li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
 <li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
 <li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
-<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+<li><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
 </ul>
 </li>
 </ul>
@@ -1650,20 +1252,20 @@ The grouping is highly significant, which indicates that there is a significant 
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li class=""><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
-<li class=""><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
-<li class=""><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
-<li class=""><a href="#The-metadata" title="The metadata">The metadata</a></li>
+<li><a href="#5-Comparison-of-sample-groups" title="5. Comparison of sample groups">5. Comparison of sample groups</a><ul class="nav">
+<li><a href="#1-Merging-multiple-taxonomic-profiles" title="1. Merging multiple taxonomic profiles">1. Merging multiple taxonomic profiles</a></li>
+<li><a href="#2-Comparison-of-multiple-taxonomic-profiles-with-MEGAN" title="2. Comparison of multiple taxonomic profiles with MEGAN">2. Comparison of multiple taxonomic profiles with MEGAN</a><ul class="nav">
+<li><a href="#The-metadata" title="The metadata">The metadata</a></li>
 </ul>
 </li>
-<li class=""><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
+<li><a href="#3-Prepare-input-files-for-phyloseq" title="3. Prepare input files for phyloseq">3. Prepare input files for phyloseq</a><ul class="nav">
 <li><a href="#You-should-now-have" title="You should now have:">You should now have:</a></li>
 </ul>
 </li>
-<li class=""><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
-<li class=""><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
-<li class=""><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
-<li class=""><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
+<li><a href="#4-Start-RStudio-and-import-data-into-phyloseq" title="4. Start RStudio and import data into phyloseq">4. Start RStudio and import data into phyloseq</a></li>
+<li><a href="#5-Preprocess-data-using-phyloseq" title="5. Preprocess data using phyloseq">5. Preprocess data using phyloseq</a></li>
+<li><a href="#6-Comparison-of-filtered-data-with-MEGAN" title="6. Comparison of filtered data with MEGAN">6. Comparison of filtered data with MEGAN</a></li>
+<li><a href="#That-was-the-end-of-this-practical---Good-job-👍" title="That was the end of this practical - Good job 👍">That was the end of this practical - Good job 👍</a></li>
 </ul>
 </li>
 </ul>
