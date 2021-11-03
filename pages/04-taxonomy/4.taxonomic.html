@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="4-Taxonomic-profiling" data-id="4-Taxonomic-profiling"><a class="anchor hidden-xs" href="#4-Taxonomic-profiling" title="4-Taxonomic-profiling"><span class="octicon octicon-link"></span></a><span>4. Taxonomic profiling</span></h1><div class="alert alert-success">
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><h1 id="4-Taxonomic-profiling" data-id="4-Taxonomic-profiling"><a class="anchor hidden-xs" href="#4-Taxonomic-profiling" title="4-Taxonomic-profiling"><span class="octicon octicon-link"></span></a><span>4. Taxonomic profiling</span></h1><div class="alert alert-success">
 <p><span>When doing a taxonomic classification, we want to find out what kind of organisms the sample contains. Who is there?</span></p>
 <br>
 <p><span>You will continue to work with the data that you have preprocessed in Module2. The DNA was isolated from the gut of premature human infants. The microbial diversity in the gut of premature infants is therefore very low.</span></p>
@@ -68,7 +68,7 @@ cd kaiju
 </code></pre><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> In order to run </span><strong><span>Kaiju</span></strong><span> you need activate the correct </span><strong><span>Conda</span></strong><span> environment.</span></p>
 </div><p><span style="color:blue"><span>V] View the </span><strong><span>Kaiju</span></strong><span> run options (or arguments), type:</span></span></p><pre><code>kaiju -h
-</code></pre><p><span style="color:blue"><span>VI] Run </span><strong><span>Kaiju</span></strong><span> against the ProGenomes database:</span></span></p><pre><code>kaiju -t /net/software/databases/proGenomes/nodes.dmp -f /net/software/databases/proGenomes/kaiju_db.fmi -i &lt;(gunzip -c sample1_R1_pair.fastq.gz) -j &lt;(gunzip -c sample1_R1_pair.fastq.gz) -z 4 -x -s 75 -a greedy -e 5 -o sample1_proGenomes_kaiju.out -v
+</code></pre><p><span style="color:blue"><span>VI] Run </span><strong><span>Kaiju</span></strong><span> against the ProGenomes database:</span></span></p><pre><code>kaiju -t /net/software/databases/proGenomes/nodes.dmp -f /net/software/databases/proGenomes/kaiju_db.fmi -i &lt;(gunzip -c sample1_R1_pair.fastq.gz) -j &lt;(gunzip -c sample1_R2_pair.fastq.gz) -z 4 -x -s 75 -a greedy -e 5 -o sample1_proGenomes_kaiju.out -v
 </code></pre><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> The different arguments are</span></p>
 <ul>
@@ -336,8 +336,12 @@ Specify the number of CPUs
 <center><img src="https://i.imgur.com/UNMAVj5.png" alt="drawing" width="800"></center>
 <br>
 <p><span>In order for  </span><strong><a href="http://metaphlan2krona.py" target="_blank" rel="noopener"><span>metaphlan2krona.py</span></a></strong><span> to work properly, you first need to do some manipulations to the </span><strong><span>MetaPhlAn3</span></strong><span> output to simulate a </span><strong><span>MetaPhlAn2</span></strong><span> output</span></p>
-</div><p><span style="color:blue"><span>V] Remove column 2 and 4 from the </span><code>sample1_metaphlan.txt</code><span>:</span></span></p><pre><code>cut -d, -f1,3 sample1_metaphlan.txt &gt; sample1_metaphlan_ok.txt
-</code></pre><p><span style="color:blue"><span>VI] Convert the output to </span><strong><span>Krona</span></strong><span> format:</span></span></p><pre><code>metaphlan2krona.py -p sample1_metaphlan_ok.txt -k sample1_metaphlan.krona
+</div><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Metaphlan</span></strong><span> conda environment</span></p>
+</div><p><span style="color:blue"><span>V] Remove column 2 and 4 from the </span><code>sample1_metaphlan.txt</code><span>:</span></span></p><pre><code>cut -f1,3 sample1_metaphlan.txt &gt; sample1_metaphlan_ok.txt
+</code></pre><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Krona</span></strong><span> conda environment</span></p>
+</div><p><span style="color:blue"><span>VI] Convert the output to </span><strong><span>Krona</span></strong><span> format:</span></span></p><pre><code>metaphlan2krona.py -p sample1_metaphlan_ok.txt -k sample1_metaphlan.krona
 </code></pre><p><span style="color:blue"><span>VII] Then make the HTML plot in the correct conda environment:</span></span></p><pre><code>ktImportText -o sample1_metaphlan.html sample1_metaphlan.krona
 </code></pre><p><span>❓ Can you see any major taxonomic differences between this taxonomic profile, and the profiles you got from the analysis using </span><strong><span>Kaiju</span></strong><span> and </span><strong><span>Kraken</span></strong><span>?</span></p><details>
 <summary>Solution - Click to expand 
@@ -399,8 +403,8 @@ OUTPUT: sample1_refseq_kaiju.out.taxa
 The NCBI taxonomic label (number) has been replaced by the name of the taxa names in the last column
 </div></details><br><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> As mentioned </span><strong><span>MEGAN</span></strong><span> needs a tab-delimited input file with one taxa per row and the number of reads matching this taxa. The </span><strong><span>Kaiju</span></strong><span> output has one reads per row (2817723 rows), and multiple reads may originate from the same taxa. You need to summarize the number of reads from each individual taxa before importing the taxonomic profile into </span><strong><span>MEGAN</span></strong></p>
-</div><p><span style="color:blue"><span>V] Summarise all taxa in</span><br>
-<code>sample1_refseq_kaiju.out.taxa</code><span> using this command:</span></span></p><pre><code>awk -F '\t' 'BEGIN{FS=OFS="\t"}{print $8}' sample1_refseq_kaiju.out.taxa | sort | uniq -c | sed -E 
+</div><p data-original-title="" title=""><span style="color:blue"><span>V] Summarise all taxa in</span><br>
+<code>sample1_refseq_kaiju.out.taxa</code><span> using this command:</span></span></p><p><span>This command is not displayed correctly!!!</span></p><pre><code>awk -F '\t' 'BEGIN{FS=OFS="\t"}{print $8}' sample1_refseq_kaiju.out.taxa | sort | uniq -c | sed -E 
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -408,11 +412,11 @@ The NCBI taxonomic label (number) has been replaced by the name of the taxa name
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
 <li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
@@ -422,11 +426,11 @@ The NCBI taxonomic label (number) has been replaced by the name of the taxa name
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
@@ -582,8 +586,7 @@ The NCBI taxonomic label (number) has been replaced by the name of the taxa name
 
 </html>
 s/^ *//; s/ /\t/' | awk 'BEGIN {FS="\t"; OFS="\t"} {print $2, $1}' &gt; sample1_refseq_kaiju_megan.txt
-
-# awk remove all columns except column 8 containing the taxonomic label
+</code></pre><pre><code># awk remove all columns except column 8 containing the taxonomic label
 # sort will sort the taxa
 # uniq will count the number of occurrences of each taxa, collapse identical taxa into one and write a second row with the number of occurrences for each taxa
 # sed will change the delimiter to tab
@@ -615,11 +618,11 @@ Acetobacteraceae	1
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
 <li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
@@ -629,11 +632,11 @@ Acetobacteraceae	1
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
@@ -864,11 +867,11 @@ Higher abundance of this taxa.
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
 <li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
@@ -878,11 +881,11 @@ Higher abundance of this taxa.
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
+<li class=""><a href="#4-Taxonomic-profiling" title="4. Taxonomic profiling">4. Taxonomic profiling</a><ul class="nav">
 <li><a href="#1-Taxonomic-classification-using-a-reference-database-of-protein-sequences-using-Kaiju" title="1. Taxonomic classification using a reference database of protein sequences using Kaiju">1. Taxonomic classification using a reference database of protein sequences using Kaiju</a></li>
 <li><a href="#2-Taxonomic-classification-using-a-K-mer-based-method" title="2. Taxonomic classification using a K-mer based method">2. Taxonomic classification using a K-mer based method</a></li>
-<li><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
-<li><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
+<li class=""><a href="#3-Taxonomic-classification-using-clade-specific-markes" title="3. Taxonomic classification using clade specific markes">3. Taxonomic classification using clade specific markes</a></li>
+<li class=""><a href="#4-Visualisation-of-taxonomic-profiles-with-MEGAN" title="4. Visualisation of taxonomic profiles with MEGAN">4. Visualisation of taxonomic profiles with MEGAN</a></li>
 </ul>
 </li>
 </ul>
