@@ -96,7 +96,9 @@ Yes, e.g. the marker gene Ribosomal_L6 in bin001 are present in two copies in th
 3 marker genes are present in two copies. 5 marker genes are not present
 </div></details><br><div class="alert alert-info">
 <p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Because of the high dominance of three species in the sample, </span><strong><span>Maxbin</span></strong><span> is only able to identify three genomic bins. This does not mean that there are not other low abundant species present in the sample.</span></p>
-</div><br><kbd>/opt/bbmap/</kbd><p><span style="color:blue"><span>VII] Run </span><code>sendsketch</code><span> to taxonomically classify bin001:</span></span></p><pre><code>/opt/bbmap/sendsketch.sh in=sample1_maxbin.001.fasta out=sample1_maxbin001_sketch.out outsketch=sample1_maxbin001_sketch.txt
+</div><br><div class="alert alert-info">
+<p><img class="emoji" alt=":information_source:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/information_source.png"><span> Activate the </span><strong><span>Bbtools Conda</span></strong><span> environment. Alternatively, a the latest version of BBtools is located here </span><kbd><span>/opt/bbmap/</span></kbd></p>
+</div><p><span style="color:blue"><span>VII] Run </span><code>sendsketch</code><span> to taxonomically classify bin001:</span></span></p><pre><code>/opt/bbmap/sendsketch.sh in=sample1_maxbin.001.fasta out=sample1_maxbin001_sketch.out outsketch=sample1_maxbin001_sketch.txt
 
 # in=, input bin (fasta)
 # out=, taxonomic output
