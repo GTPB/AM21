@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><p><span>II</span></p><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><p></p><h1 id="6-Genome-assembly-from-metagenomes" data-id="6-Genome-assembly-from-metagenomes"><a class="anchor hidden-xs" href="#6-Genome-assembly-from-metagenomes" title="6-Genome-assembly-from-metagenomes"><span class="octicon octicon-link"></span></a><span>6. Genome assembly from metagenomes</span></h1><div class="alert alert-success">
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><p><span>II</span></p><center><img src="https://i.imgur.com/sCqXiVG.png" alt="drawing" width="300"></center><p></p><h1 id="6-Genome-assembly-from-metagenomes" data-id="6-Genome-assembly-from-metagenomes"><a class="anchor hidden-xs" href="#6-Genome-assembly-from-metagenomes" title="6-Genome-assembly-from-metagenomes"><span class="octicon octicon-link"></span></a><span>6. Genome assembly from metagenomes</span></h1><div class="alert alert-success">
 <p><span>Sequence assembly is the computational reconstruction of a longer sequence from smaller sequence reads. Assembling genomes out of heterogeneous samples is an extremely challenging problem and one that remains unsolved.</span></p>
 <p><span>Strain-level resolution and whole-genome profiling of specific microbes from metagenomic data sets require computationally demanding metagenomic assembly on pooled metagenomic samples. This approach does not generalise to studies with thousands of samples or low-abundance organisms, and it can produce chimeric (combine multiple strains) and fragmentary genome reconstructions.</span></p>
 <center><img src="https://i.imgur.com/Dj0FlWe.png" alt="drawing" width="800"></center>
@@ -179,7 +179,7 @@ Probably a contig of read(s) that should have been removed in the preprocessing 
 </summary>
 <div style="background-color:#c9cace">
 1561 contigs
-</div></details><br><p><span style="color:blue"><span>VIII] You can produce general statistics of an assembly in many ways. Try with </span><strong><span>SeqKit</span></strong><span> and </span><strong><a href="http://stats.sh" target="_blank" rel="noopener"><span>stats.sh</span></a></strong></span></p><pre><code>seqkit stats contigs200.fasta
+</div></details><br><p><span style="color:blue"><span>VIII] You can produce general statistics of an assembly in many ways. Try with </span><strong><span>SeqKit</span></strong><span> and </span><strong><a href="http://stats.sh" target="_blank" rel="noopener"><span>stats.sh</span></a></strong><span> (</span><strong><a href="http://stats.sh" target="_blank" rel="noopener"><span>stats.sh</span></a></strong><span> is part of the Bbtools package)</span></span></p><pre><code>seqkit stats contigs200.fasta
 stats.sh contigs200.fasta
 </code></pre><p><span>❓What is overall GC content of the assembly?</span></p><div class="alert alert-danger">
 <p><span>Fill in the answer in the shared </span><a href="https://docs.google.com/spreadsheets/d/1JQmH5j6ygClMxUfMn654lhGKU560LoSAXW61DA03Zg8/edit?usp=sharing" target="_blank" rel="noopener"><span>Google docs table</span></a></p>
