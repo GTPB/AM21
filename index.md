@@ -130,8 +130,8 @@ All data can be downloaded locally through [data](assets/data.zip)
     - [Lecture - Functional classification](assets/08-functional/8.FunctionalAnalysis.pdf)
     - [Exercise - Functional classification](pages/08-functional/8.functional.html)
 9. Resistome profiling
-    - [Lecture - Resistome profiling](assets/02-resistome/9.resistome.pdf)
-    - [Exercise - Resistome profiling](pages/02-resistome/9.resistome.html)
+    - [Lecture - Resistome profiling](assets/09-resistome/9.resistome.pdf)
+    - [Exercise - Resistome profiling](pages/09-resistome/9.resistome.html)
 
 
 ### Introduction to Linux and Anaconda
